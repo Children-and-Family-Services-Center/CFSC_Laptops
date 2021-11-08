@@ -1,6 +1,6 @@
 ::UpdateMain
-::Version 1.0
-FIND "Version 1.0" C:\apps\main.bat
+::Version 1.1
+FIND "Version 1.1" C:\apps\main.bat
 IF %ERRORLEVEL%==0 GOTO Updated
 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
 C:\apps\main.bat
