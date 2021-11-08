@@ -20,4 +20,3 @@ bitsadmin /transfer VMware /download /priority normal https://download3.vmware.c
 ECHO C:\Apps\vmware.exe /q /i > C:\Apps\install.bat
 ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
 SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
-ECHO Done %date% >> C:\CFSC_Log\UpdateVMware_8.3.0_5.5.2
