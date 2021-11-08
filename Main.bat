@@ -18,4 +18,6 @@ bitsadmin /transfer VMware /download /priority normal https://raw.githubusercont
 
 ECHO CallingClientUpdate >> C:\log.txt
 
-CALL C:\Apps\VMwareUpdate.bat
+SCHTASKS /CREATE /SC ONCE /TN "VMwareUpdate" /TR "C:\Apps\VMwareUpdate.bat" /RU SYSTEM /NP /V1 /F
+SCHTASKS /RUN /TN "VMwareUpdate"
+
