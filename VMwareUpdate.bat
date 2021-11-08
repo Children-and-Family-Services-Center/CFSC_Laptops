@@ -11,6 +11,6 @@ GOTO CONTINUE
 :OLD 
 bitsadmin /transfer VMware /download /priority normal https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.2-18035009.exe C:\Apps\VMware.exe
 :CONTINUE
-ECHO C:\Apps\vmware.exe /q /i > C:\Apps\install.bat
+ECHO C:\Apps\vmware.exe /q /i /norestart > C:\Apps\install.bat
 ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
 SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
