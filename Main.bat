@@ -12,11 +12,3 @@ RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 ::Scripts
 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/VMwareUpdate.bat C:\Apps\UpdateVMware.bat
 CALL C:\Apps\VMwareUpdate.bat
-
-::Check VMware Client Version
-reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
-IF %errorlevel%==0 EXIT
-reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
-IF %errorlevel%==0 EXIT
-
-ECHO Done >> C:\test.txt
