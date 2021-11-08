@@ -1,12 +1,9 @@
 ::UpdateMain
-::Version 1.1
-FIND "Version 1.1" C:\apps\main.bat
-IF %ERRORLEVEL%==0 GOTO Updated
 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
-C:\apps\main.bat
-ECHO Update >> C:\test.txt
-exit
-:Updated
+
+::Scripts
+bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Logon.bat C:\Apps\UpdateVMware.bat
+
 ::CleanupVMwareClientDumpFiles
 RD C:\ProgramData\VMware\VDM /S /Q
 RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
