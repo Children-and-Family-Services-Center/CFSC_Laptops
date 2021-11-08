@@ -4,6 +4,7 @@ FIND "Version 1.0" C:\apps\main.bat
 IF %ERRORLEVEL%==0 GOTO Updated
 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
 C:\apps\main.bat
+ECHO Update >> C:\test.txt
 exit
 :Updated
 ::CleanupVMwareClientDumpFiles
@@ -19,4 +20,4 @@ IF %errorlevel%==0 EXIT
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
 IF %errorlevel%==0 EXIT
 
-ECHO Done > C:\test.txt
+ECHO Done >> C:\test.txt
