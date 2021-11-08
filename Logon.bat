@@ -1,7 +1,13 @@
 RD C:\ProgramData\VMware\VDM /S /Q
 RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
-IF exist C:\CFSC_Log\UpdateVMware_8.3.0_5.5.2 EXIT
+
+:Filters
+reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
+IF %errorlevel%==0 EXIT
+reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
+IF %errorlevel%==0 EXIT
+
 RD C:\Apps /S /Q
 MD C:\Apps
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /v "Version"
