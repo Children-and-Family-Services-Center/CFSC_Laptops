@@ -1,7 +1,7 @@
-#timeout=99999999
 RD C:\ProgramData\VMware\VDM /S /Q
 RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
+IF exist C:\CFSC_Log\UpdateVMware_8.3.0_5.5.2 EXIT
 RD C:\Apps /S /Q
 MD C:\Apps
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /v "Version"
@@ -14,4 +14,4 @@ bitsadmin /transfer VMware /download /priority normal https://download3.vmware.c
 ECHO C:\Apps\vmware.exe /q /i > C:\Apps\install.bat
 ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
 SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
-ECHO Done >> C:\apps\
+ECHO Done %date% >> C:\CFSC_Log\UpdateVMware_8.3.0_5.5.2
