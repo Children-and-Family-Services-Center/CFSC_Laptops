@@ -7,9 +7,8 @@ IF %ERRORLEVEL%==0 GOTO CleanupVMwareClientDumpFiles
 SCHTASKS /CREATE /SC ONCE /TN "CFSC_Main_Update" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F
 SCHTASKS /RUN /TN "CFSC_Main_Update" & ECHO Restart >> C:\log.txt & EXIT
 
-ECHO Main Updated >> C:\log.txt
-
 :CleanupVMwareClientDumpFiles
+ECHO Main Updated >> C:\log.txt
 RD C:\ProgramData\VMware\VDM /S /Q
 RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
