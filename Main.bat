@@ -3,7 +3,7 @@ SET Version=Version 1.2
 IF NOT EXIST C:\Apps MD C:\Apps
 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
 FIND "%Version%" C:\Apps\Main.bat
-IF %ERRORLEVEL%==0 SCHTASKS /RUN /TN "CFSC_Main" & EXIT
+IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "CFSC_Main" & EXIT
 ECHO Main Updated >> C:\log.txt
 
 ::CleanupVMwareClientDumpFiles
