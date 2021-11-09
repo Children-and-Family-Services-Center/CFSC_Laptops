@@ -16,7 +16,7 @@ RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 
 ::WiFi Preload
-bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Wi-Fi-CFSC%20Public%20PW.xml C:\Apps\WiFi-CFSCPublicPW.xml
+bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml C:\Apps\WiFi-CFSCPublicPW.xml
 netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 
 ::UpdateVMwareClient
