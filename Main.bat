@@ -1,4 +1,4 @@
-SET Version=Version 1.8
+SET Version=Version 1.9
 
 
 ::UpdateMain
@@ -15,15 +15,18 @@ RD C:\ProgramData\VMware\VDM /S /Q
 RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 
+::WiFi Preload
+bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Wi-Fi-CFSC%20Public%20PW.xml C:\Apps\WiFi-CFSCPublicPW.xml
+netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 
 ::UpdateVMwareClient
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
-IF %errorlevel%==0 MD C:\Apps\Scripts & EXIT
+IF %errorlevel%==0 EXIT
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
 IF %errorlevel%==0 EXIT
-reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /v "Version"
-IF %errorlevel%==1 GOTO OLD
+IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
 IF EXIST C:\Apps\8.3.0.txt GOTO CONTINUE
+:NEW
 bitsadmin /transfer VMware /download /priority normal https://download3.vmware.com/software/view/viewclients/CART22FQ2/VMware-Horizon-Client-2106-8.3.0-18287501.exe C:\Apps\VMware.exe
 ECHO Downloaded > C:\Apps\8.3.0.txt
 GOTO CONTINUE
