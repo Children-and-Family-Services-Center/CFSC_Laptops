@@ -1,4 +1,4 @@
-SET Version=Version 1.6
+SET Version=Version 1.7
 ::UpdateMain
 IF NOT EXIST C:\Apps MD C:\Apps
 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
@@ -21,6 +21,7 @@ RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 ECHO DumpClean >> C:\log.txt
 
 ::Filters
+ECHO Worked > C:\Apps\Worked.txt
 
 ::UpdateClient
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
