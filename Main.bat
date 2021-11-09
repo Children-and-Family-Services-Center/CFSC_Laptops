@@ -3,10 +3,13 @@ SET Version=Version 1.4
 IF NOT EXIST C:\Apps MD C:\Apps
 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
 FIND "%Version%" C:\Apps\Main.bat
-IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "CFSC_Main" & ECHO Restart >> C:\log.txt & EXIT
+IF %ERRORLEVEL%==0 GOTO CleanupVMwareClientDumpFiles
+SCHTASKS /CREATE /SC ONCE /TN "CFSC_Main_Update" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F /Z
+SCHTASKS /RUN /TN "CFSC_Main_Update" & ECHO Restart >> C:\log.txt & EXIT
+
 ECHO Main Updated >> C:\log.txt
 
-::CleanupVMwareClientDumpFiles
+:CleanupVMwareClientDumpFiles
 RD C:\ProgramData\VMware\VDM /S /Q
 RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
