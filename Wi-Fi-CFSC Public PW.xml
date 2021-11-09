@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>CFSC Public PW</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>43465343205075626C6963205057</hex>
+			<name>CFSC Public PW</name>
+		</SSID>
+		<nonBroadcast>false</nonBroadcast>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB010000005FB3AFC23DA2F944B384B0F5B3C9C8B2000000000200000000001066000000010000200000004A72439CB34840F9A902C75562A5FD66E6BDCEBD333A8232B9DC01667512A5CF000000000E8000000002000020000000ACC0A492C96B7094DFFBCC5FF16378894B1B27FA33A6A8774C6C499FFFDE3EBE1000000028DB8A585CAE5C166533BDCAC8AA828540000000C347BEEE21E8FCC2FED5C723013A1D83D49E55D2D2748D18651496AC18BA434F4A48C3A1EAC48D73AB1E4CE270C1F89F0847859260AD6AF5FBC8736A37BB8346</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+</WLANProfile>
