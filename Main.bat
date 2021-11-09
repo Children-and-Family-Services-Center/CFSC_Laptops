@@ -10,9 +10,7 @@ ECHO SLEEP 10 > %temp%\temp.bat
 ECHO C:\apps\Main.bat >> %temp%\temp.bat
 %temp%\temp.bat
 EXIT
-
-
-::CleanupVMwareClientDumpFiles
+:CleanupVMwareClientDumpFiles
 RD C:\ProgramData\VMware\VDM /S /Q
 RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
