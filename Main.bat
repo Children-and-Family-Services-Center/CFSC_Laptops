@@ -18,8 +18,8 @@ RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 
 ::WiFi Preload
-::Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml C:\Apps\WiFi-CFSCPublicPW.xml
-::netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml C:\Apps\WiFi-CFSCPublicPW.xml
+netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 
 ::UpdateVMwareClient
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
