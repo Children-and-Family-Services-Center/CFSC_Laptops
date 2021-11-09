@@ -40,5 +40,7 @@ ECHO Old Client Downloaded >> C:\log.txt
 ECHO C:\Apps\vmware.exe /q /i /norestart > C:\Apps\install.bat
 ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
 SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
+tasklist | find "vmware-view.exe"
+IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
 
 ECHO Client Update Task Made >> C:\log.txt
