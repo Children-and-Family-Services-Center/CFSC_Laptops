@@ -1,4 +1,4 @@
-SET Version=Version 1.0
+SET Version=Version 1.1
 ::UpdateMain
 IF NOT EXIST C:\Apps MD C:\Apps
 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
@@ -17,9 +17,9 @@ ECHO DumpClean >> C:\log.txt
 
 ::UpdateClient
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
-IF %errorlevel%==0 EXIT
+IF %errorlevel%==0 ECHO "8.3.0 Installed!" & EXIT
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
-IF %errorlevel%==0 EXIT
+IF %errorlevel%==0 ECHO "5.5.2 Installed!" & EXIT
 
 ECHO Need Update >> C:\log.txt
 
