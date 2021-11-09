@@ -1,4 +1,4 @@
-SET Version=Version 1.11
+SET Version=Version 1.12
 
 
 ::UpdateMain
