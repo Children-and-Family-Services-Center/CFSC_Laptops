@@ -1,11 +1,16 @@
-SET Version=Version 1.5
+SET Version=Version 1.6
 ::UpdateMain
 IF NOT EXIST C:\Apps MD C:\Apps
 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
 FIND "%Version%" C:\Apps\Main.bat
 IF %ERRORLEVEL%==0 GOTO CleanupVMwareClientDumpFiles
-SCHTASKS /CREATE /SC ONCE /TN "CFSC_Main_Update" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F
-SCHTASKS /RUN /TN "CFSC_Main_Update" & ECHO Restart >> C:\log.txt & EXIT
+ECHO Restart >> C:\log.txt
+ECHO SLEEP 10 > %temp%\temp.bat
+ECHO C:\apps\Main.bat >> %temp%\temp.bat
+ECHO RestartFileMade >> C:\log.txt
+%temp%\temp.bat
+ECHO RunAndExit >> C:\log.txt
+EXIT
 
 :CleanupVMwareClientDumpFiles
 ECHO Main Updated >> C:\log.txt
