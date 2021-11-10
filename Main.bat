@@ -1,4 +1,4 @@
-SET Version=Version 3.0
+SET Version=Version 3.1
 ECHO %date% > C:\Apps\log.txt
 
 :CheckInternet
@@ -30,7 +30,7 @@ netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi
 DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
 ECHO "WiFi Preload Done" >> C:\Apps\log.txt
 
-::UpdateVMwareClient
+:UpdateVMwareClient
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
 :NEW
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
