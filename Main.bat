@@ -1,4 +1,4 @@
-SET Version=Version 2.1
+SET Version=Version 2.2
 
 :CheckInternet
 PING google.com -n 1
@@ -22,16 +22,14 @@ RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 
 ::WiFi Preload
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
-netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
+CALL netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
 
 ::UpdateVMwareClient
-reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
-IF %errorlevel%==0 EXIT
-reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
-IF %errorlevel%==0 EXIT
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
 :NEW
+reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
+IF %errorlevel%==0 EXIT
 IF EXIST C:\Apps\VMware_8.3.0.exe GOTO NEWCONTINUE
 Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART22FQ2/VMware-Horizon-Client-2106-8.3.0-18287501.exe -O C:\Apps\VMware_8.3.0.exe
 :NEWCONTINUE
@@ -43,6 +41,9 @@ tasklist | find "vmware-view.exe"
 IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
 EXIT
 :OLD 
+reg query "HKLM\SOFTWARE\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
+IF %errorlevel%==0 EXIT
+
 IF EXIST C:\Apps\VMware_5.5.2.exe GOTO OLDCONTINUE
 Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.2-18035009.exe -O C:\Apps\VMware_5.5.2.exe
 :OLDCONTINUE
