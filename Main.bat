@@ -1,4 +1,4 @@
-SET Version=Version 1.15
+SET Version=Version 1.16
 
 :CheckInternet
 PING google.com -n 1
