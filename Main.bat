@@ -1,4 +1,4 @@
-SET Version=Version 2.0
+SET Version=Version 2.1
 
 :CheckInternet
 PING google.com -n 1
@@ -31,15 +31,22 @@ IF %errorlevel%==0 EXIT
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
 IF %errorlevel%==0 EXIT
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
-IF EXIST C:\Apps\VMware_8.3.0.exe GOTO CONTINUE
 :NEW
+IF EXIST C:\Apps\VMware_8.3.0.exe GOTO NEWCONTINUE
 Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART22FQ2/VMware-Horizon-Client-2106-8.3.0-18287501.exe -O C:\Apps\VMware_8.3.0.exe
-GOTO CONTINUE
+:NEWCONTINUE
+ECHO C:\Apps\vmware_8.3.0.exe /q /i /norestart > C:\Apps\install.bat
+ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
+ECHO DEL C:\Apps\install.bat /F /Q >> C:\Apps\install.bat
+SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
+tasklist | find "vmware-view.exe"
+IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
+EXIT
 :OLD 
-IF EXIST C:\Apps\VMware_5.5.2.exe GOTO CONTINUE
+IF EXIST C:\Apps\VMware_5.5.2.exe GOTO OLDCONTINUE
 Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.2-18035009.exe -O C:\Apps\VMware_5.5.2.exe
-:CONTINUE
-ECHO C:\Apps\vmware.exe /q /i /norestart > C:\Apps\install.bat
+:OLDCONTINUE
+ECHO C:\Apps\vmware_5.5.2.exe /q /i /norestart > C:\Apps\install.bat
 ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
 ECHO DEL C:\Apps\install.bat /F /Q >> C:\Apps\install.bat
 SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
