@@ -1,4 +1,4 @@
-SET Version=Version 2.2
+SET Version=Version 2.3
 
 :CheckInternet
 PING google.com -n 1
@@ -23,7 +23,7 @@ RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 ::WiFi Preload
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
 CALL netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
-DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
+::DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
 
 ::UpdateVMwareClient
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
