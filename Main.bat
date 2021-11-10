@@ -1,4 +1,4 @@
-SET Version=Version 2.4
+SET Version=Version 2.5
 
 :CheckInternet
 PING google.com -n 1
@@ -31,7 +31,7 @@ ECHO "WiFi Preload Done" >> C:\Apps\log.txt
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
 :NEW
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
-IF %errorlevel%==0 EXIT
+IF %errorlevel%==0 ECHO 8.3.0 Done >> C:\apps\log.txt & EXIT
 IF EXIST C:\Apps\VMware_8.3.0.exe GOTO NEWCONTINUE
 Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART22FQ2/VMware-Horizon-Client-2106-8.3.0-18287501.exe -O C:\Apps\VMware_8.3.0.exe
 :NEWCONTINUE
@@ -45,7 +45,7 @@ ECHO "UpdateVMwareClientNew Done" >> C:\Apps\log.txt
 EXIT
 :OLD 
 reg query "HKLM\SOFTWARE\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
-IF %errorlevel%==0 EXIT
+IF %errorlevel%==0 5.5.2 Done >> C:\apps\log.txt & EXIT
 IF EXIST C:\Apps\VMware_5.5.2.exe GOTO OLDCONTINUE
 Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.2-18035009.exe -O C:\Apps\VMware_5.5.2.exe
 :OLDCONTINUE
