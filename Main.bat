@@ -1,4 +1,4 @@
-SET Version=Version 2.3
+SET Version=Version 2.4
 
 :CheckInternet
 PING google.com -n 1
@@ -19,11 +19,13 @@ EXIT
 RD C:\ProgramData\VMware\VDM /S /Q
 RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
+ECHO "UpdateMain Done" >> C:\Apps\log.txt
 
 ::WiFi Preload
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
-CALL netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
+::CALL netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 ::DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
+ECHO "WiFi Preload Done" >> C:\Apps\log.txt
 
 ::UpdateVMwareClient
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
@@ -39,11 +41,11 @@ ECHO DEL C:\Apps\install.bat /F /Q >> C:\Apps\install.bat
 SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
 tasklist | find "vmware-view.exe"
 IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
+ECHO "UpdateVMwareClientNew Done" >> C:\Apps\log.txt
 EXIT
 :OLD 
 reg query "HKLM\SOFTWARE\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
 IF %errorlevel%==0 EXIT
-
 IF EXIST C:\Apps\VMware_5.5.2.exe GOTO OLDCONTINUE
 Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.2-18035009.exe -O C:\Apps\VMware_5.5.2.exe
 :OLDCONTINUE
@@ -53,3 +55,4 @@ ECHO DEL C:\Apps\install.bat /F /Q >> C:\Apps\install.bat
 SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
 tasklist | find "vmware-view.exe"
 IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
+ECHO "UpdateVMwareClientOld Done" >> C:\Apps\log.txt
