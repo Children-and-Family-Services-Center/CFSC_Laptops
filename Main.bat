@@ -1,4 +1,4 @@
-SET Version=Version 1.17
+SET Version=Version 1.18
 
 :CheckInternet
 PING google.com -n 1
@@ -21,7 +21,7 @@ RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 
 ::WiFi Preload
-Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml C:\Apps\WiFi-CFSCPublicPW.xml
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
 netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 
 ::UpdateVMwareClient
