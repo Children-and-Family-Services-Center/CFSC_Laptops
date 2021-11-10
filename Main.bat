@@ -1,5 +1,8 @@
-SET Version=Version 1.14
+SET Version=Version 1.15
 
+:CheckInternet
+PING google.com -n 1
+IF %ERRORLEVEL%==1 SLEEP 2 & GOTO CheckInternet
 
 ::UpdateMain
 
