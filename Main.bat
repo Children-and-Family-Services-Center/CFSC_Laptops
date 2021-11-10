@@ -1,5 +1,5 @@
-SET Version=Version 2.8
-ECHO. > C:\Apps\log.txt
+SET Version=Version 3.0
+ECHO %date% > C:\Apps\log.txt
 
 :CheckInternet
 PING google.com -n 1
