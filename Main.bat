@@ -1,4 +1,4 @@
-SET Version=Version 2.6
+SET Version=Version 2.7
 ECHO. > C:\Apps\log.txt
 
 :CheckInternet
@@ -24,8 +24,8 @@ ECHO "UpdateMain Done" >> C:\Apps\log.txt
 
 ::WiFi Preload
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
-::CALL netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
-::DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
+CALL netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
+DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
 ECHO "WiFi Preload Done" >> C:\Apps\log.txt
 
 ::UpdateVMwareClient
