@@ -1,4 +1,4 @@
-SET Version=Version 3.15
+SET Version=Version 3.16
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -9,6 +9,7 @@ CALL :CheckInternet
 CALL :UpdateMain
 CALL :UpdateVMwareClient
 CALL :UpdateScreenConnect
+CALL :WiFiPreload
 CALL :CleanupVMwareDumpFiles
 CALL :TruncateLog
 
@@ -83,12 +84,14 @@ EXIT /b
 
 ::WiFiPreload-----------------------------------------------------------------------
 :WiFiPreload
+ECHO %time% - WiFiPreload - Start >> C:\Apps\log.txt
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
 netsh wlan show profiles | find "CFSC Public PW"
-IF %ERRORLEVEL%==0 ECHO "WiFi Exists" >> C:\apps\log.txt & GOTO UpdateVMwareClient
+IF %ERRORLEVEL%==0 ECHO %time% - WiFiPreload - WiFi Already Loaded >> C:\Apps\log.txt & EXIT /b
 netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
+ECHO %time% - WiFiPreload - WiFi Loaded >> C:\Apps\log.txt
 DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
-ECHO "WiFi Preload Done" >> C:\Apps\log.txt
+ECHO %time% - WiFiPreload - Finish >> C:\Apps\log.txt
 EXIT /b
 
 ::CleanupVMwareDumpFiles------------------------------------------------------------
