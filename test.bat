@@ -45,7 +45,7 @@ ECHO %time% - UpdateVMwareClient - Start >> C:\Apps\log.txt
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
 :NEW
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
-IF %errorlevel%==0 ECHO UpdateVMwareClient - 8.3.0 Installed >> C:\apps\log.txt & EXIT /b
+IF %errorlevel%==0 ECHO %time% - UpdateVMwareClient - 8.3.0 Installed >> C:\apps\log.txt & EXIT /b
 IF NOT EXIST C:\Apps\VMware_8.3.0.exe ECHO %time% - UpdateVMwareClient - Downloading 8.3.0 >> C:\apps\log.txt & Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART22FQ2/VMware-Horizon-Client-2106-8.3.0-18287501.exe -O C:\Apps\VMware_8.3.0.exe
 ECHO C:\Apps\vmware_8.3.0.exe /q /i /norestart > C:\Apps\install.bat
 ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
