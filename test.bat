@@ -41,29 +41,25 @@ EXIT
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
 :NEW
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
-IF %errorlevel%==0 ECHO UpdateVMwareClient - 8.3.0 Installed >> C:\apps\log.txt & EXIT
-IF EXIST C:\Apps\VMware_8.3.0.exe GOTO NEWCONTINUE
-Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART22FQ2/VMware-Horizon-Client-2106-8.3.0-18287501.exe -O C:\Apps\VMware_8.3.0.exe
-:NEWCONTINUE
+IF %errorlevel%==0 ECHO UpdateVMwareClient - 8.3.0 Installed >> C:\apps\log.txt & EXIT /b
+IF NOT EXIST C:\Apps\VMware_8.3.0.exe ECHO %time% - UpdateVMwareClient - Downloading 8.3.0 >> C:\apps\log.txt & Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART22FQ2/VMware-Horizon-Client-2106-8.3.0-18287501.exe -O C:\Apps\VMware_8.3.0.exe
 ECHO C:\Apps\vmware_8.3.0.exe /q /i /norestart > C:\Apps\install.bat
 ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
 ECHO DEL C:\Apps\install.bat /F /Q >> C:\Apps\install.bat
 SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
 tasklist | find "vmware-view.exe"
 IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
-ECHO "UpdateVMwareClientNew Done" >> C:\Apps\log.txt
-GOTO UpdateScreenConnect
+ECHO %time% - UpdateVMwareClient -  Installed >> C:\Apps\log.txt
+EXIT /b
 :OLD 
 reg query "HKLM\SOFTWARE\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
-IF %errorlevel%==0 5.5.2 Done >> C:\apps\log.txt & EXIT
-IF EXIST C:\Apps\VMware_5.5.2.exe GOTO OLDCONTINUE
-Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.2-18035009.exe -O C:\Apps\VMware_5.5.2.exe
-:OLDCONTINUE
+IF %errorlevel%==0 ECHO %time% - 5.5.2 Installed >> C:\apps\log.txt & EXIT /b
+IF NOT EXIST C:\Apps\VMware_5.5.2.exe ECHO ECHO %time% - UpdateVMwareClient - Downloading 5.5.2 >> C:\apps\log.txt & Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.2-18035009.exe -O C:\Apps\VMware_5.5.2.exe
 ECHO C:\Apps\vmware_5.5.2.exe /q /i /norestart > C:\Apps\install.bat
 ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
 ECHO DEL C:\Apps\install.bat /F /Q >> C:\Apps\install.bat
 SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
 tasklist | find "vmware-view.exe"
 IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
-ECHO "UpdateVMwareClientOld Done" >> C:\Apps\log.txt
-EXIT
+ECHO %time% - UpdateVMwareClient -  Installed >> C:\Apps\log.txt
+EXIT /b
