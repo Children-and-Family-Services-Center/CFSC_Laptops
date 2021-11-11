@@ -1,4 +1,4 @@
-SET Version=Version 3.12
+SET Version=Version 3.13
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -10,6 +10,7 @@ CALL :UpdateMain
 CALL :UpdateVMwareClient
 CALL :UpdateScreenConnect
 CALL :CleanupVMwareDumpFiles
+CALL :TruncateLog
 
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
@@ -88,6 +89,7 @@ IF %ERRORLEVEL%==0 ECHO "WiFi Exists" >> C:\apps\log.txt & GOTO UpdateVMwareClie
 netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
 ECHO "WiFi Preload Done" >> C:\Apps\log.txt
+EXIT /b
 
 ::CleanupVMwareDumpFiles------------------------------------------------------------
 :CleanupVMwareDumpFiles
@@ -98,3 +100,11 @@ RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 DEL %temp%\*.* /F /S /Q
 DEL C:\WINDOWS\Temp\*.* /F /S /Q
 ECHO %time% - CleanupVMwareDumpFiles - Finish >> C:\Apps\log.txt
+EXIT /b
+
+::TruncateLog------------------------------------------------------------
+:TruncateLog
+ECHO %time% - TruncateLog - Start >> C:\Apps\log.txt
+powershell get-content -tail 20 C:\apps\log.txt > C:\Apps\log.txt
+ECHO %time% - TruncateLog - Finish >> C:\Apps\log.txt
+EXIT /b
