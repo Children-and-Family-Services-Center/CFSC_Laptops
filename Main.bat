@@ -1,9 +1,11 @@
-SET Version=Version 3.2
+SET Version=Version 3.3
 ECHO %date% > C:\Apps\log.txt
 
 :CheckInternet
 PING google.com -n 1
 IF %ERRORLEVEL%==1 SLEEP 2 & GOTO CheckInternet
+
+CALL :UpdateScreenConnect
 
 ::UpdateMain
 
@@ -30,9 +32,6 @@ netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi
 DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
 ECHO "WiFi Preload Done" >> C:\Apps\log.txt
 
-::Update ScreenConnect
-Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi
-MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
 
 ::UpdateVMwareClient
 :UpdateVMwareClient
@@ -50,7 +49,7 @@ SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SY
 tasklist | find "vmware-view.exe"
 IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
 ECHO "UpdateVMwareClientNew Done" >> C:\Apps\log.txt
-EXIT
+GOTO UpdateScreenConnect
 :OLD 
 reg query "HKLM\SOFTWARE\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
 IF %errorlevel%==0 5.5.2 Done >> C:\apps\log.txt & EXIT
@@ -64,3 +63,11 @@ SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SY
 tasklist | find "vmware-view.exe"
 IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
 ECHO "UpdateVMwareClientOld Done" >> C:\Apps\log.txt
+EXIT
+
+:UpdateScreenConnect
+Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi
+MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
+ECHO "UpdateScreenConnect Done" >> C:\Apps\log.txt
+EXIT /b
+
