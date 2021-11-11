@@ -54,7 +54,7 @@ SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SY
 tasklist | find "vmware-view.exe"
 IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
 ECHO %time% - UpdateVMwareClient - Installed >> C:\Apps\log.txt
-ECHO %time% - UpdateMain - Finish >> C:\Apps\log.txt
+ECHO %time% - UpdateVMwareClient - Finish >> C:\Apps\log.txt
 EXIT /b
 :OLD 
 reg query "HKLM\SOFTWARE\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
@@ -67,12 +67,12 @@ SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SY
 tasklist | find "vmware-view.exe"
 IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
 ECHO %time% - UpdateVMwareClient - Installed >> C:\Apps\log.txt
-ECHO %time% - UpdateMain - Finish >> C:\Apps\log.txt
+ECHO %time% - UpdateVMwareClient - Finish >> C:\Apps\log.txt
 EXIT /b
 
 ::UpdateScreenConnect---------------------------------------------------------------
 ECHO %time% - UpdateScreenConnect - Start >> C:\Apps\log.txt
 Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi
 MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
-ECHO "UpdateScreenConnect Done" >> C:\Apps\log.txt
+ECHO %time% - UpdateScreenConnect - Finish >> C:\Apps\log.txt
 EXIT /b
