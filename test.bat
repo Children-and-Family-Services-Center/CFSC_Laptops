@@ -1,4 +1,4 @@
-SET Version=Version 3.11
+SET Version=Version 3.12
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -8,6 +8,8 @@ ECHO %time% - Start >> C:\Apps\log.txt
 CALL :CheckInternet
 CALL :UpdateMain
 CALL :UpdateVMwareClient
+CALL :UpdateScreenConnect
+CALL :CleanupVMwareDumpFiles
 
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
@@ -71,8 +73,28 @@ ECHO %time% - UpdateVMwareClient - Finish >> C:\Apps\log.txt
 EXIT /b
 
 ::UpdateScreenConnect---------------------------------------------------------------
+:UpdateScreenConnect
 ECHO %time% - UpdateScreenConnect - Start >> C:\Apps\log.txt
 Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi
 MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
 ECHO %time% - UpdateScreenConnect - Finish >> C:\Apps\log.txt
 EXIT /b
+
+::WiFiPreload-----------------------------------------------------------------------
+:WiFiPreload
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
+netsh wlan show profiles | find "CFSC Public PW"
+IF %ERRORLEVEL%==0 ECHO "WiFi Exists" >> C:\apps\log.txt & GOTO UpdateVMwareClient
+netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
+DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
+ECHO "WiFi Preload Done" >> C:\Apps\log.txt
+
+::CleanupVMwareDumpFiles------------------------------------------------------------
+:CleanupVMwareDumpFiles
+ECHO %time% - CleanupVMwareDumpFiles - Start >> C:\Apps\log.txt
+RD C:\ProgramData\VMware\VDM /S /Q
+RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
+RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
+DEL %temp%\*.* /F /S /Q
+DEL C:\WINDOWS\Temp\*.* /F /S /Q
+ECHO %time% - CleanupVMwareDumpFiles - Finish >> C:\Apps\log.txt
