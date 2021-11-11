@@ -1,4 +1,4 @@
-SET Version=Version 3.13
+SET Version=Version 3.14
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -105,6 +105,7 @@ EXIT /b
 ::TruncateLog------------------------------------------------------------
 :TruncateLog
 ECHO %time% - TruncateLog - Start >> C:\Apps\log.txt
-powershell get-content -tail 20 C:\apps\log.txt > C:\Apps\log.txt
+powershell "get-content -tail 20 C:\apps\log.txt" > %temp%\log.txt
+MORE %temp%\log.txt > C:\Apps\Log.txt
 ECHO %time% - TruncateLog - Finish >> C:\Apps\log.txt
 EXIT /b
