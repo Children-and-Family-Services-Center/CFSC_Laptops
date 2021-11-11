@@ -1,4 +1,4 @@
-SET Version=Version 3.1
+SET Version=Version 3.2
 ECHO %date% > C:\Apps\log.txt
 
 :CheckInternet
@@ -30,6 +30,11 @@ netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi
 DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
 ECHO "WiFi Preload Done" >> C:\Apps\log.txt
 
+::Update ScreenConnect
+Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi
+MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
+
+::UpdateVMwareClient
 :UpdateVMwareClient
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
 :NEW
