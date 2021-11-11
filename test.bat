@@ -32,7 +32,7 @@ IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority 
 FIND "%Version%" C:\Apps\test.bat
 IF %ERRORLEVEL%==0 ECHO UpdateMain - Updated >> C:\Apps\log.txt & EXIT /b
 ECHO UpdateMain - OutDated - Updating >> C:\Apps\log.txt
-ECHO SLEEP 10 > %temp%\temp.bat
+ECHO TIMEOUT /t 10 > %temp%\temp.bat
 ECHO C:\apps\test.bat >> %temp%\temp.bat
 ECHO UpdateMain - OutDated - Relaunching >> C:\Apps\log.txt
 %temp%\temp.bat
