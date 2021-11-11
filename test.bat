@@ -76,8 +76,8 @@ EXIT /b
 ::UpdateScreenConnect---------------------------------------------------------------
 :UpdateScreenConnect
 ECHO %time% - UpdateScreenConnect - Start >> C:\Apps\log.txt
-Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi
-MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
+IF NOT EXIST C:\Apps\ScreenConnect_21.13.5058.7951.msi Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect_21.13.5058.7951.msi -O C:\Apps\ScreenConnect_21.13.5058.7951.msi & ECHO %time% - UpdateScreenConnect - Downloading >> C:\Apps\log.txt
+MSIEXEC.exe /q /i C:\Apps\ScreenConnect_21.13.5058.7951.msi /norestart
 ECHO %time% - UpdateScreenConnect - Finish >> C:\Apps\log.txt
 EXIT /b
 
