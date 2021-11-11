@@ -7,6 +7,7 @@ ECHO %time% - Start >> C:\Apps\log.txt
 
 CALL :CheckInternet
 CALL :UpdateMain
+CALL :UpdateVMwareClient
 
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
