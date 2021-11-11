@@ -1,4 +1,4 @@
-SET Version=Version 3.8
+SET Version=Version 3.9
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -32,7 +32,7 @@ IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority 
 FIND "%Version%" C:\Apps\test.bat
 IF %ERRORLEVEL%==0 ECHO UpdateMain - Updated >> C:\Apps\log.txt & EXIT /b
 ECHO UpdateMain - OutDated - Relaunching >> C:\Apps\log.txt
-CALL C:\apps\temp.bat
+CALL C:\apps\test.bat
 EXIT
 
 
