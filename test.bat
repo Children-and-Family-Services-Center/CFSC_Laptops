@@ -88,7 +88,7 @@ ECHO %time% - WiFiPreload - Start >> C:\Apps\log.txt
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
 netsh wlan show profiles | find "CFSC Public PW"
 IF %ERRORLEVEL%==0 ECHO %time% - WiFiPreload - WiFi Already Loaded >> C:\Apps\log.txt & EXIT /b
-netsh wlan add profile filename="C:\Apps\WiFI-CFSCPublicPW.xml" interface="Wi-Fi" user=all
+netsh wlan add profile filename="C:\Apps\WiFi-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 ECHO %time% - WiFiPreload - WiFi Loaded >> C:\Apps\log.txt
 DEL C:\Apps\WiFI-CFSCPublicPW.xml /F /Q
 ECHO %time% - WiFiPreload - Finish >> C:\Apps\log.txt
