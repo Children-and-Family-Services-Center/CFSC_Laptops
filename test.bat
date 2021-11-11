@@ -27,13 +27,13 @@ EXIT /b
 
 ::UpdateMain-----------------------------------------------------------------------
 :UpdateMain
-IF %PROCESSOR_ARCHITECTURE%==AMD64 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat -O C:\Apps\Main.bat
-IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
-FIND "%Version%" C:\Apps\Main.bat
+IF %PROCESSOR_ARCHITECTURE%==AMD64 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/test.bat -O C:\Apps\test.bat
+IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/test.bat C:\Apps\test.bat
+FIND "%Version%" C:\Apps\test.bat
 IF %ERRORLEVEL%==0 ECHO UpdateMain - Updated >> C:\Apps\log.txt & EXIT /b
 ECHO UpdateMain - OutDated - Updating >> C:\Apps\log.txt
 ECHO SLEEP 10 > %temp%\temp.bat
-ECHO C:\apps\Main.bat >> %temp%\temp.bat
+ECHO C:\apps\test.bat >> %temp%\temp.bat
 ECHO UpdateMain - OutDated - Relaunching >> C:\Apps\log.txt
 %temp%\temp.bat
 EXIT
