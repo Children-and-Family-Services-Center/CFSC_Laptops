@@ -13,15 +13,15 @@ EXIT
 
 ::CheckInternet--------------------------------------------------------------------
 :CheckInternet
-ECHO CheckInternet - %time% - Start >> C:\Apps\log.txt
+ECHO %time% - CheckInternet - Start >> C:\Apps\log.txt
 SET REPEAT=0
 :REPEAT
-IF %REPEAT%==5 ECHO CheckInternet - No Internet >> C:\Apps\log.txt & EXIT
+IF %REPEAT%==5 ECHO %time% - CheckInternet - No Internet >> C:\Apps\log.txt & EXIT
 SET /a REPEAT=%REPEAT%+1
-ECHO CheckInternet - Attempt %REPEAT% %time% >> C:\Apps\log.txt
+ECHO %time% - CheckInternet - Attempt %REPEAT% >> C:\Apps\log.txt
 PING google.com -n 1
 IF %ERRORLEVEL%==1 TIMEOUT /T 20 & GOTO REPEAT
-ECHO CheckInternet - %time% - Finish >> C:\Apps\log.txt
+ECHO %time% - CheckInternet - Finish >> C:\Apps\log.txt
 EXIT /b
 
 
