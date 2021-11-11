@@ -30,8 +30,8 @@ EXIT /b
 IF %PROCESSOR_ARCHITECTURE%==AMD64 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/test.bat -O C:\Apps\test.bat
 IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/test.bat C:\Apps\test.bat
 FIND "%Version%" C:\Apps\test.bat
-IF %ERRORLEVEL%==0 ECHO UpdateMain - Updated >> C:\Apps\log.txt & EXIT /b
-ECHO UpdateMain - OutDated - Relaunching >> C:\Apps\log.txt
+IF %ERRORLEVEL%==0 ECHO %time% - UpdateMain - Updated >> C:\Apps\log.txt & EXIT /b
+ECHO %time% - UpdateMain - OutDated - Relaunching >> C:\Apps\log.txt
 CALL C:\apps\test.bat
 EXIT
 
