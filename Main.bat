@@ -1,4 +1,4 @@
-SET Version=Version 3.24
+SET Version=Version 3.25
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -52,6 +52,7 @@ EXIT /b
 :UpdateVMwareClient
 ECHO %time% - UpdateVMwareClient - Start >> C:\Apps\log.txt
 REG ADD HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client /T REG_SZ /V ServerURL /D view.childrenfamily.org /f
+REG ADD HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client /T REG_SZ /V ServerURL /D view.childrenfamily.org /f
 IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
 :NEW
 reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
