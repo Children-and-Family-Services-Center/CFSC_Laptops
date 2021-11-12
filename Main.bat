@@ -1,4 +1,4 @@
-SET Version=Version 3.17
+SET Version=Version 3.18
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
