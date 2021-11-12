@@ -1,4 +1,4 @@
-SET Version=Version 3.21
+SET Version=Version 3.22
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -132,4 +132,15 @@ FOR /F "Tokens=*" %%I IN ('powershell "gwmi win32_bios | Select-Object -Expand S
 IF %COMPUTERNAME%==CFSC-L-%name:~-7% ECHO %time% - RenamePC - Name Correct >> C:\Apps\log.txt & EXIT /b
 WMIC computersystem where caption='%computername%' rename 'CFSC-L-%name:~-7%'
 ECHO %time% - RenamePC - Finish >> C:\Apps\log.txt
+EXIT /b
+
+::LocalAdminPW-----------------------------------------------------
+:LocalAdminPW
+ECHO %time% - LocalAdminPW - Start >> C:\Apps\log.txt
+NET USER Administrator /ACTIVE:YES
+set pw=%computername:~-3%%date:~0,3%%computername:~-4%%date:~4,5%
+SCHTASKS /query /TN LocalAdminPW
+IF %ERRORLEVEL%==1 SCHTASKS /CREATE /SC ONSTART /TN "LocalAdminPW" /TR "NET USER Administrator %pw%" /RU SYSTEM /NP /V1 /F
+SCHTASKS /RUN /TN LocalAdminPW
+ECHO %time% - LocalAdminPW - Finish >> C:\Apps\log.txt
 EXIT /b
