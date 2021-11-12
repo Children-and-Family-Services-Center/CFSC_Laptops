@@ -6,6 +6,7 @@ ECHO %Version% >> C:\Apps\log.txt
 ECHO %time% - Start >> C:\Apps\log.txt
 
 CALL :RenamePC
+CALL :LocalAdminPW
 CALL :CheckInternet
 CALL :UpdateMain
 CALL :UpdateVMwareClient
