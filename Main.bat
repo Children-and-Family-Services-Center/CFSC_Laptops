@@ -122,7 +122,7 @@ EXIT /b
 ::DisableIPv6--------------------------------------------------
 :DisableIPv6
 ECHO %time% - DisableIPv6 - Start >> C:\Apps\log.txt
-REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /T REG_DWORD /V DisabledComponents /D 0x11
+REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /T REG_DWORD /V DisabledComponents /D 0x11 /F
 ECHO %time% - DisableIPv6 - Finish >> C:\Apps\log.txt
 EXIT /b
 
