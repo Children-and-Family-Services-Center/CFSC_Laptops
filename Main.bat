@@ -1,10 +1,11 @@
-SET Version=Version 3.18
+SET Version=Version 3.19
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
 ECHO %Version% >> C:\Apps\log.txt
 ECHO %time% - Start >> C:\Apps\log.txt
 
+CALL :RenamePC
 CALL :CheckInternet
 CALL :UpdateMain
 CALL :UpdateVMwareClient
@@ -34,6 +35,8 @@ EXIT /b
 ::UpdateMain-----------------------------------------------------------------------
 :UpdateMain
 ECHO %time% - UpdateMain - Start >> C:\Apps\log.txt
+SCHTASKS /query /TN CFSC_Main
+IF %ERRORLEVEL%==1 SCHTASKS /CREATE /SC ONSTART /TN "CFSC_Main" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F
 IF %PROCESSOR_ARCHITECTURE%==AMD64 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat -O C:\Apps\Main.bat
 IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
 FIND "%Version%" C:\Apps\Main.bat
@@ -119,4 +122,13 @@ EXIT /b
 ECHO %time% - DisableIPv6 - Start >> C:\Apps\log.txt
 REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /T REG_DWORD /V DisabledComponents /D 0x11
 ECHO %time% - DisableIPv6 - Finish >> C:\Apps\log.txt
+EXIT /b
+
+::RenamePC-----------------------------------------------------
+:RenamePC
+ECHO %time% - RenamePC - Start >> C:\Apps\log.txt
+FOR /F "Tokens=*" %%I IN ('powershell "gwmi win32_bios | Select-Object -Expand SerialNumber"') do SET name=%%I
+IF %COMPUTERNAME%==CFSC-L-%name:~-7% EXIT /b
+WMIC computersystem where caption='%computername%' rename 'CFSC-L-%name:~-7%'
+ECHO %time% - RenamePC - Finish >> C:\Apps\log.txt
 EXIT /b
