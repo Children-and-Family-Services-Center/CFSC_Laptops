@@ -9,6 +9,7 @@ CALL :CheckInternet
 CALL :UpdateMain
 CALL :UpdateVMwareClient
 CALL :UpdateScreenConnect
+CALL :DisableIPv6
 CALL :WiFiPreload
 CALL :CleanupVMwareDumpFiles
 CALL :TruncateLog
@@ -111,4 +112,11 @@ ECHO %time% - TruncateLog - Start >> C:\Apps\log.txt
 powershell "get-content -tail 100 C:\apps\log.txt" > %temp%\log.txt
 MORE %temp%\log.txt > C:\Apps\Log.txt
 ECHO %time% - TruncateLog - Finish >> C:\Apps\log.txt
+EXIT /b
+
+::DisableIPv6--------------------------------------------------
+:DisableIPv6
+ECHO %time% - DisableIPv6 - Start >> C:\Apps\log.txt
+REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /T REG_DWORD /V DisabledComponents /D 0x11
+ECHO %time% - DisableIPv6 - Finish >> C:\Apps\log.txt
 EXIT /b
