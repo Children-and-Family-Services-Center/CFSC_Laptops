@@ -1,4 +1,4 @@
-SET Version=Version 3.19
+SET Version=Version 3.20
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -128,7 +128,7 @@ EXIT /b
 :RenamePC
 ECHO %time% - RenamePC - Start >> C:\Apps\log.txt
 FOR /F "Tokens=*" %%I IN ('powershell "gwmi win32_bios | Select-Object -Expand SerialNumber"') do SET name=%%I
-IF %COMPUTERNAME%==CFSC-L-%name:~-7% EXIT /b
+IF %COMPUTERNAME%==CFSC-L-%name:~-7% ECHO %time% - RenamePC - Name Correct >> C:\Apps\log.txt & EXIT /b
 WMIC computersystem where caption='%computername%' rename 'CFSC-L-%name:~-7%'
 ECHO %time% - RenamePC - Finish >> C:\Apps\log.txt
 EXIT /b
