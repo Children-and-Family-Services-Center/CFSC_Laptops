@@ -32,8 +32,10 @@ EXIT /b
 NET USER Administrator /ACTIVE:YES
 NET USER Administrator %password%
 IF NOT %USERNAME%==CFSC NET USER CFSC /Add
-IF %USERNAME%==CFSC NET LOCALGROUP Administrators CFSC /DELETE
-IF %USERNAME%==CFSC NET LOCALGROUP Users CFSC /ADD
+for /F %i in ('net localgroup group_name') do net localgroup group_name %i /delete
+NET LOCALGROUP Users CFSC /ADD
+WMIC UserAccount WHERE "Name='CFSC'" SET PasswordExpires=FALSE
+WMIC UserAccount WHERE "Name='CFSC'" SET PasswordChangeable=FALSE
 EXIT /b
 
 ::InstallApps-----------------------------------------------------
