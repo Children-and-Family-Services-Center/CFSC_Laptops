@@ -6,7 +6,6 @@ ECHO %Version% >> C:\Apps\log.txt
 ECHO %time% - Start >> C:\Apps\log.txt
 
 CALL :RenamePC
-::CALL :LocalAdminPW
 CALL :CheckInternet
 CALL :UpdateMain
 CALL :UpdateVMwareClient
@@ -124,25 +123,4 @@ EXIT /b
 ECHO %time% - DisableIPv6 - Start >> C:\Apps\log.txt
 REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /T REG_DWORD /V DisabledComponents /D 0x11 /F
 ECHO %time% - DisableIPv6 - Finish >> C:\Apps\log.txt
-EXIT /b
-
-::RenamePC-----------------------------------------------------
-:RenamePC
-ECHO %time% - RenamePC - Start >> C:\Apps\log.txt
-FOR /F "Tokens=*" %%I IN ('powershell "gwmi win32_bios | Select-Object -Expand SerialNumber"') do SET name=%%I
-IF %COMPUTERNAME%==CFSC-L-%name:~-7% ECHO %time% - RenamePC - Name Correct >> C:\Apps\log.txt & EXIT /b
-WMIC computersystem where caption='%computername%' rename 'CFSC-L-%name:~-7%'
-ECHO %time% - RenamePC - Finish >> C:\Apps\log.txt
-EXIT /b
-
-::LocalAdminPW-----------------------------------------------------
-:LocalAdminPW
-ECHO %time% - LocalAdminPW - Start >> C:\Apps\log.txt
-NET USER Administrator /ACTIVE:YES
-set pw=%computername:~-3%%date:~0,3%%computername:~-4%%date:~4,4%
-ECHO %time% - LocalAdminPW - %pw% >> C:\Apps\log.txt
-SCHTASKS /query /TN LocalAdminPW
-IF %ERRORLEVEL%==1 SCHTASKS /CREATE /SC ONSTART /TN "LocalAdminPW" /TR "NET USER Administrator %pw%" /RU SYSTEM /NP /V1 /F
-SCHTASKS /RUN /TN LocalAdminPW
-ECHO %time% - LocalAdminPW - Finish >> C:\Apps\log.txt
 EXIT /b
