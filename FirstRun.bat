@@ -8,6 +8,9 @@ CLS
 CALL :RenamePC
 CALL :SetupUserAccounts
 CALL :InstallApps
+CALL :ActivateMainScript
+C:\apps\apps.bat
+EXIT
 
 ::ActivateMainScript-----------------------------------------------------
 :ActivateMainScript
@@ -31,7 +34,6 @@ EXIT /b
 :SetupUserAccounts
 NET USER Administrator /ACTIVE:YES
 NET USER Administrator %password%
-IF NOT %USERNAME%==CFSC NET USER CFSC /Add
 for /F %i in ('net localgroup group_name') do net localgroup group_name %i /delete
 NET LOCALGROUP Users CFSC /ADD
 WMIC UserAccount WHERE "Name='CFSC'" SET PasswordExpires=FALSE
@@ -41,5 +43,9 @@ EXIT /b
 ::InstallApps-----------------------------------------------------
 :InstallApps
 POWERSHELL Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-choco install adobereader
+ECHO choco install adobereader -y >> C:\apps\Apps.bat
+ECHO choco install googlechrome -y >> C:\apps\Apps.bat
+ECHO choco install firefox -y >> C:\apps\Apps.bat
+ECHO choco install vlc -y >> C:\apps\Apps.bat
+ECHO DEL C:\Apps\Apps.bat /f /q
 EXIT /b
