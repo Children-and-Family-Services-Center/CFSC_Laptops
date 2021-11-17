@@ -44,16 +44,6 @@ EXIT /b
 ::InstallApps-----------------------------------------------------
 :InstallApps
 POWERSHELL Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-IF NOT EXIST "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup" MD "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
-ECHO choco install adobereader -y >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat"
-ECHO choco install googlechrome -y >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup.bat"
-ECHO choco install firefox -y >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat"
-ECHO choco install vlc -y >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat"
-ECHO choco install vmware-horizon-client -y >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat"
-ECHO DEL "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat" /f /q  >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat"
-ECHO DEL "C:\Users\Public\Desktop\Firefox.lnk" /f /q  >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat"
-ECHO DEL "C:\Users\Public\Desktop\VLC media player.lnk" /f /q  >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat"
-ECHO SCHTASKS /query /TN CFSC_Main  >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat"
-ECHO IF %ERRORLEVEL%==1 SCHTASKS /CREATE /SC ONSTART /TN "CFSC_Main" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F  >> "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Apps.bat"
-
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Apps.bat -O C:\Apps\Apps.bat
+SCHTASKS /CREATE /SC ONCE /TN "CFSC_Apps" /TR "C:\Apps\APPS.bat" /RU SYSTEM /NP /V1 /F
 EXIT /b
