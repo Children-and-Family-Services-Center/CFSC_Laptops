@@ -6,3 +6,4 @@ choco install vmware-horizon-client -y
 DEL "C:\Users\Public\Desktop\Firefox.lnk" /f /q
 DEL "C:\Users\Public\Desktop\VLC media player.lnk" /f /q
 SCHTASKS /CREATE /SC ONSTART /TN "CFSC_Main" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F
+SCHTASKS /RUN /TN "CFSC_Main"
