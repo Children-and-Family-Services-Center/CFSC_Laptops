@@ -1,4 +1,4 @@
-SET Version=Version 1.2
+SET Version=Version 1.3
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -37,7 +37,7 @@ Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Fami
 FIND "%Version%" C:\Apps\FirstRun.bat
 IF %ERRORLEVEL%==0 ECHO %time% - UpdateFirstRun - Updated >> C:\Apps\log.txt & EXIT /b
 ECHO %time% - UpdateFirstRun - OutDated - Relaunching >> C:\Apps\log.txt
-CALL C:\apps\UpdateFirstRun.bat
+CALL C:\apps\FirstRun.bat
 ECHO %time% - UpdateFirstRun - Finish >> C:\Apps\log.txt
 EXIT /b
 
