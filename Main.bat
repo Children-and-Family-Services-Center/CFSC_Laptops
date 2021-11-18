@@ -1,4 +1,4 @@
-SET Version=Version 3.27
+SET Version=Version 3.28
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -128,25 +128,34 @@ EXIT /b
 
 ::Apps---------------------------------------------------------
 :Apps
+::----------------Adobe Reader--------------------------------
 ECHO %time% - Apps - Start >> C:\Apps\log.txt
 ECHO %time% - Apps - Adobe Reader Installing... >> C:\Apps\log.txt
 choco install adobereader -y
 ECHO %time% - Apps - Adobe Reader Finished >> C:\Apps\log.txt
+::----------------Google Chrome--------------------------------
 ECHO %time% - Apps - Google Chrome Installing... >> C:\Apps\log.txt
 choco install googlechrome -y
 ECHO %time% - Apps - Google Chrome Finished >> C:\Apps\log.txt
+::----------------FireFox--------------------------------------
 ECHO %time% - Apps - FireFox Installing... >> C:\Apps\log.txt
 choco install firefox -y
 DEL "C:\Users\Public\Desktop\Firefox.lnk" /f /q
 ECHO %time% - Apps - FireFox Finished >> C:\Apps\log.txt
+::----------------VLC Media Player-----------------------------
 ECHO %time% - Apps - VLC Installing... >> C:\Apps\log.txt
 choco install vlc -y
 DEL "C:\Users\Public\Desktop\VLC media player.lnk" /f /q
 ECHO %time% - Apps - VLC Finished >> C:\Apps\log.txt
+::----------------VMware Horizon Client-----------------------
 ECHO %time% - Apps - VMware Horizon Client Installing... >> C:\Apps\log.txt
 choco install vmware-horizon-client -y
 REG ADD "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /T REG_SZ /V ServerURL /D view.childrenfamily.org /f
 ECHO %time% - Apps - VMware Horizon Client Finished >> C:\Apps\log.txt
+::----------------Zoom Client---------------------------------
+ECHO %time% - Apps - Zoom Client Installing... >> C:\Apps\log.txt
+choco install Zoom -y
+ECHO %time% - Apps - Zoom Client Finished >> C:\Apps\log.txt
 ECHO %time% - Apps - Finish >> C:\Apps\log.txt
 
 
