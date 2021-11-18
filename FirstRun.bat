@@ -1,4 +1,4 @@
-SET Version=Version 1.3
+SET Version=Version 1.4
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -17,15 +17,16 @@ CALL :SetupUserAccounts
 CALL :InstallChoco
 CALL :ActivateMainScript
 ECHO OFF
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
 CLS
 ECHO Restarting PC...
 ECHO.
 ECHO Watch C:\Apps\Log.txt for status
 ECHO %time% - FirstRun - Finish >> C:\Apps\log.txt
 ECHO.
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
+
 PAUSE
 SHUTDOWN -r -t 0
 EXIT
