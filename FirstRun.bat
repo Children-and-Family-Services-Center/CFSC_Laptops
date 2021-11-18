@@ -38,9 +38,7 @@ FIND "%Version%" C:\Apps\FirstRun.bat
 IF %ERRORLEVEL%==0 ECHO %time% - UpdateFirstRun - Updated >> C:\Apps\log.txt & EXIT /b
 ECHO %time% - UpdateFirstRun - OutDated - Relaunching >> C:\Apps\log.txt
 CALL C:\apps\FirstRun.bat
-ECHO %time% - UpdateFirstRun - Finish >> C:\Apps\log.txt
-EXIT /b
-
+EXIT
 
 ::RenamePC-----------------------------------------------------
 :RenamePC
