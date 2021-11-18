@@ -1,4 +1,4 @@
-SET Version=Version 1.4
+SET Version=Version 1.5
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -54,7 +54,7 @@ EXIT /b
 :SetupUserAccounts
 NET USER Administrator /ACTIVE:YES
 NET USER Administrator %password%
-for /F %%i in ('net localgroup Administrators') do net localgroup Administrators %%i /delete
+for /F "delims=" %%i in ( 'net localgroup Administrators' ) do ( net localgroup Administrators "%%i" /delete )
 NET USER CFSC /ADD
 NET LOCALGROUP Users CFSC /ADD
 WMIC UserAccount WHERE "Name='CFSC'" SET PasswordExpires=FALSE
