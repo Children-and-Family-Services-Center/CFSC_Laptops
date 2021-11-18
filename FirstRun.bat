@@ -8,6 +8,7 @@ CALL :RenamePC
 CALL :SetupUserAccounts
 CALL :InstallChoco
 CALL :ActivateMainScript
+ECHO OFF
 CLS
 ECHO Restarting PC, Login as Administrator
 ECHO Watch C:\Apps\Log.txt for status
