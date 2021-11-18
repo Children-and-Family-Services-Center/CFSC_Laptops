@@ -8,10 +8,11 @@ ECHO %time% - Start >> C:\Apps\log.txt
 CALL :RenamePC
 CALL :CheckInternet
 CALL :UpdateMain
-CALL :UpdateVMwareClient
+::CALL :UpdateVMwareClient
 CALL :UpdateScreenConnect
 CALL :DisableIPv6
 CALL :WiFiPreload
+CALL :Apps
 CALL :CleanupVMwareDumpFiles
 CALL :TruncateLog
 
@@ -124,3 +125,29 @@ ECHO %time% - DisableIPv6 - Start >> C:\Apps\log.txt
 REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /T REG_DWORD /V DisabledComponents /D 0x11 /F
 ECHO %time% - DisableIPv6 - Finish >> C:\Apps\log.txt
 EXIT /b
+
+::Apps---------------------------------------------------------
+:Apps
+ECHO %time% - Apps - Start >> C:\Apps\log.txt
+ECHO %time% - Apps - Adobe Reader Installing... >> C:\Apps\log.txt
+choco install adobereader -y
+ECHO %time% - Apps - Adobe Reader Finished >> C:\Apps\log.txt
+ECHO %time% - Apps - Google Chrome Installing... >> C:\Apps\log.txt
+choco install googlechrome -y
+ECHO %time% - Apps - Google Chrome Finished >> C:\Apps\log.txt
+ECHO %time% - Apps - FireFox Installing... >> C:\Apps\log.txt
+choco install firefox -y
+DEL "C:\Users\Public\Desktop\Firefox.lnk" /f /q
+ECHO %time% - Apps - FireFox Finished >> C:\Apps\log.txt
+ECHO %time% - Apps - VLC Installing... >> C:\Apps\log.txt
+choco install vlc -y
+DEL "C:\Users\Public\Desktop\VLC media player.lnk" /f /q
+ECHO %time% - Apps - VLC Finished >> C:\Apps\log.txt
+ECHO %time% - Apps - VMware Horizon Client Installing... >> C:\Apps\log.txt
+choco install vmware-horizon-client -y
+REG ADD "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /T REG_SZ /V ServerURL /D view.childrenfamily.org /f
+ECHO %time% - Apps - VMware Horizon Client Finished >> C:\Apps\log.txt
+ECHO %time% - Apps - Finish >> C:\Apps\log.txt
+
+
+
