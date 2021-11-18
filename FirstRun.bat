@@ -1,9 +1,17 @@
+SET Version=Version 1.0
+IF NOT EXIST C:\Apps MD C:\Apps
+ECHO. >> C:\Apps\log.txt
+ECHO %date% %time% >> C:\Apps\log.txt
+ECHO %Version% >> C:\Apps\log.txt
+ECHO %time% - FirstRun - Start >> C:\Apps\log.txt
+
 set "psCommand=powershell -Command "$pword = read-host 'Administrator Password? ' -AsSecureString ; ^
     $BSTR=[System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($pword); ^
         [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)""
 for /f "usebackq delims=" %%p in (`%psCommand%`) do set password=%%p
 CLS
 
+CALL :UpdateFirstRun
 CALL :RenamePC
 CALL :SetupUserAccounts
 CALL :InstallChoco
@@ -12,9 +20,22 @@ ECHO OFF
 CLS
 ECHO Restarting PC, Login as Administrator
 ECHO Watch C:\Apps\Log.txt for status
+ECHO %time% - FirstRun - Finish >> C:\Apps\log.txt
 PAUSE
 SHUTDOWN -r -t 0
 EXIT
+
+::UpdateFirstRun-----------------------------------------------
+:UpdateFirstRun
+ECHO %time% - UpdateFirstRun - Start >> C:\Apps\log.txt
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/FirstRun.bat -O C:\Apps\FirstRun.bat
+FIND "%Version%" C:\Apps\FirstRun.bat
+IF %ERRORLEVEL%==0 ECHO %time% - UpdateFirstRun - Updated >> C:\Apps\log.txt & EXIT /b
+ECHO %time% - UpdateFirstRun - OutDated - Relaunching >> C:\Apps\log.txt
+CALL C:\apps\UpdateFirstRun.bat
+ECHO %time% - UpdateFirstRun - Finish >> C:\Apps\log.txt
+EXIT /b
+
 
 ::RenamePC-----------------------------------------------------
 :RenamePC
