@@ -1,4 +1,4 @@
-SET Version=Version 1.5
+SET Version=Version 1.6
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -20,6 +20,8 @@ ECHO OFF
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /T REG_DWORD /V DisablePrivacyExperience /D 1 /f
+
 CLS
 ECHO Restarting PC...
 ECHO.
@@ -28,7 +30,7 @@ ECHO %time% - FirstRun - Finish >> C:\Apps\log.txt
 ECHO.
 
 PAUSE
-SHUTDOWN -r -t 0
+SHUTDOWN -r -t 10
 EXIT
 
 ::UpdateFirstRun-----------------------------------------------
