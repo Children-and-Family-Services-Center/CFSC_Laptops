@@ -1,4 +1,4 @@
-SET Version=Version 1.6
+SET Version=Version 1.7
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -29,7 +29,6 @@ ECHO Watch C:\Apps\Log.txt for status
 ECHO %time% - FirstRun - Finish >> C:\Apps\log.txt
 ECHO.
 
-PAUSE
 SHUTDOWN -r -t 10
 EXIT
 
