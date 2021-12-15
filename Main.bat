@@ -1,4 +1,4 @@
-SET Version=Version 3.30
+SET Version=Version 3.31
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -6,6 +6,7 @@ ECHO %Version% >> C:\Apps\log.txt
 ECHO %time% - Start >> C:\Apps\log.txt
 
 CALL :RenamePC
+CALL :UpdateTimeZone
 CALL :CheckInternet
 CALL :UpdateMain
 ::CALL :UpdateVMwareClient
