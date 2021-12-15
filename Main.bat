@@ -1,4 +1,4 @@
-SET Version=Version 3.29
+SET Version=Version 3.30
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -18,6 +18,14 @@ CALL :TruncateLog
 
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
+
+::UpdateTimeZone--------------------------------------------------------------------
+:UpdateTimeZone
+ECHO %time% - UpdateTimeZone - Start >> C:\Apps\log.txt
+tzutil /s "Eastern Standard Time"
+ECHO %time% - UpdateTimeZone - Finish >> C:\Apps\log.txt
+EXIT /b
+
 
 ::CheckInternet--------------------------------------------------------------------
 :CheckInternet
