@@ -165,8 +165,12 @@ ECHO %time% - Apps - VMware Horizon Client Finished >> C:\Apps\log.txt
 ECHO %time% - Apps - Zoom Client Installing... >> C:\Apps\log.txt
 choco upgrade Zoom -y --install-if-not-installed
 ECHO %time% - Apps - Zoom Client Finished >> C:\Apps\log.txt
+::----------------App Configs---------------------------------
+ECHO %time% - Apps - App Configs... >> C:\Apps\log.txt
+REG ADD HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main /v PreventFirstRunPage /t REG_DWORD /d 1 /f
+ECHO %time% - Apps - App Configs Finished >> C:\Apps\log.txt
 ECHO %time% - Apps - Finish >> C:\Apps\log.txt
-
+EXIT /b
 
 ::FileAssociations--------------------------------------------------------------------
 :FileAssociations
