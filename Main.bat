@@ -1,4 +1,4 @@
-SET Version=Version 3.32
+SET Version=Version 3.33
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -13,6 +13,7 @@ CALL :UpdateScreenConnect
 CALL :DisableIPv6
 CALL :WiFiPreload
 CALL :Apps
+CALL :FileAssociations
 CALL :CleanupVMwareDumpFiles
 CALL :TruncateLog
 
@@ -166,5 +167,13 @@ choco upgrade Zoom -y --install-if-not-installed
 ECHO %time% - Apps - Zoom Client Finished >> C:\Apps\log.txt
 ECHO %time% - Apps - Finish >> C:\Apps\log.txt
 
+
+::FileAssociations--------------------------------------------------------------------
+:FileAssociations
+ECHO %time% - FileAssociations - Start >> C:\Apps\log.txt
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/AppAssoc.xml -O C:\Apps\AppAssoc.xml
+DISM /Online /Export-DefaultAppAssociations:C:\Apps\AppAssoc.xml
+ECHO %time% - FileAssociations - Finish >> C:\Apps\log.txt
+EXIT /b
 
 
