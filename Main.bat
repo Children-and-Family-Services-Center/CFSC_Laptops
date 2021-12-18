@@ -1,4 +1,4 @@
-SET Version=Version 3.36
+SET Version=Version 3.37
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -123,7 +123,6 @@ EXIT /b
 :WiFiPreload
 ECHO %time% - WiFiPreload - Start >> C:\Apps\log.txt
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
-XCOPY C:\Apps\WiFi-CFSCPublicPW.xml C:\Recovery\WiFi-CFSCPublicPW.xml /C /R /Y
 netsh wlan show profiles | find "CFSC Public PW"
 IF %ERRORLEVEL%==0 ECHO %time% - WiFiPreload - WiFi Already Loaded >> C:\Apps\log.txt & EXIT /b
 netsh wlan add profile filename="C:\Apps\WiFi-CFSCPublicPW.xml" interface="Wi-Fi" user=all
