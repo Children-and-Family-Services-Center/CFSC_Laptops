@@ -1,4 +1,4 @@
-SET Version=Version 3.37
+SET Version=Version 3.38
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -26,8 +26,7 @@ EXIT
 ::UnattendUpdate--------------------------------------------------------------------
 :UnattendUpdate
 ECHO %time% - UnattendUpdate - Start >> C:\Apps\log.txt
-IF NO EXIST C:\Recovery\AutoApply MD C:\Recovery\AutoApply
-Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Unattend.xml -O C:\Recovery\AutoApply\Unattend.xml
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Unattend.xml -O C:\Apps\Unattend.xml
 ECHO %time% - UnattendUpdate - Finish >> C:\Apps\log.txt
 EXIT /b
 
