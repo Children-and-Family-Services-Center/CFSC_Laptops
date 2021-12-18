@@ -1,4 +1,4 @@
-SET Version=Version 3.33
+SET Version=Version 3.34
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -8,10 +8,12 @@ ECHO %time% - Start >> C:\Apps\log.txt
 CALL :RenamePC
 CALL :UpdateTimeZone
 CALL :CheckInternet
+CALL :UpdateFirstRun
 CALL :UpdateMain
 CALL :UpdateScreenConnect
 CALL :DisableIPv6
 CALL :WiFiPreload
+CALL :UnattendUpdate
 CALL :Apps
 CALL :FileAssociations
 CALL :CleanupVMwareDumpFiles
@@ -19,6 +21,25 @@ CALL :TruncateLog
 
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
+
+
+::UnattendUpdate--------------------------------------------------------------------
+:UnattendUpdate
+ECHO %time% - UnattendUpdate - Start >> C:\Apps\log.txt
+IF NO EXIST C:\Recovery\AutoApply MD C:\Recovery\AutoApply
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Unattend.xml -O C:\Recovery\AutoApply\Unattend.xml
+ECHO %time% - UnattendUpdate - Finish >> C:\Apps\log.txt
+EXIT /b
+
+
+::UpdateFirstRun--------------------------------------------------------------------
+:UpdateFirstRun
+ECHO %time% - UpdateFirstRun - Start >> C:\Apps\log.txt
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/FirstRun.bat -O C:\Apps\FirstRun.bat
+XCOPY C:\Apps\FirstRun.bat C:\Recovery\Scripts\FirstRun.bat /C /R /Y
+ECHO %time% - UpdateFirstRun - Finish >> C:\Apps\log.txt
+EXIT /b
+
 
 ::UpdateTimeZone--------------------------------------------------------------------
 :UpdateTimeZone
@@ -101,6 +122,7 @@ EXIT /b
 :WiFiPreload
 ECHO %time% - WiFiPreload - Start >> C:\Apps\log.txt
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Apps\WiFi-CFSCPublicPW.xml
+XCOPY C:\Apps\WiFi-CFSCPublicPW.xml C:\Recovery\Scripts\WiFi-CFSCPublicPW.xml /C /R /Y
 netsh wlan show profiles | find "CFSC Public PW"
 IF %ERRORLEVEL%==0 ECHO %time% - WiFiPreload - WiFi Already Loaded >> C:\Apps\log.txt & EXIT /b
 netsh wlan add profile filename="C:\Apps\WiFi-CFSCPublicPW.xml" interface="Wi-Fi" user=all
