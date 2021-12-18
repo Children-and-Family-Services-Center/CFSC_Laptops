@@ -1,4 +1,4 @@
-SET Version=Version 3.34
+SET Version=Version 3.35
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -35,6 +35,7 @@ EXIT /b
 ::UpdateFirstRun--------------------------------------------------------------------
 :UpdateFirstRun
 ECHO %time% - UpdateFirstRun - Start >> C:\Apps\log.txt
+IF NO EXIST C:\Recovery\AutoApply MD C:\Recovery\AutoApply
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/FirstRun.bat -O C:\Apps\FirstRun.bat
 XCOPY C:\Apps\FirstRun.bat C:\Recovery\Scripts\FirstRun.bat /C /R /Y
 ECHO %time% - UpdateFirstRun - Finish >> C:\Apps\log.txt
