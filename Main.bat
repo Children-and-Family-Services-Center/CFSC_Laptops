@@ -8,7 +8,7 @@ ECHO %time% - Start >> C:\Apps\log.txt
 CALL :RenamePC
 CALL :UpdateTimeZone
 CALL :CheckInternet
-CALL :UpdateFirstRun
+::CALL :UpdateFirstRun
 CALL :UpdateMain
 CALL :UpdateScreenConnect
 CALL :DisableIPv6
