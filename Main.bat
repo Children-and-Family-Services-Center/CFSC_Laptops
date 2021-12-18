@@ -1,4 +1,4 @@
-SET Version=Version 3.38
+SET Version=Version 3.39
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -8,20 +8,25 @@ ECHO %time% - Start >> C:\Apps\log.txt
 CALL :RenamePC
 CALL :UpdateTimeZone
 CALL :CheckInternet
-::CALL :UpdateFirstRun
 CALL :UpdateMain
 CALL :UpdateScreenConnect
 CALL :DisableIPv6
 CALL :WiFiPreload
-CALL :UnattendUpdate
 CALL :Apps
 CALL :FileAssociations
 CALL :CleanupVMwareDumpFiles
 CALL :TruncateLog
-
+IF EXIST C:\Recovery\Test GOTO test
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
 
+:test
+ECHO %time% - Test Started >> C:\Apps\log.txt
+::CALL :UpdateFirstRun
+CALL :UnattendUpdate
+ECHO %time% - Test Finished >> C:\Apps\log.txt
+ECHO %time% - Finish >> C:\Apps\log.txt
+EXIT
 
 ::UnattendUpdate--------------------------------------------------------------------
 :UnattendUpdate
