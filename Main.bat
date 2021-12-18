@@ -22,8 +22,9 @@ EXIT
 
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
+MD C:\Apps\Test
 ::CALL :UpdateFirstRun
-CALL :UnattendUpdate
+::CALL :UnattendUpdate
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
