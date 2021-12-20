@@ -1,0 +1,1 @@
+XCOPY C:\Apps\ C:\Recovery\Apps\ /C /I /H /Y
