@@ -36,12 +36,12 @@
             </AutoLogon>
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>netsh wlan add profile filename=&quot;C:\Recovery\WiFi-CFSCPublicPW.xml&quot; interface=&quot;Wi-Fi&quot; user=all</CommandLine>
+                    <CommandLine>netsh wlan add profile filename=&quot;C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml&quot; interface=&quot;Wi-Fi&quot; user=all</CommandLine>
                     <Description>WiFi-Preload</Description>
                     <Order>1</Order>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>C:\Recovery\FirstRun.bat</CommandLine>
+                    <CommandLine>C:\Recovery\AutoApply\FirstRun.bat</CommandLine>
                     <Description>FirstRun</Description>
                     <Order>2</Order>
                     <RequiresUserInput>true</RequiresUserInput>
