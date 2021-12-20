@@ -36,7 +36,7 @@ EXIT
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
 
-
+SCHTASKS /CREATE /SC ONCE /TN "CFSC_Recovery_Sync" /TR "C:\Apps\Recovery.bat" /V1 /RU Administrator /RP %password%
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
