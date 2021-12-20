@@ -1,4 +1,4 @@
-SET Version=Version 3.40
+SET Version=Version 3.41
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -16,7 +16,9 @@ CALL :Apps
 CALL :FileAssociations
 CALL :CleanupVMwareDumpFiles
 CALL :TruncateLog
+
 IF EXIST C:\Recovery\Test GOTO test
+
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
 

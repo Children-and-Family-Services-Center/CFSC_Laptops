@@ -1,4 +1,4 @@
-SET Version=Version 1.7
+SET Version=Version 1.8
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -23,6 +23,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /T REG_DWORD /V DisablePrivacyExperience /D 1 /f
 
 CLS
+IF EXIST C:\Recovery\Test GOTO test
 ECHO Restarting PC...
 ECHO.
 ECHO Watch C:\Apps\Log.txt for status
@@ -30,6 +31,15 @@ ECHO %time% - FirstRun - Finish >> C:\Apps\log.txt
 ECHO.
 
 SHUTDOWN -r -t 10
+EXIT
+
+:test
+ECHO %time% - Test Started >> C:\Apps\log.txt
+
+
+
+ECHO %time% - Test Finished >> C:\Apps\log.txt
+ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
 
 ::UpdateFirstRun-----------------------------------------------
