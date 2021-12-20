@@ -1,4 +1,4 @@
-SET Version=Version 3.41
+SET Version=Version 3.42
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -25,6 +25,7 @@ EXIT
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
 MD C:\Apps\Test
+MD C:\Recovery\Test
 ::CALL :UpdateFirstRun
 ::CALL :UnattendUpdate
 ECHO %time% - Test Finished >> C:\Apps\log.txt
