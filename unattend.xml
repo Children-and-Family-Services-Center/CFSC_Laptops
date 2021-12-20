@@ -34,18 +34,19 @@
                     <PlainText>false</PlainText>
                 </Password>
             </AutoLogon>
-			<FirstLogonCommands>
-				<SynchronousCommand wcm:action="add">
-					<CommandLine>netsh wlan add profile filename="C:\Recovery\Scripts\WiFi-CFSCPublicPW.xml" interface="Wi-Fi" user=all</CommandLine>
-					<Description>WiFi-Preload</Description>
-					<Order>1</Order>
-				</SynchronousCommand>
-				<SynchronousCommand wcm:action="add">
-					<CommandLine>C:\Recovery\Scripts\FirstRun.bat</CommandLine>
-					<Description>FirstRun</Description>
-					<Order>2</Order>
-				</SynchronousCommand>
-			</FirstLogonCommands>
+            <FirstLogonCommands>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>netsh wlan add profile filename=&quot;C:\Recovery\WiFi-CFSCPublicPW.xml&quot; interface=&quot;Wi-Fi&quot; user=all</CommandLine>
+                    <Description>WiFi-Preload</Description>
+                    <Order>1</Order>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>C:\Recovery\FirstRun.bat</CommandLine>
+                    <Description>FirstRun</Description>
+                    <Order>2</Order>
+                    <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
+            </FirstLogonCommands>
         </component>
     </settings>
     <cpi:offlineImage cpi:source="wim:d:/win10_pro_20h2/sources/install.wim#Windows 10 Pro" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
