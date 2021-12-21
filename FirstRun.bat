@@ -1,4 +1,4 @@
-SET Version=Version 1.9
+SET Version=Version 2.0
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -36,8 +36,8 @@ EXIT
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
 
-Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Recovery.bat -O C:\Apps\Recovery.bat
-SCHTASKS /CREATE /SC ONCE /ST 00:00 /TN "CFSC_Recovery_Sync" /TR "C:\Apps\Recovery.bat" /V1 /RU Administrator /RP %password%
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Recovery.bat -O C:\Apps\AutoApply\Recovery.bat
+SCHTASKS /CREATE /SC ONCE /ST 00:00 /TN "CFSC_Recovery_Sync" /TR "C:\Apps\AutoApply\Recovery.bat" /V1 /RU Administrator /RP %password%
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
