@@ -5,7 +5,6 @@ ECHO %date% %time% >> C:\Apps\log.txt
 ECHO %Version% >> C:\Apps\log.txt
 ECHO %time% - Start >> C:\Apps\log.txt
 
-CALL :RenamePC
 CALL :UpdateTimeZone
 CALL :CheckInternet
 CALL :UpdateMain
