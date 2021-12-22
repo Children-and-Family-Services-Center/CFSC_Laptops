@@ -1,4 +1,4 @@
-SET Version=Version 2.0
+SET Version=Version 2.1
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -23,7 +23,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /T REG_DWORD /V DisablePrivacyExperience /D 1 /f
 
 CLS
-IF EXIST C:\Recovery\Test GOTO test
+IF EXIST C:\Recovery\AutoApply\Test GOTO test
 ECHO Restarting PC...
 ECHO.
 ECHO Watch C:\Apps\Log.txt for status
