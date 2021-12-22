@@ -1,4 +1,5 @@
-SET Version=Version 2.2
+ECHO OFF
+SET Version=Version 2.3
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -11,12 +12,13 @@ set "psCommand=powershell -Command "$pword = read-host 'Administrator Password? 
 for /f "usebackq delims=" %%p in (`%psCommand%`) do set password=%%p
 CLS
 
+CALL :CheckInternet
 CALL :UpdateFirstRun
 CALL :RenamePC
 CALL :SetupUserAccounts
 CALL :InstallChoco
 CALL :ActivateMainScript
-ECHO OFF
+
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
@@ -44,6 +46,18 @@ ECHO %time% - Finish >> C:\Apps\log.txt
 SHUTDOWN -r -t 10
 EXIT
 
+::CheckInternet--------------------------------------------------------------------
+:CheckInternet
+SET REPEAT=0
+:REPEAT
+IF %REPEAT%==5 CLS & ECHO No Internet - Please Connect to Internet and press Enter & PAUSE & SET REPEAT=0
+SET /a REPEAT=%REPEAT%+1
+PING google.com -n 1
+CLS
+IF %ERRORLEVEL%==1 ECHO Attempt %REPEAT% - No Internet... & TIMEOUT /T 5 & GOTO REPEAT
+CLS
+EXIT /b
+
 ::UpdateFirstRun-----------------------------------------------
 :UpdateFirstRun
 ECHO %time% - UpdateFirstRun - Start >> C:\Apps\log.txt
@@ -52,7 +66,7 @@ FIND "%Version%" C:\Apps\FirstRun.bat
 IF %ERRORLEVEL%==0 ECHO %time% - UpdateFirstRun - Updated >> C:\Apps\log.txt & EXIT /b
 ECHO %time% - UpdateFirstRun - OutDated - Relaunching >> C:\Apps\log.txt
 CALL C:\apps\FirstRun.bat
-EXIT
+EXIT /b
 
 ::RenamePC-----------------------------------------------------
 :RenamePC
