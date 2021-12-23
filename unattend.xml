@@ -42,6 +42,16 @@
                     <Order>2</Order>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>WMIC UserAccount WHERE "Name='CFSC'" SET PasswordExpires=FALSE</CommandLine>
+                    <Description>CFSCPasswordExpire</Description>
+                    <Order>3</Order>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>WMIC UserAccount WHERE "Name='CFSC'" SET PasswordChangeable=FALSE</CommandLine>
+                    <Description>CFSCPasswordChange</Description>
+                    <Order>4</Order>
+                </SynchronousCommand>
             </FirstLogonCommands>
         </component>
     </settings>
