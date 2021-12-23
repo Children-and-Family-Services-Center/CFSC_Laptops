@@ -5,8 +5,9 @@ CALL :UpdateTimeZone
 CALL :RenamePC
 CALL :InstallChoco
 CALL :ActivateMainScript
+CALL :AutoLogon
 
-
+SHUTDOWN -r -t 5
 EXIT
 
 ::CheckInternet--------------------------------------------------------------------
@@ -44,4 +45,14 @@ IF NOT EXIST C:\Apps MD C:\Apps
 SCHTASKS /CREATE /SC ONSTART /TN "CFSC_Main" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F
 IF %PROCESSOR_ARCHITECTURE%==AMD64 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat -O C:\Apps\Main.bat
 IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
+EXIT /b
+
+::AutoLogon-----------------------------------------------------
+:AutoLogon
+ECHO %time% - AutoLogon - Start >> C:\Apps\log.txt
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /T REG_DWORD /V DisablePrivacyExperience /D 1 /f
+ECHO %time% - AutoLogon - Finish >> C:\Apps\log.txt
 EXIT /b
