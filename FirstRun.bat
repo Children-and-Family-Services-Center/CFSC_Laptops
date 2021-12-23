@@ -1,5 +1,5 @@
 @ECHO OFF
-SET Version=Version 2.3
+SET Version=Version 2.4
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
