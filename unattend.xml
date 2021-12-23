@@ -26,13 +26,9 @@
                 </AdministratorPassword>
             </UserAccounts>
             <AutoLogon>
-                <Username>Administrator</Username>
+                <Username>CFSC</Username>
                 <Enabled>true</Enabled>
                 <LogonCount>1</LogonCount>
-                <Password>
-                    <Value>RQB6ADQAbQBlADIAZABAAHkAUABhAHMAcwB3AG8AcgBkAA==</Value>
-                    <PlainText>false</PlainText>
-                </Password>
             </AutoLogon>
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">

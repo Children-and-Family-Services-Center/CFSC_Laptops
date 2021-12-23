@@ -3,6 +3,7 @@
 CALL :CheckInternet
 CALL :UpdateTimeZone
 CALL :RenamePC
+CALL :SetupUserAccounts
 CALL :InstallChoco
 CALL :ActivateMainScript
 CALL :AutoLogon
@@ -49,10 +50,19 @@ EXIT /b
 
 ::AutoLogon-----------------------------------------------------
 :AutoLogon
-ECHO %time% - AutoLogon - Start >> C:\Apps\log.txt
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /T REG_DWORD /V DisablePrivacyExperience /D 1 /f
-ECHO %time% - AutoLogon - Finish >> C:\Apps\log.txt
+EXIT /b
+
+::SetupUserAccounts-----------------------------------------------------
+:SetupUserAccounts
+NET USER Administrator /ACTIVE:YES
+NET USER Administrator %password%
+for /F "delims=" %%i in ( 'net localgroup Administrators' ) do ( net localgroup Administrators "%%i" /delete )
+NET USER CFSC /ADD
+NET LOCALGROUP Users CFSC /ADD
+WMIC UserAccount WHERE "Name='CFSC'" SET PasswordExpires=FALSE
+WMIC UserAccount WHERE "Name='CFSC'" SET PasswordChangeable=FALSE
 EXIT /b
