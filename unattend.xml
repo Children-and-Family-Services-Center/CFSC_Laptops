@@ -41,8 +41,8 @@
                     <Order>1</Order>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>C:\Recovery\AutoApply\FirstRun.bat</CommandLine>
-                    <Description>FirstRun</Description>
+                    <CommandLine>C:\Recovery\AutoApply\Restore.bat</CommandLine>
+                    <Description>Restore</Description>
                     <Order>2</Order>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>

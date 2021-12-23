@@ -1,4 +1,4 @@
-ECHO OFF
+@ECHO OFF
 SET Version=Version 2.3
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
