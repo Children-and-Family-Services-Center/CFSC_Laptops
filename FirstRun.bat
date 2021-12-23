@@ -1,5 +1,5 @@
 @ECHO OFF
-SET Version=Version 2.6
+SET Version=Version 2.7
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -32,16 +32,6 @@ SHUTDOWN -r -t 10
 EXIT
 
 
-::AutoLogon-----------------------------------------------------
-:AutoLogon
-ECHO %time% - AutoLogon - Start >> C:\Apps\log.txt
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /T REG_DWORD /V DisablePrivacyExperience /D 1 /f
-ECHO %time% - AutoLogon - Finish >> C:\Apps\log.txt
-EXIT /b
-
 ::Test-----------------------------------------------------------
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
@@ -52,6 +42,16 @@ ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
 SHUTDOWN -r -t 10
 EXIT
+
+::AutoLogon-----------------------------------------------------
+:AutoLogon
+ECHO %time% - AutoLogon - Start >> C:\Apps\log.txt
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /T REG_DWORD /V DisablePrivacyExperience /D 1 /f
+ECHO %time% - AutoLogon - Finish >> C:\Apps\log.txt
+EXIT /b
 
 ::CheckInternet--------------------------------------------------------------------
 :CheckInternet

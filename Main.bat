@@ -1,4 +1,4 @@
-SET Version=Version 3.47
+SET Version=Version 3.49
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -23,8 +23,7 @@ EXIT
 
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
-Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Recovery.bat -O C:\Apps\Recovery.bat
-SCHTASKS /RUN /TN "CFSC_Recovery_Sync"
+MD C:\Recovery\AutoApply\Testing
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
