@@ -1,6 +1,18 @@
 @ECHO OFF
+
+CALL :CheckInternet
+CALL :UpdateTimeZone
+CALL :RenamePC
+CALL :InstallChoco
+CALL :ActivateMainScript
+
+
+EXIT
+
 ::CheckInternet--------------------------------------------------------------------
+:CheckInternet
 SET REPEAT=0
+IF EXIST C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml netsh wlan add profile filename="C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 :REPEAT
 IF %REPEAT%==5 CLS & ECHO No Internet - Please Connect to Internet and press Enter & PAUSE & SET REPEAT=0
 SET /a REPEAT=%REPEAT%+1
@@ -8,5 +20,29 @@ PING google.com -n 1
 CLS
 IF %ERRORLEVEL%==1 ECHO Attempt %REPEAT% - No Internet... & TIMEOUT /T 5 & GOTO REPEAT
 CLS
-ECHO We Have Internet!
-PAUSE
+EXIT /b
+
+::UpdateTimeZone--------------------------------------------------------------------
+:UpdateTimeZone
+tzutil /s "Eastern Standard Time"
+EXIT /b
+
+::RenamePC-----------------------------------------------------
+:RenamePC
+FOR /F "Tokens=*" %%I IN ('powershell "gwmi win32_bios | Select-Object -Expand SerialNumber"') do SET name=%%I
+IF %COMPUTERNAME%==CFSC-L-%name:~-7% EXIT /b
+WMIC computersystem where caption='%computername%' rename 'CFSC-L-%name:~-7%'
+EXIT /b
+
+::InstallChoco-----------------------------------------------------
+:InstallChoco
+POWERSHELL Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+EXIT /b
+
+::ActivateMainScript-----------------------------------------------------
+:ActivateMainScript
+IF NOT EXIST C:\Apps MD C:\Apps
+SCHTASKS /CREATE /SC ONSTART /TN "CFSC_Main" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F
+IF %PROCESSOR_ARCHITECTURE%==AMD64 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat -O C:\Apps\Main.bat
+IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
+EXIT /b
