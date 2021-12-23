@@ -1,5 +1,5 @@
 @ECHO OFF
-SET Version=Version 2.4
+SET Version=Version 2.6
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -18,11 +18,7 @@ CALL :RenamePC
 CALL :SetupUserAccounts
 CALL :InstallChoco
 CALL :ActivateMainScript
-
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /T REG_DWORD /V DisablePrivacyExperience /D 1 /f
+CALL :AutoLogon
 
 CLS
 IF EXIST C:\Recovery\AutoApply\Test GOTO test
@@ -35,9 +31,20 @@ ECHO.
 SHUTDOWN -r -t 10
 EXIT
 
+
+::AutoLogon-----------------------------------------------------
+:AutoLogon
+ECHO %time% - AutoLogon - Start >> C:\Apps\log.txt
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D CFSC /f
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V AutoAdminLogon /D 1 /f
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultPassword /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /T REG_DWORD /V DisablePrivacyExperience /D 1 /f
+ECHO %time% - AutoLogon - Finish >> C:\Apps\log.txt
+EXIT /b
+
+::Test-----------------------------------------------------------
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
-
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Recovery.bat -O C:\Recovery\AutoApply\Recovery.bat
 SCHTASKS /CREATE /SC ONCE /ST 00:00 /TN "CFSC_Recovery_Sync" /TR "C:\Recovery\AutoApply\Recovery.bat" /V1 /RU Administrator /RP %password% /F
 SCHTASKS /RUN /TN "CFSC_Recovery_Sync"
@@ -48,6 +55,7 @@ EXIT
 
 ::CheckInternet--------------------------------------------------------------------
 :CheckInternet
+ECHO %time% - CheckInternet - Start >> C:\Apps\log.txt
 SET REPEAT=0
 :REPEAT
 IF %REPEAT%==5 CLS & ECHO No Internet - Please Connect to Internet and press Enter & PAUSE & SET REPEAT=0
@@ -56,6 +64,7 @@ PING google.com -n 1
 CLS
 IF %ERRORLEVEL%==1 ECHO Attempt %REPEAT% - No Internet... & TIMEOUT /T 5 & GOTO REPEAT
 CLS
+ECHO %time% - CheckInternet - Finished >> C:\Apps\log.txt
 EXIT /b
 
 ::UpdateFirstRun-----------------------------------------------
@@ -79,6 +88,7 @@ EXIT /b
 
 ::SetupUserAccounts-----------------------------------------------------
 :SetupUserAccounts
+ECHO %time% - SetupUserAccounts - Start >> C:\Apps\log.txt
 NET USER Administrator /ACTIVE:YES
 NET USER Administrator %password%
 for /F "delims=" %%i in ( 'net localgroup Administrators' ) do ( net localgroup Administrators "%%i" /delete )
@@ -86,17 +96,22 @@ NET USER CFSC /ADD
 NET LOCALGROUP Users CFSC /ADD
 WMIC UserAccount WHERE "Name='CFSC'" SET PasswordExpires=FALSE
 WMIC UserAccount WHERE "Name='CFSC'" SET PasswordChangeable=FALSE
+ECHO %time% - SetupUserAccounts - Finished >> C:\Apps\log.txt
 EXIT /b
 
 ::InstallChoco-----------------------------------------------------
 :InstallChoco
+ECHO %time% - InstallChoco - Start >> C:\Apps\log.txt
 POWERSHELL Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+ECHO %time% - InstallChoco - Finished >> C:\Apps\log.txt
 EXIT /b
 
 ::ActivateMainScript-----------------------------------------------------
 :ActivateMainScript
+ECHO %time% - ActivateMainScript - Start >> C:\Apps\log.txt
 IF NOT EXIST C:\Apps MD C:\Apps
 SCHTASKS /CREATE /SC ONSTART /TN "CFSC_Main" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F
 IF %PROCESSOR_ARCHITECTURE%==AMD64 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat -O C:\Apps\Main.bat
 IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
+ECHO %time% - ActivateMainScript - Finished >> C:\Apps\log.txt
 EXIT /b

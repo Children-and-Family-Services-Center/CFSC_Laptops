@@ -12,7 +12,6 @@ EXIT
 ::CheckInternet--------------------------------------------------------------------
 :CheckInternet
 SET REPEAT=0
-IF EXIST C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml netsh wlan add profile filename="C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 :REPEAT
 IF %REPEAT%==5 CLS & ECHO No Internet - Please Connect to Internet and press Enter & PAUSE & SET REPEAT=0
 SET /a REPEAT=%REPEAT%+1
