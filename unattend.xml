@@ -14,43 +14,27 @@
                 <ProtectYourPC>3</ProtectYourPC>
             </OOBE>
             <UserAccounts>
-                <LocalAccounts>
-                    <LocalAccount wcm:action="add">
-                        <Name>CFSC</Name>
-                        <DisplayName>CFSC</DisplayName>
-                    </LocalAccount>
-                </LocalAccounts>
                 <AdministratorPassword>
                     <Value>RQB6ADQAbQBlADIAZABAAHkAQQBkAG0AaQBuAGkAcwB0AHIAYQB0AG8AcgBQAGEAcwBzAHcAbwByAGQA</Value>
                     <PlainText>false</PlainText>
                 </AdministratorPassword>
             </UserAccounts>
             <AutoLogon>
-                <Username>CFSC</Username>
+                <Username>Administrator</Username>
                 <Enabled>true</Enabled>
-                <LogonCount>1</LogonCount>
+                <LogonCount>999</LogonCount>
+                <Password>
+                    <Value>RQB6ADQAbQBlADIAZABAAHkAUABhAHMAcwB3AG8AcgBkAA==</Value>
+                    <PlainText>false</PlainText>
+                </Password>
+                <Domain>.</Domain>
             </AutoLogon>
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>netsh wlan add profile filename=&quot;C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml&quot; interface=&quot;Wi-Fi&quot; user=all</CommandLine>
-                    <Description>WiFi-Preload</Description>
-                    <Order>1</Order>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
                     <CommandLine>C:\Recovery\AutoApply\Restore.bat</CommandLine>
                     <Description>Restore</Description>
-                    <Order>2</Order>
+                    <Order>1</Order>
                     <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>WMIC UserAccount WHERE "Name='CFSC'" SET PasswordExpires=FALSE</CommandLine>
-                    <Description>CFSCPasswordExpire</Description>
-                    <Order>3</Order>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>WMIC UserAccount WHERE "Name='CFSC'" SET PasswordChangeable=FALSE</CommandLine>
-                    <Description>CFSCPasswordChange</Description>
-                    <Order>4</Order>
                 </SynchronousCommand>
             </FirstLogonCommands>
         </component>
