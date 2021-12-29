@@ -16,7 +16,7 @@ EXIT
 netsh wlan add profile filename="C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml" interface="Wi-Fi" user=all
 SET REPEAT=0
 :REPEAT
-IF %REPEAT%==5 CLS & ECHO No Internet - Please Connect to Internet and press Enter & PAUSE & SET REPEAT=0
+IF %REPEAT%==5 CLS & ECHO No Internet - Please Connect to Internet and press Enter & TIMEOUT /T 60 & SET REPEAT=0
 SET /a REPEAT=%REPEAT%+1
 PING google.com -n 1
 CLS
