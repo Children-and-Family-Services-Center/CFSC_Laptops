@@ -1,4 +1,4 @@
-SET Version=Version 3.52
+SET Version=Version 3.53
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -27,7 +27,8 @@ Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Fami
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Restore.bat -O C:\Recovery\AutoApply\Restore.bat
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /V ServerURL /f
-Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/prefs.txt -O "C:\Users\CFSC\AppData\Roaming\VMware\VMware Horizon View Client\prefs.txt"
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/prefs.txt -O "C:\Apps\prefs.txt"
+XCOPY C:\Apps\prefs.txt "C:\Users\CFSC\AppData\Roaming\VMware\VMware Horizon View Client\prefs.txt" /R /Y
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
