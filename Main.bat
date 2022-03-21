@@ -1,4 +1,4 @@
-SET Version=Version 3.56
+SET Version=Version 3.57
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -66,38 +66,6 @@ CALL C:\apps\Main.bat
 ECHO %time% - UpdateMain - Finish >> C:\Apps\log.txt
 EXIT /b
 
-
-::UpdateVMMwareClient---------------------------------------------------------------
-:UpdateVMwareClient
-ECHO %time% - UpdateVMwareClient - Start >> C:\Apps\log.txt
-REG ADD "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /T REG_SZ /V ServerURL /D view.childrenfamily.org /f
-IF %PROCESSOR_ARCHITECTURE%==x86 GOTO OLD
-:NEW
-reg query "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /d /f "8.3.0"
-IF %errorlevel%==0 ECHO %time% - UpdateVMwareClient - 8.3.0 Installed >> C:\apps\log.txt & EXIT /b
-IF NOT EXIST C:\Apps\VMware_8.3.0.exe ECHO %time% - UpdateVMwareClient - Downloading 8.3.0 >> C:\apps\log.txt & Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART22FQ2/VMware-Horizon-Client-2106-8.3.0-18287501.exe -O C:\Apps\VMware_8.3.0.exe
-ECHO C:\Apps\vmware_8.3.0.exe /q /i /norestart > C:\Apps\install.bat
-ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
-ECHO DEL C:\Apps\install.bat /F /Q >> C:\Apps\install.bat
-SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
-tasklist | find "vmware-view.exe"
-IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
-ECHO %time% - UpdateVMwareClient - Installed >> C:\Apps\log.txt
-ECHO %time% - UpdateVMwareClient - Finish >> C:\Apps\log.txt
-EXIT /b
-:OLD 
-reg query "HKLM\SOFTWARE\VMware, Inc.\VMware VDM\Client" /d /f "5.5.2"
-IF %errorlevel%==0 ECHO %time% - 5.5.2 Installed >> C:\apps\log.txt & EXIT /b
-IF NOT EXIST C:\Apps\VMware_5.5.2.exe ECHO ECHO %time% - UpdateVMwareClient - Downloading 5.5.2 >> C:\apps\log.txt & Powershell Invoke-WebRequest https://download3.vmware.com/software/view/viewclients/CART21FQ3/VMware-Horizon-Client-5.5.2-18035009.exe -O C:\Apps\VMware_5.5.2.exe
-ECHO C:\Apps\vmware_5.5.2.exe /q /i /norestart > C:\Apps\install.bat
-ECHO SCHTASKS /DELETE /TN "VMwareUpdate" /F >> C:\Apps\install.bat
-ECHO DEL C:\Apps\install.bat /F /Q >> C:\Apps\install.bat
-SCHTASKS /CREATE /SC ONSTART /TN "VMwareUpdate" /TR "C:\Apps\install.bat" /RU SYSTEM /NP /V1 /F /Z
-tasklist | find "vmware-view.exe"
-IF %ERRORLEVEL%==1 SCHTASKS /RUN /TN "VMwareUpdate"
-ECHO %time% - UpdateVMwareClient - Installed >> C:\Apps\log.txt
-ECHO %time% - UpdateVMwareClient - Finish >> C:\Apps\log.txt
-EXIT /b
 
 ::UpdateScreenConnect---------------------------------------------------------------
 :UpdateScreenConnect
@@ -171,6 +139,7 @@ ECHO %time% - Apps - VLC Finished >> C:\Apps\log.txt
 ECHO %time% - Apps - VMware Horizon Client Installing... >> C:\Apps\log.txt
 choco upgrade vmware-horizon-client -y --install-if-not-installed
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /V ServerURL /f
+REG DELETE "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /f
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/prefs.txt -O "C:\Apps\prefs.txt"
 XCOPY C:\Apps\prefs.txt "C:\Users\CFSC\AppData\Roaming\VMware\VMware Horizon View Client\prefs.txt" /R /Y
 ECHO %time% - Apps - VMware Horizon Client Finished >> C:\Apps\log.txt
