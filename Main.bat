@@ -1,4 +1,4 @@
-SET Version=Version 3.53
+SET Version=Version 3.54
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -27,8 +27,6 @@ Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Fami
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Restore.bat -O C:\Recovery\AutoApply\Restore.bat
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /V ServerURL /f
-Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/prefs.txt -O "C:\Apps\prefs.txt"
-XCOPY C:\Apps\prefs.txt "C:\Users\CFSC\AppData\Roaming\VMware\VMware Horizon View Client\prefs.txt" /R /Y
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
@@ -172,7 +170,8 @@ ECHO %time% - Apps - VLC Finished >> C:\Apps\log.txt
 ::----------------VMware Horizon Client-----------------------
 ECHO %time% - Apps - VMware Horizon Client Installing... >> C:\Apps\log.txt
 choco upgrade vmware-horizon-client -y --install-if-not-installed
-REG ADD "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /T REG_SZ /V ServerURL /D view.childrenfamily.org /f
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/prefs.txt -O "C:\Apps\prefs.txt"
+XCOPY C:\Apps\prefs.txt "C:\Users\CFSC\AppData\Roaming\VMware\VMware Horizon View Client\prefs.txt" /R /Y
 ECHO %time% - Apps - VMware Horizon Client Finished >> C:\Apps\log.txt
 ::----------------Zoom Client---------------------------------
 ECHO %time% - Apps - Zoom Client Installing... >> C:\Apps\log.txt
