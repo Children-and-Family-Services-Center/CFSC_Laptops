@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <RecentServer serverName="horizon.childrenfamily.org" serverGuid="ebb4e488-10ef-4ed1-91ba-5a50abe9b9a3" workspaceOneHostname="" hasValidCert="true" mruRSAUsername="jgaines" lastLogInAsCurrentUser="false" />
+  <RecentServer serverName="view.childrenfamily.org" serverGuid="9d0b1d4b-6d19-4e10-8501-6622b3478a65" workspaceOneHostname="" hasValidCert="true" />
+  <GlobalDefaultServer serverName="view.childrenfamily.org" />
+  <ApplicationJumpList />
+  <DesktopJumpList />
+  <BrokerJumpList>
+    <BrokerJump BrokerName="horizon.childrenfamily.org" BrokerArguments="vmware-view://horizon.childrenfamily.org/" />
+    <BrokerJump BrokerName="view.childrenfamily.org" BrokerArguments="vmware-view://view.childrenfamily.org/" />
+  </BrokerJumpList>
+  <AnonymousLoginEnabled />
+  <LastLoginAsCurrentUser />
+  <LastReconnectBehavior />
+</Root>
