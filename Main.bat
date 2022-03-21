@@ -1,4 +1,4 @@
-SET Version=Version 3.55
+SET Version=Version 3.56
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -127,6 +127,7 @@ RD "C:\Users\United Way\AppData\Local\VMware\VDM" /S /Q
 RD "C:\Users\CFSC\AppData\Local\VMware\VDM" /S /Q
 DEL %temp%\*.* /F /S /Q
 DEL C:\WINDOWS\Temp\*.* /F /S /Q
+DEL C:\Users\CFSC\Desktop\debug.log /F /Q
 ECHO %time% - CleanupVMwareDumpFiles - Finish >> C:\Apps\log.txt
 EXIT /b
 
