@@ -37,7 +37,7 @@ EXIT
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
 
-
+powercfg /change standby-timeout-ac 0
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
