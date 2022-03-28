@@ -1,4 +1,4 @@
-SET Version=Version 3.58
+SET Version=Version 3.59
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -23,11 +23,16 @@ EXIT
 
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
+
+ECHO %time% - Recovery Started >> C:\Apps\log.txt
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/unattend.xml -O C:\Recovery\AutoApply\unattend.xml
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Restore.bat -O C:\Recovery\AutoApply\Restore.bat
+ECHO %time% - Recovery Finished >> C:\Apps\log.txt
 
+ECHO %time% - SleepSettings Started >> C:\Apps\log.txt
 powercfg /change standby-timeout-ac 0
+ECHO %time% - SleepSettings Finished >> C:\Apps\log.txt
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
