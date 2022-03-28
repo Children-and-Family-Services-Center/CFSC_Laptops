@@ -1,4 +1,4 @@
-SET Version=Version 3.59
+SET Version=Version 3.60
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -6,6 +6,7 @@ ECHO %Version% >> C:\Apps\log.txt
 ECHO %time% - Start >> C:\Apps\log.txt
 
 CALL :UpdateTimeZone
+CALL :SleepSettings
 CALL :CheckInternet
 CALL :UpdateMain
 CALL :UpdateScreenConnect
@@ -29,10 +30,6 @@ Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Fami
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Restore.bat -O C:\Recovery\AutoApply\Restore.bat
 ECHO %time% - Recovery Finished >> C:\Apps\log.txt
-
-ECHO %time% - SleepSettings Started >> C:\Apps\log.txt
-powercfg /change standby-timeout-ac 0
-ECHO %time% - SleepSettings Finished >> C:\Apps\log.txt
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
@@ -170,4 +167,9 @@ DISM /Online /Export-DefaultAppAssociations:C:\Apps\AppAssoc.xml
 ECHO %time% - FileAssociations - Finish >> C:\Apps\log.txt
 EXIT /b
 
-
+::SleepSettings--------------------------------------------------------------------
+:SleepSettings
+ECHO %time% - SleepSettings Started >> C:\Apps\log.txt
+powercfg /change standby-timeout-ac 0
+ECHO %time% - SleepSettings Finished >> C:\Apps\log.txt
+EXIT /b
