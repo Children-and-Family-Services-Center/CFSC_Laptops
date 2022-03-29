@@ -1,4 +1,4 @@
-SET Version=Version 3.60
+SET Version=Version 3.61
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -170,6 +170,13 @@ EXIT /b
 ::SleepSettings--------------------------------------------------------------------
 :SleepSettings
 ECHO %time% - SleepSettings Started >> C:\Apps\log.txt
-powercfg /change standby-timeout-ac 0
+POWERCFG -Change -monitor-timeout-ac 45
+POWERCFG -CHANGE -disk-timeout-ac 0
+POWERCFG -CHANGE -standby-timeout-ac 0
+POWERCFG -CHANGE -hibernate-timeout-ac 0
+POWERCFG -CHANGE -monitor-timeout-dc 15
+POWERCFG -CHANGE -disk-timeout-dc 0
+POWERCFG -CHANGE -standby-timeout-dc 25
+POWERCFG -CHANGE -hibernate-timeout-dc 0
 ECHO %time% - SleepSettings Finished >> C:\Apps\log.txt
 EXIT /b
