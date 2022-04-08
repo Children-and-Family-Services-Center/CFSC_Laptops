@@ -1,4 +1,4 @@
-SET Version=Version 3.62
+SET Version=Version 3.63
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -121,8 +121,8 @@ EXIT /b
 
 ::Apps---------------------------------------------------------
 :Apps
-::----------------Adobe Reader--------------------------------
 ECHO %time% - Apps - Start >> C:\Apps\log.txt
+::----------------Adobe Reader--------------------------------
 ECHO %time% - Apps - Adobe Reader Installing... >> C:\Apps\log.txt
 choco upgrade adobereader -y --install-if-not-installed
 ECHO %time% - Apps - Adobe Reader Finished >> C:\Apps\log.txt
