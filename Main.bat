@@ -117,10 +117,12 @@ EXIT /b
 ::Applications---------------------------------------------------------
 :Applications
 ECHO %time% - Apps - Start >> C:\Apps\log.txt
-::----------------Adobe Reader--------------------------------
-ECHO %time% - Apps - Adobe Reader Installing... >> C:\Apps\log.txt
-choco upgrade adobereader -y --install-if-not-installed
-ECHO %time% - Apps - Adobe Reader Finished >> C:\Apps\log.txt
+::----------------VMware Horizon Client-----------------------
+ECHO %time% - Apps - VMware Horizon Client Installing... >> C:\Apps\log.txt
+choco upgrade vmware-horizon-client -y --install-if-not-installed
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F
+REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F
+ECHO %time% - Apps - VMware Horizon Client Finished >> C:\Apps\log.txt
 ::----------------Google Chrome--------------------------------
 ECHO %time% - Apps - Google Chrome Installing... >> C:\Apps\log.txt
 choco upgrade googlechrome -y --install-if-not-installed
@@ -135,16 +137,14 @@ ECHO %time% - Apps - VLC Installing... >> C:\Apps\log.txt
 choco upgrade vlc -y --install-if-not-installed
 DEL "C:\Users\Public\Desktop\VLC media player.lnk" /f /q
 ECHO %time% - Apps - VLC Finished >> C:\Apps\log.txt
-::----------------VMware Horizon Client-----------------------
-ECHO %time% - Apps - VMware Horizon Client Installing... >> C:\Apps\log.txt
-choco upgrade vmware-horizon-client -y --install-if-not-installed
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F
-REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F
-ECHO %time% - Apps - VMware Horizon Client Finished >> C:\Apps\log.txt
 ::----------------Zoom Client---------------------------------
 ECHO %time% - Apps - Zoom Client Installing... >> C:\Apps\log.txt
 choco upgrade Zoom -y --install-if-not-installed
 ECHO %time% - Apps - Zoom Client Finished >> C:\Apps\log.txt
+::----------------Adobe Reader--------------------------------
+ECHO %time% - Apps - Adobe Reader Installing... >> C:\Apps\log.txt
+choco upgrade adobereader -y --install-if-not-installed
+ECHO %time% - Apps - Adobe Reader Finished >> C:\Apps\log.txt
 ::----------------App Configs---------------------------------
 ECHO %time% - Apps - App Configs... >> C:\Apps\log.txt
 REG ADD HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main /v PreventFirstRunPage /t REG_DWORD /d 1 /f
