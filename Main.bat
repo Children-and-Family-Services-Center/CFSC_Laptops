@@ -1,4 +1,4 @@
-SET Version=Version 3.63
+SET Version=Version 3.64
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -12,7 +12,7 @@ CALL :UpdateMain
 CALL :UpdateScreenConnect
 CALL :DisableIPv6
 CALL :WiFiPreload
-CALL :Apps
+CALL :Applications
 CALL :FileAssociations
 CALL :CleanupVMwareDumpFiles
 CALL :TruncateLog
@@ -119,8 +119,8 @@ REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /T REG_DWORD /V
 ECHO %time% - DisableIPv6 - Finish >> C:\Apps\log.txt
 EXIT /b
 
-::Apps---------------------------------------------------------
-:Apps
+::Applications---------------------------------------------------------
+:Applications
 ECHO %time% - Apps - Start >> C:\Apps\log.txt
 ::----------------Adobe Reader--------------------------------
 ECHO %time% - Apps - Adobe Reader Installing... >> C:\Apps\log.txt
