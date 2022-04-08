@@ -1,4 +1,4 @@
-SET Version=Version 3.61
+SET Version=Version 3.62
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -143,10 +143,8 @@ ECHO %time% - Apps - VLC Finished >> C:\Apps\log.txt
 ::----------------VMware Horizon Client-----------------------
 ECHO %time% - Apps - VMware Horizon Client Installing... >> C:\Apps\log.txt
 choco upgrade vmware-horizon-client -y --install-if-not-installed
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\VMware, Inc.\VMware VDM\Client" /V ServerURL /f
-REG DELETE "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /f
-Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/prefs.txt -O "C:\Apps\prefs.txt"
-XCOPY C:\Apps\prefs.txt "C:\Users\CFSC\AppData\Roaming\VMware\VMware Horizon View Client\prefs.txt" /R /Y
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F
+REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F
 ECHO %time% - Apps - VMware Horizon Client Finished >> C:\Apps\log.txt
 ::----------------Zoom Client---------------------------------
 ECHO %time% - Apps - Zoom Client Installing... >> C:\Apps\log.txt
