@@ -14,6 +14,7 @@ CALL :DisableIPv6
 CALL :WiFiPreload
 CALL :Applications
 CALL :FileAssociations
+CALL :Recovery
 CALL :CleanupVMwareDumpFiles
 CALL :TruncateLog
 
