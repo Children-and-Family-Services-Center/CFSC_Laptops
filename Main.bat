@@ -177,7 +177,9 @@ EXIT /b
 ::Recovery--------------------------------------------------------------------
 :Recovery
 ECHO %time% - Recovery Started >> C:\Apps\log.txt
-IF NOT EXIST C:\Recovery\AutoApply MD C:\Recovery\AutoApply
+ICACLS C:\Recovery /setowner SYSTEM /T /C /Q
+ICACLS C:\Recovery /reset /T /C /Q
+IF NOT EXIST C:\Recovery\AutoApply RD C:\Recovery /s /q & MD C:\Recovery & MD C:\Recovery\AutoApply
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/unattend.xml -O C:\Recovery\AutoApply\unattend.xml
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/WiFi-CFSCPublicPW.xml -O C:\Recovery\AutoApply\WiFi-CFSCPublicPW.xml
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Restore.bat -O C:\Recovery\AutoApply\Restore.bat
