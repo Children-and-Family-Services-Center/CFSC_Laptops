@@ -121,6 +121,7 @@ EXIT /b
 ::Recovery--------------------------------------------------------------------
 :Recovery
 ECHO %time% - Recovery Started >> C:\Apps\log.txt
+TAKEOWN /R /A /F C:\Recovery /D Y
 ICACLS C:\Recovery /setowner SYSTEM /T /C /Q
 ICACLS C:\Recovery /reset /T /C /Q
 RD C:\Recovery /s /q & MD C:\Recovery & MD C:\Recovery\AutoApply
