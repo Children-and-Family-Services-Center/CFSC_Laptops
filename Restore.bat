@@ -5,9 +5,10 @@ CALL :UpdateTimeZone
 CALL :RenamePC
 CALL :SetupUserAccounts
 CALL :InstallChoco
+CALL :AppCleanup
 CALL :ActivateMainScript
 CALL :AutoLogon
-CALL :AppCleanup
+
 
 SHUTDOWN -r -t 5
 EXIT
