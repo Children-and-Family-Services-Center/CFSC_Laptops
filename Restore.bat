@@ -73,7 +73,7 @@ EXIT /b
 ::AppCleanup-----------------------------------------------------------
 :AppCleanup
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/RWCI_LAB_Laptops/main/AppCleanup.ps1 -O C:\Recovery\AutoApply\AppCleanup.ps1
-Powershell -executionpolicy unrestricted -File C:\Recovery\AutoApply\Appcleanup.ps1
+Powershell -executionpolicy bypass -File C:\Recovery\AutoApply\Appcleanup.ps1
 taskkill.exe /F /IM "OneDrive.exe"
 taskkill.exe /F /IM "Explorer.exe"
 C:\Windows\System32\OneDriveSetup.exe /uninstall
