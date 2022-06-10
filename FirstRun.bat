@@ -112,6 +112,7 @@ EXIT /b
 :ActivateMainScript
 ECHO %time% - ActivateMainScript - Start >> C:\Apps\log.txt
 IF NOT EXIST C:\Apps MD C:\Apps
+SCHTASKS /DELETE /TN "RWCI_LAB_Main" /F
 SCHTASKS /CREATE /SC ONSTART /TN "CFSC_Main" /TR "C:\Apps\Main.bat" /RU SYSTEM /NP /V1 /F
 IF %PROCESSOR_ARCHITECTURE%==AMD64 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat -O C:\Apps\Main.bat
 IF %PROCESSOR_ARCHITECTURE%==x86 bitsadmin /transfer VMware /download /priority normal https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/Main.bat C:\Apps\Main.bat
