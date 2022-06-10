@@ -1,4 +1,4 @@
-SET Version=Version 3.67
+SET Version=Version 3.68
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -8,6 +8,7 @@ ECHO %time% - Start >> C:\Apps\log.txt
 CALL :UpdateTimeZone
 CALL :SleepSettings
 CALL :CheckInternet
+CALL :Windows11Block
 CALL :UpdateMain
 CALL :UpdateScreenConnect
 CALL :DisableIPv6
@@ -29,6 +30,14 @@ ECHO %time% - Test Started >> C:\Apps\log.txt
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
+
+::Windows11Block-------------------------------------------------------
+:Windows11Block
+ECHO %time% - Windows11Block - Start >> C:\Apps\log.txt
+REG ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /v TargetReleaseVersion /t REG_DWORD /d 1 /f
+REG ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /v TargetReleaseVersionInfo /t REG_SZ /d 21H2 /f
+ECHO %time% - Windows11Block - Finish >> C:\Apps\log.txt
+EXIT /b
 
 ::UpdateTimeZone--------------------------------------------------------------------
 :UpdateTimeZone
