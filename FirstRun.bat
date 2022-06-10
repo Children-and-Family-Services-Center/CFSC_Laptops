@@ -1,5 +1,5 @@
 @ECHO OFF
-SET Version=Version 2.9
+SET Version=Version 3.0
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -14,11 +14,11 @@ CLS
 
 CALL :CheckInternet
 CALL :UpdateFirstRun
-CALL :RenamePC
-CALL :SetupUserAccounts
-CALL :InstallChoco
-CALL :ActivateMainScript
-CALL :AutoLogon
+::CALL :RenamePC
+::CALL :SetupUserAccounts
+::CALL :InstallChoco
+::CALL :ActivateMainScript
+::CALL :AutoLogon
 CALL :Recovery
 
 CLS
@@ -30,7 +30,7 @@ ECHO %time% - FirstRun - Finish >> C:\Apps\log.txt
 ECHO.
 TIMEOUT /T 5
 
-SHUTDOWN -r -t 10
+systemreset --factoryreset
 EXIT
 
 
