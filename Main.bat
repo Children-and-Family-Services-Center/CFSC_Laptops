@@ -1,4 +1,4 @@
-SET Version=Version 3.68
+SET Version=Version 3.69
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -26,7 +26,7 @@ EXIT
 
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
-
+ECHO Test > C:\Users\CFSC\Desktop\Test.txt
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
