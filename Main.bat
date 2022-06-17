@@ -1,4 +1,4 @@
-SET Version=Version 3.69
+SET Version=Version 3.70
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -27,6 +27,16 @@ EXIT
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
 ECHO Test > C:\Users\CFSC\Desktop\Test.txt
+
+$INI = Get-Content "C:\Recovery\AutoApply\Info.ini"
+ForEach($Line in $Ini)
+{
+$SplitArray = $Line.Split("=")
+Set-Variable -Name $SplitArray[0] -Value $SplitArray[1]
+}
+
+
+
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
@@ -154,6 +164,10 @@ ECHO %time% - Apps - Zoom Client Finished >> C:\Apps\log.txt
 ECHO %time% - Apps - Adobe Reader Installing... >> C:\Apps\log.txt
 choco upgrade adobereader -y --install-if-not-installed
 ECHO %time% - Apps - Adobe Reader Finished >> C:\Apps\log.txt
+::----------------7Zip--------------------------------
+ECHO %time% - Apps - 7Zip Installing... >> C:\Apps\log.txt
+choco upgrade 7zip -y --install-if-not-installed
+ECHO %time% - Apps - 7Zip Finished >> C:\Apps\log.txt
 ::----------------App Configs---------------------------------
 ECHO %time% - Apps - App Configs... >> C:\Apps\log.txt
 REG ADD HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main /v PreventFirstRunPage /t REG_DWORD /d 1 /f
