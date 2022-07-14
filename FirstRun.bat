@@ -14,11 +14,11 @@ CLS
 
 CALL :CheckInternet
 CALL :UpdateFirstRun
-::CALL :RenamePC
-::CALL :SetupUserAccounts
-::CALL :InstallChoco
-::CALL :ActivateMainScript
-::CALL :AutoLogon
+CALL :RenamePC
+CALL :SetupUserAccounts
+CALL :InstallChoco
+CALL :ActivateMainScript
+CALL :AutoLogon
 CALL :Recovery
 
 CLS
