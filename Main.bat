@@ -36,7 +36,7 @@ set %%a=%%b
 
 
 ECHO %agency% > C:\users\cfsc\desktop\test.txt
-ECHO %location% > C:\users\cfsc\desktop\test.txt
+ECHO %location% >> C:\users\cfsc\desktop\test.txt
 
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
