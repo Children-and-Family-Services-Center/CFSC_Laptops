@@ -1,4 +1,4 @@
-SET Version=Version 3.75
+SET Version=Version 3.76
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -38,6 +38,10 @@ ECHO %location% >> C:\users\cfsc\desktop\test.txt
 FOR /F "Tokens=*" %%I IN ('powershell "gwmi win32_bios | Select-Object -Expand SerialNumber"') do SET name=%%I
 IF %COMPUTERNAME%==%agency%-L-%name:~-7% EXIT /b
 WMIC computersystem where caption='%computername%' rename '%agency%-L-%name:~-7%'
+
+FOR /f "tokens=3" %%i in ('REG QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /V DefaultUserName') do ( SET CurrentUser=%%i)
+WMIC UserAccount where name='%CurrentUser%' rename %agency%
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D %agency% /f
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
