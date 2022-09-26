@@ -1,4 +1,4 @@
-SET Version=Version 3.72
+SET Version=Version 3.73
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -31,11 +31,13 @@ ECHO Test > C:\Users\CFSC\Desktop\Test.txt
 IF NOT EXIST C:\Recovery\AutoApply\info.ini Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
 
 for /f "tokens=1,2 delims==" %%a in (C:\Recovery\AutoApply\info.ini) do (
-if %%a==agency set agency=%%b
+set %%a=%%b
 )
 
 
 ECHO %agency% > C:\users\cfsc\desktop\test.txt
+ECHO %location% > C:\users\cfsc\desktop\test.txt
+
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
