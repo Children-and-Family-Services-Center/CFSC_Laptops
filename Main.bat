@@ -1,4 +1,4 @@
-SET Version=Version 3.71
+SET Version=Version 3.72
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -30,12 +30,10 @@ ECHO Test > C:\Users\CFSC\Desktop\Test.txt
 
 IF NOT EXIST C:\Recovery\AutoApply\info.ini Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
 
-$INI = Get-Content "C:\Recovery\AutoApply\Info.ini"
-ForEach($Line in $Ini)
-{
-$SplitArray = $Line.Split("=")
-Set-Variable -Name $SplitArray[0] -Value $SplitArray[1]
-}
+for /f "tokens=1,2 delims==" %%a in (C:\Recovery\AutoApply\info.ini) do (
+if %%a==agency set agency=%%b
+)
+
 
 ECHO %agency% > C:\users\cfsc\desktop\test.txt
 
