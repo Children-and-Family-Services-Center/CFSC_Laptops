@@ -1,4 +1,4 @@
-SET Version=Version 3.70
+SET Version=Version 3.71
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -28,7 +28,7 @@ EXIT
 ECHO %time% - Test Started >> C:\Apps\log.txt
 ECHO Test > C:\Users\CFSC\Desktop\Test.txt
 
-IF NOT EXIST C:\Recovery\AutoApply\info.ini Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
+IF NOT EXIST C:\Recovery\AutoApply\info.ini Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
 
 $INI = Get-Content "C:\Recovery\AutoApply\Info.ini"
 ForEach($Line in $Ini)
