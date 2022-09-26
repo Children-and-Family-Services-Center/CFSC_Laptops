@@ -28,6 +28,8 @@ EXIT
 ECHO %time% - Test Started >> C:\Apps\log.txt
 ECHO Test > C:\Users\CFSC\Desktop\Test.txt
 
+IF NOT EXIST C:\Recovery\AutoApply\info.ini Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
+
 $INI = Get-Content "C:\Recovery\AutoApply\Info.ini"
 ForEach($Line in $Ini)
 {
@@ -35,7 +37,7 @@ $SplitArray = $Line.Split("=")
 Set-Variable -Name $SplitArray[0] -Value $SplitArray[1]
 }
 
-
+ECHO %agency% > C:\users\cfsc\desktop\test.txt
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
