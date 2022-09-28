@@ -1,4 +1,4 @@
-SET Version=Version 3.77
+SET Version=Version 3.78
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -10,8 +10,8 @@ CALL :SleepSettings
 CALL :CheckInternet
 CALL :Windows11Block
 CALL :UpdateMain
-CALL :ScreenConnect
 CALL :DisableIPv6
+CALL :ScreenConnect
 CALL :WiFiPreload
 CALL :Applications
 CALL :FileAssociations
