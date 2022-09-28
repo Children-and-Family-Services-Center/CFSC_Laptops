@@ -33,9 +33,11 @@ EXIT /b
 
 ::RenamePC-----------------------------------------------------
 :RenamePC
+IF NOT EXIST C:\Recovery\AutoApply\info.ini Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
+for /f "tokens=1,2 delims==" %%a in (C:\Recovery\AutoApply\info.ini) do (set %%a=%%b)
 FOR /F "Tokens=*" %%I IN ('powershell "gwmi win32_bios | Select-Object -Expand SerialNumber"') do SET name=%%I
-IF %COMPUTERNAME%==CFSC-L-%name:~-7% EXIT /b
-WMIC computersystem where caption='%computername%' rename 'CFSC-L-%name:~-7%'
+IF %COMPUTERNAME%==%agency%-L-%name:~-7% EXIT /b
+WMIC computersystem where caption='%computername%' rename '%agency%-L-%name:~-7%'
 EXIT /b
 
 ::InstallChoco-----------------------------------------------------
