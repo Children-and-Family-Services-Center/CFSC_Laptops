@@ -1,4 +1,4 @@
-SET Version=Version 3.76
+SET Version=Version 3.77
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -10,7 +10,7 @@ CALL :SleepSettings
 CALL :CheckInternet
 CALL :Windows11Block
 CALL :UpdateMain
-CALL :UpdateScreenConnect
+CALL :ScreenConnect
 CALL :DisableIPv6
 CALL :WiFiPreload
 CALL :Applications
@@ -93,7 +93,7 @@ EXIT /b
 
 
 ::UpdateScreenConnect---------------------------------------------------------------
-:UpdateScreenConnect
+:ScreenConnect
 ECHO %time% - UpdateScreenConnect - Start >> C:\Apps\log.txt
 IF NOT EXIST C:\Apps\ScreenConnect.msi Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi & ECHO %time% - UpdateScreenConnect - Downloading >> C:\Apps\log.txt
 MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
