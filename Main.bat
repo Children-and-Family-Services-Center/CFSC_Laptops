@@ -1,4 +1,4 @@
-SET Version=Version 3.78
+SET Version=Version 3.79
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -92,7 +92,7 @@ ECHO %time% - UpdateMain - Finish >> C:\Apps\log.txt
 EXIT /b
 
 
-::UpdateScreenConnect---------------------------------------------------------------
+::ScreenConnect---------------------------------------------------------------
 :ScreenConnect
 ECHO %time% - UpdateScreenConnect - Start >> C:\Apps\log.txt
 IF NOT EXIST C:\Apps\ScreenConnect.msi Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi & ECHO %time% - UpdateScreenConnect - Downloading >> C:\Apps\log.txt
@@ -174,6 +174,11 @@ ECHO %time% - Apps - Adobe Reader Finished >> C:\Apps\log.txt
 ECHO %time% - Apps - 7Zip Installing... >> C:\Apps\log.txt
 choco upgrade 7zip -y --install-if-not-installed
 ECHO %time% - Apps - 7Zip Finished >> C:\Apps\log.txt
+::----------------ScreenConnect--------------------------------
+ECHO %time% - Apps - ScreenConnect Installing... >> C:\Apps\log.txt
+IF NOT EXIST C:\Apps\ScreenConnect.msi Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi & ECHO %time% - UpdateScreenConnect - Downloading >> C:\Apps\log.txt
+MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
+ECHO %time% - Apps - ScreenConnect Finished >> C:\Apps\log.txt
 ::----------------App Configs---------------------------------
 ECHO %time% - Apps - App Configs... >> C:\Apps\log.txt
 REG ADD HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main /v PreventFirstRunPage /t REG_DWORD /d 1 /f
