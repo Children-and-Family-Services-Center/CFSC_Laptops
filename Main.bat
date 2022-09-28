@@ -47,7 +47,11 @@ ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
 
-::Windows11Block-------------------------------------------------------
+::-----------------------------------------------------------------------------
+::-----------------------------------------------------------------------------
+::-----------------------------------------------------------------------------
+
+::Windows11Block---------------------------------------------------------------
 :Windows11Block
 ECHO %time% - Windows11Block - Start >> C:\Apps\log.txt
 REG ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /v TargetReleaseVersion /t REG_DWORD /d 1 /f
