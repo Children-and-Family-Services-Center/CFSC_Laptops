@@ -1,4 +1,4 @@
-SET Version=Version 3.80
+SET Version=Version 3.81
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -9,6 +9,7 @@ CALL :UpdateTimeZone
 CALL :SleepSettings
 CALL :CheckInternet
 CALL :Windows11Block
+CALL :LoadVariables
 CALL :UpdateMain
 CALL :DisableIPv6
 CALL :ScreenConnect
@@ -47,8 +48,14 @@ ECHO %time% - Finish >> C:\Apps\log.txt
 EXIT
 
 ::-----------------------------------------------------------------------------
-::-----------------------------------------------------------------------------
-::-----------------------------------------------------------------------------
+
+::LoadVariables---------------------------------------------------------------
+:LoadVariables
+ECHO %time% - LoadVariables - Start >> C:\Apps\log.txt
+IF NOT EXIST C:\Recovery\AutoApply\info.ini Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
+for /f "tokens=1,2 delims==" %%a in (C:\Recovery\AutoApply\info.ini) do (set %%a=%%b)
+ECHO %time% - LoadVariables - Finish >> C:\Apps\log.txt
+EXIT /b
 
 ::Windows11Block---------------------------------------------------------------
 :Windows11Block
