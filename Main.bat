@@ -1,4 +1,4 @@
-SET Version=Version 3.84
+SET Version=Version 3.85
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -105,7 +105,7 @@ EXIT /b
 ::ScreenConnect---------------------------------------------------------------
 :ScreenConnect
 ECHO %time% - UpdateScreenConnect - Start >> C:\Apps\log.txt
-IF NOT EXIST C:\Apps\ScreenConnect.msi Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/blob/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi & ECHO %time% - UpdateScreenConnect - Downloading >> C:\Apps\log.txt
+IF NOT EXIST C:\Apps\ScreenConnect.msi Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/main/ScreenConnect.msi -O C:\Apps\ScreenConnect.msi & ECHO %time% - UpdateScreenConnect - Downloading >> C:\Apps\log.txt
 MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
 ECHO %time% - UpdateScreenConnect - Finish >> C:\Apps\log.txt
 EXIT /b
