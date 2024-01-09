@@ -1,4 +1,4 @@
-SET Version=Version 3.85
+SET Version=Version 3.86
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -160,7 +160,7 @@ REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T 
 ECHO %time% - Apps - VMware Horizon Client Finished >> C:\Apps\log.txt
 ::----------------Google Chrome--------------------------------
 ECHO %time% - Apps - Google Chrome Installing... >> C:\Apps\log.txt
-choco upgrade googlechrome -y --install-if-not-installed
+choco upgrade googlechrome --ignore-checksums -y --install-if-not-installed
 ECHO %time% - Apps - Google Chrome Finished >> C:\Apps\log.txt
 ::----------------FireFox--------------------------------------
 ECHO %time% - Apps - FireFox Installing... >> C:\Apps\log.txt
