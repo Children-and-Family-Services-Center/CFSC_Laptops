@@ -1,4 +1,4 @@
-SET Version=Version 3.86
+SET Version=Version 3.87
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -42,6 +42,8 @@ WMIC computersystem where caption='%computername%' rename '%agency%-L-%name:~-7%
 FOR /f "tokens=3" %%i in ('REG QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /V DefaultUserName') do ( SET CurrentUser=%%i)
 WMIC UserAccount where name='%CurrentUser%' rename %agency%
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D %agency% /f
+
+shutdown -r -t 5
 
 ECHO %time% - Test Finished >> C:\Apps\log.txt
 ECHO %time% - Finish >> C:\Apps\log.txt
