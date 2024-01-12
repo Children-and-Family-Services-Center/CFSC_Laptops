@@ -1,4 +1,4 @@
-SET Version=Version 3.88
+SET Version=Version 3.89
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -31,6 +31,9 @@ ECHO Test > C:\Users\CFSC\Desktop\Test.txt
 
 IF NOT EXIST C:\Recovery\AutoApply\info.ini Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
 for /f "tokens=1,2 delims==" %%a in (C:\Recovery\AutoApply\info.ini) do (set %%a=%%b)
+
+ECHO %agency% > C:\users\cfsc\desktop\test.txt
+ECHO %location% >> C:\users\cfsc\desktop\test.txt
 
 FOR /F "Tokens=*" %%I IN ('powershell "gwmi win32_bios | Select-Object -Expand SerialNumber"') do SET name=%%I
 IF %COMPUTERNAME%==%agency%-L-%name:~-7% ECHO %time% - Test Finished - Name Correct >> C:\Apps\log.txt & EXIT /b
