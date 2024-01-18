@@ -44,7 +44,6 @@ WMIC UserAccount where name='%CurrentUser%' rename %agency%
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon" /T REG_SZ /V DefaultUserName /D %agency% /f
 
 ECHO %time% - test Finished >> C:\Apps\log.txt
-ECHO %time% - test >> C:\Apps\log.txt
 EXIT
 
 ::-----------------------------------------------------------------------------
