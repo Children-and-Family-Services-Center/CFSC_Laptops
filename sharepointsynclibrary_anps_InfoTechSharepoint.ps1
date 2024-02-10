@@ -5,6 +5,15 @@
 # Ascend Nonprofit Solutions
 # 2/10/24
 
+# Instructions:
+#
+# Find + Replace variables in the "params" section
+
+
+
+
+
+
 # Loop until OneDrive process starts
 while ($true) {
     $onedriveProcess = Get-Process "OneDrive" -ErrorAction SilentlyContinue
@@ -44,8 +53,11 @@ while ($true) {
 # Continue with the rest of the script
 Write-Output "Continue with the rest of the script..."
 
-# Wait 1 minute for OneDrive initial processes to settle down
-Start-Sleep 60
+# Check if powershell is in ConstrainedLanguage or FullLanguage mode
+$ExecutionContext.SessionState.LanguageMode
+
+# Wait 30 seconds for OneDrive initial processes to settle down
+Start-Sleep 30
 
 # "Automating the Syncing of Sharepoint team site libraries" by "Intune Training" channel
 # Go to "region sharepoint sync" in this script and replace the variables inside the Params block
@@ -104,7 +116,8 @@ try {
     #region Sharepoint Sync
     [mailaddress]$userUpn = cmd /c "whoami/upn"
     $params = @{
-        # replace with data captured from your sharepoint site.
+        
+        # Replace with data captured from your sharepoint site!!!!!!! ################################
 
         # Information Technology SharePoint
         siteId    = "{58830d6a-98ec-4841-bd73-1ed6f51bfa2a}"
