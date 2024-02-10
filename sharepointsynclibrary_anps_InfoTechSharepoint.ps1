@@ -1,3 +1,10 @@
+# Script for syncing sharepoint library for a user. 
+# This script is intended to be run from the user's context, not as system or admin.
+#
+# Corey Cutler and Ian Cox
+# Ascend Nonprofit Solutions
+# 2/10/24
+
 # Loop until OneDrive process starts
 while ($true) {
     $onedriveProcess = Get-Process "OneDrive" -ErrorAction SilentlyContinue
@@ -93,10 +100,13 @@ function Sync-SharepointLocation {
 
 #region Main Process
 try {
+
     #region Sharepoint Sync
     [mailaddress]$userUpn = cmd /c "whoami/upn"
     $params = @{
-        #replace with data captured from your sharepoint site.
+        # replace with data captured from your sharepoint site.
+
+        # Information Technology SharePoint
         siteId    = "{58830d6a-98ec-4841-bd73-1ed6f51bfa2a}"
         webId     = "{908ed321-8ddc-4aad-bf39-22333a7d740e}"
         listId    = "{a00bc429-5278-40b7-9a1f-4b10375454dc}"
@@ -108,10 +118,15 @@ try {
 
 
     $params.syncPath  = "$(split-path $env:onedrive)\$($userUpn.Host)\$($params.webTitle) - $($Params.listTitle)"
+    
+    # Output the SharePoint parameters to console
     Write-Host "SharePoint params:"
     $params | Format-Table
+    
+    # Check for path to already exist
     if (!(Test-Path $($params.syncPath))) {
         Write-Host "Sharepoint folder not found locally, will now sync.." -ForegroundColor Yellow
+        # Kick off the SharePoint function with the parameters
         $sp = Sync-SharepointLocation @params
         if (!($sp)) {
             Throw "Sharepoint sync failed."
