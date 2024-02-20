@@ -1,7 +1,89 @@
-Start-Sleep 10
-    #Stolen from https://www.youtube.com/watch?v=Zoac9lbUuG0
-    # "Automating the Syncing of Sharepoint team site libraries" by "Intune Training" channel
-    # Go to "region sharepoint sync" in this script and replace the variables inside the Params block
+# Script for syncing sharepoint library for a user. 
+# This script is intended to be run from the user's context, not as system or admin.
+#
+# "Automating the Syncing of Sharepoint team site libraries" by "Intune Training" channel
+# Go to "region sharepoint sync" in this script and replace the variables inside the Params block
+# Stolen from https://www.youtube.com/watch?v=Zoac9lbUuG0
+#
+# Corey Cutler and Ian Cox
+# Ascend Nonprofit Solutions
+# 2/10/24
+
+# Instructions:
+#
+# Find + Replace variables in the "params" section
+
+
+# Loop until OneDrive process starts
+while ($true) {
+    $onedriveProcess = Get-Process "OneDrive" -ErrorAction SilentlyContinue
+
+    if ($onedriveProcess -ne $null) {
+        Write-Output "OneDrive is running now."
+        break
+    } else {
+        Write-Output "OneDrive is not running yet. Waiting..."
+    }
+
+    # Wait for 1 second before checking again
+    Start-Sleep -Seconds 1
+}
+
+# Continue with the rest of the script
+Write-Output "Continue with the rest of the script..."
+
+
+$registryPath = 'HKCU:\SOFTWARE\Microsoft\OneDrive'
+$ValueName = 'ClientEverSignedIn'
+$TargetValue = 1  # Set the target value to 1
+ 
+# Loop until the registry value is found
+while ($true) {
+    # Use Get-ItemProperty to retrieve the specific registry value
+    $registryValue = Get-ItemProperty -Path $registryPath -Name $ValueName | Select-Object -ExpandProperty $ValueName
+ 
+    # Check if the registry value equals 1
+    if ($registryValue -eq $TargetValue) {
+        Write-Host "Registry value found: $registryValue"
+        break  # Exit the loop when the value is found
+    }
+ 
+    # Display a message and wait before checking again
+    Write-Host "Registry value not 1 yet. Waiting..."
+    Start-Sleep -Seconds 5  # Adjust the sleep duration as needed
+}
+ 
+# Continue with the rest of your script or actions
+Write-Output "Continue with the rest of the script..."
+
+# # Define the path to the user's OneDrive folder
+# $OneDrivePath = "$env:userprofile\OneDrive"
+
+# # Loop until OneDrive folder exists
+# while ($true) {
+#     $onedrivePathExists = Test-Path -Path $OneDrivePath
+
+#     if ($onedriveProcess -ne $null) {
+#         Write-Output "OneDrive synchronization has started for the user."
+#         break
+#     } else {
+#         Write-Output "OneDrive synchronization has not started yet for the user."
+#     }
+
+#     # Wait for 1 second before checking again
+#     Start-Sleep -Seconds 1
+# }
+
+# # Continue with the rest of the script
+# Write-Output "Continue with the rest of the script..."
+
+# Check if powershell is in ConstrainedLanguage or FullLanguage mode
+$ExecutionContext.SessionState.LanguageMode
+
+# Wait 30 seconds for OneDrive initial processes to settle down
+Start-Sleep 30
+
+
     
   
     #region Functions
