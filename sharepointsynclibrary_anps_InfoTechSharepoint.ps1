@@ -10,10 +10,6 @@
 # Find + Replace variables in the "params" section
 
 
-
-
-
-
 # Loop until OneDrive process starts
 while ($true) {
     $onedriveProcess = Get-Process "OneDrive" -ErrorAction SilentlyContinue
@@ -32,26 +28,50 @@ while ($true) {
 # Continue with the rest of the script
 Write-Output "Continue with the rest of the script..."
 
-# Define the path to the user's OneDrive folder
-$OneDrivePath = "$env:userprofile\OneDrive"
 
-# Loop until OneDrive folder exists
+$registryPath = 'HKCU:\SOFTWARE\Microsoft\OneDrive'
+$ValueName = 'ClientEverSignedIn'
+$TargetValue = 1  # Set the target value to 1
+ 
+# Loop until the registry value is found
 while ($true) {
-    $onedrivePathExists = Test-Path -Path $OneDrivePath
-
-    if ($onedriveProcess -ne $null) {
-        Write-Output "OneDrive synchronization has started for the user."
-        break
-    } else {
-        Write-Output "OneDrive synchronization has not started yet for the user."
+    # Use Get-ItemProperty to retrieve the specific registry value
+    $registryValue = Get-ItemProperty -Path $registryPath -Name $ValueName | Select-Object -ExpandProperty $ValueName
+ 
+    # Check if the registry value equals 1
+    if ($registryValue -eq $TargetValue) {
+        Write-Host "Registry value found: $registryValue"
+        break  # Exit the loop when the value is found
     }
-
-    # Wait for 1 second before checking again
-    Start-Sleep -Seconds 1
+ 
+    # Display a message and wait before checking again
+    Write-Host "Registry value not 1 yet. Waiting..."
+    Start-Sleep -Seconds 5  # Adjust the sleep duration as needed
 }
-
-# Continue with the rest of the script
+ 
+# Continue with the rest of your script or actions
 Write-Output "Continue with the rest of the script..."
+
+# # Define the path to the user's OneDrive folder
+# $OneDrivePath = "$env:userprofile\OneDrive"
+
+# # Loop until OneDrive folder exists
+# while ($true) {
+#     $onedrivePathExists = Test-Path -Path $OneDrivePath
+
+#     if ($onedriveProcess -ne $null) {
+#         Write-Output "OneDrive synchronization has started for the user."
+#         break
+#     } else {
+#         Write-Output "OneDrive synchronization has not started yet for the user."
+#     }
+
+#     # Wait for 1 second before checking again
+#     Start-Sleep -Seconds 1
+# }
+
+# # Continue with the rest of the script
+# Write-Output "Continue with the rest of the script..."
 
 # Check if powershell is in ConstrainedLanguage or FullLanguage mode
 $ExecutionContext.SessionState.LanguageMode
