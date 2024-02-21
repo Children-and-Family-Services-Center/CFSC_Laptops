@@ -140,7 +140,7 @@ Start-Sleep 30
             #replace with data captured from your sharepoint site.
             siteId    = "{57d8ab06-4fa4-4b1d-8740-08ff0222ff0b}"
             webId     = "{ba60e4ff-c04e-4346-b153-34d1bd1a1eff}"
-            listId    = "{b7a2b82b-42ad-4dd9-9cc9-5a785377ece8}"
+            listId    = "{598d5507-c0cf-493e-9034-b1f7e2ac9a8c}"
             userEmail = $userUpn
             webUrl    = "https://artsplusorg.sharepoint.com/sites/Shared"
             webTitle  = "Shared"
