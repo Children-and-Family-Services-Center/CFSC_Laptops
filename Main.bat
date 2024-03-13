@@ -1,4 +1,4 @@
-SET Version=Version 3.90
+SET Version=Version 3.91
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -30,8 +30,10 @@ ECHO %time% - Test Started >> C:\Apps\log.txt
 
 echo.%computername%|findstr MED
 IF %errorlevel%==0 (REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.medassist.org /F) ELSE (REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F)
+echo.%computername%|findstr MED
 IF %errorlevel%==0 (REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.medassist.org /F) ELSE (REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F)
 
+ECHO %time% - test Finished >> C:\Apps\log.txt
 EXIT
 
 IF NOT EXIST C:\Recovery\AutoApply\info.ini Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
