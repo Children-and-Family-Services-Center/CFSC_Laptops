@@ -1,4 +1,4 @@
-SET Version=Version 3.89
+SET Version=Version 3.90
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -27,7 +27,12 @@ EXIT
 
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
-ECHO Test > C:\Users\CFSC\Desktop\Test.txt
+
+echo.%computername%|findstr MED
+IF %errorlevel%==0 (REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.medassist.org /F) ELSE (REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F)
+IF %errorlevel%==0 (REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.medassist.org /F) ELSE (REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F)
+
+EXIT
 
 IF NOT EXIST C:\Recovery\AutoApply\info.ini Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/main/info.ini -O C:\Recovery\AutoApply\info.ini
 for /f "tokens=1,2 delims==" %%a in (C:\Recovery\AutoApply\info.ini) do (set %%a=%%b)
