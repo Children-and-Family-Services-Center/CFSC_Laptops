@@ -1,4 +1,4 @@
-SET Version=Version 3.94
+SET Version=Version 3.95
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -160,7 +160,8 @@ EXIT /b
 ECHO %time% - Apps - Start >> C:\Apps\log.txt
 ::----------------VMware Horizon Client-----------------------
 ECHO %time% - Apps - VMware Horizon Client Installing... >> C:\Apps\log.txt
-choco upgrade vmware-horizon-client -y --install-if-not-installed
+echo.%computername%|findstr SSMC
+IF %errorlevel%==0 (choco uninstall vmware-horizon-client -y -f) ELSE (choco upgrade vmware-horizon-client -y --install-if-not-installed)
 echo.%computername%|findstr MED
 IF %errorlevel%==0 (REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.medassist.org /F) ELSE (REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F)
 echo.%computername%|findstr MED
