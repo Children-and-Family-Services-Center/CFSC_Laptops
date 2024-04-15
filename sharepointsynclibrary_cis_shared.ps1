@@ -142,7 +142,7 @@ Start-Sleep 30
             webId     = "{959a93c4-f2bf-4d28-8070-bfb03f69c587}"
             listId    = "{0e95d765-321c-4463-9997-ba7bbb2ebce0}"
             userEmail = $userUpn
-            webUrl    = "https://cischarlotte.sharepoint.com/sites/Sharedd"
+            webUrl    = "https://cischarlotte.sharepoint.com/sites/Shared"
             webTitle  = "Shared"
             listTitle = "Documents"
         }
