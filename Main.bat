@@ -1,4 +1,4 @@
-SET Version=Version 3.95
+SET Version=Version 3.96
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -224,6 +224,7 @@ POWERCFG -CHANGE -monitor-timeout-dc 15
 POWERCFG -CHANGE -disk-timeout-dc 0
 POWERCFG -CHANGE -standby-timeout-dc 25
 POWERCFG -CHANGE -hibernate-timeout-dc 0
+powercfg -setacvalueindex SCHEME_CURRENT 4f971e89-eebd-4455-a8de-9e59040e7347 5ca83367-6e45-459f-a27b-476b1d01c936 0
 ECHO %time% - SleepSettings Finished >> C:\Apps\log.txt
 EXIT /b
 
