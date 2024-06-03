@@ -136,6 +136,7 @@ Start-Sleep 30
     try {
         #region Sharepoint Sync
         [mailaddress]$userUpn = cmd /c "whoami/upn"
+        [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
             siteId    = "{d3631c29-7a8c-4234-8942-343363400009}"
@@ -148,7 +149,7 @@ Start-Sleep 30
         }
     
     
-        $params.syncPath  = "$(split-path $env:onedrive)\$($userUpn.Host)\$($params.webTitle) - $($Params.listTitle)"
+        $params.syncPath  = "$(split-path $env:onedrive)\$tenantname\$($params.webTitle) - $($Params.listTitle)"
         Write-Host "SharePoint params:"
         $params | Format-Table
         if (!(Test-Path $($params.syncPath))) {
