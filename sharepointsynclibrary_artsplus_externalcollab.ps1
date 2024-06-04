@@ -146,7 +146,7 @@ Start-Sleep 60
             webId     = "{8dd4db4b-79dd-4a81-88a4-e36757e49805}"
             listId    = "{60cb5abb-3948-4b11-98af-821db2b882d7}"
             userEmail = $userUpn
-            webUrl    = "https://artsplusorg.sharepoint.com/sites/Shared"
+            webUrl    = "https://artsplusorg.sharepoint.com/sites/ExternalCollaboration"
             webTitle  = "External Collaboration"
             listTitle = "Documents"
         }
