@@ -84,6 +84,9 @@ $ExecutionContext.SessionState.LanguageMode
 Start-Sleep 30
 
 
+# Wait another 60 to delay behind the other Sharepoint logon script
+Start-Sleep 60
+
     
   
     #region Functions
