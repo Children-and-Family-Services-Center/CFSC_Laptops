@@ -1,4 +1,4 @@
-# Script for syncing sharepoint library for a user. 
+﻿# Script for syncing sharepoint library for a user. 
 # This script is intended to be run from the user's context, not as system or admin.
 #
 # "Automating the Syncing of Sharepoint team site libraries" by "Intune Training" channel
@@ -139,12 +139,12 @@ Start-Sleep 30
         [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
-            siteId    = "{57d8ab06-4fa4-4b1d-8740-08ff0222ff0b}"
-            webId     = "{ba60e4ff-c04e-4346-b153-34d1bd1a1eff}"
-            listId    = "{598d5507-c0cf-493e-9034-b1f7e2ac9a8c}"
+            siteId    = "{13e5deba-4ff7-43be-8cb3-b52bd9ef5700}"
+            webId     = "{8dd4db4b-79dd-4a81-88a4-e36757e49805}"
+            listId    = "{60cb5abb-3948-4b11-98af-821db2b882d7}"
             userEmail = $userUpn
             webUrl    = "https://artsplusorg.sharepoint.com/sites/Shared"
-            webTitle  = "Shared"
+            webTitle  = "External Collaboration"
             listTitle = "Documents"
         }
     
