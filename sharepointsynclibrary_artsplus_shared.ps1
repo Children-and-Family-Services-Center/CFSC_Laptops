@@ -161,6 +161,7 @@ Start-Sleep 30
         }
         else {
             Write-Host "Location already syncronized: $($params.syncPath)" -ForegroundColor Yellow
+            Exit
         }
         #endregion
     }
@@ -174,6 +175,7 @@ Start-Sleep 30
         }
         else {
             Write-Host "Completed successfully.."
+            Exit
         }
     }
     #endregion
