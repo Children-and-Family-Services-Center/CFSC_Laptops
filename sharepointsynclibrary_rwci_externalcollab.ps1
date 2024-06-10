@@ -139,12 +139,12 @@ Start-Sleep 30
         [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
-            siteId    = "{5bbc6f22-003d-467e-99a9-24bfc1a8f267}"
-            webId     = "{4a52cc8a-4592-4af0-b8cc-60ccec88b329}"
-            listId    = "{e4dabd8b-2b7e-4112-afa1-7c7355a3fb31}"
+            siteId    = "{e245b533-6ee1-4417-bffe-a3dabc691bb9}"
+            webId     = "{a5ccadbe-25d2-46cc-97da-f5081c0f2e18}"
+            listId    = "{33c06de3-a57a-4b9b-acc3-bfe23ac322ed}"
             userEmail = $userUpn
-            webUrl    = "https://renwest.sharepoint.com/sites/Shared"
-            webTitle  = "Shared"
+            webUrl    = "https://renwest.sharepoint.com/sites/ExternalCollaboration"
+            webTitle  = "External Collaboration"
             listTitle = "Documents"
         }
     
