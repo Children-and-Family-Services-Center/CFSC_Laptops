@@ -81,7 +81,7 @@ Write-Output "Continue with the rest of the script..."
 $ExecutionContext.SessionState.LanguageMode
 
 # Wait 30 seconds for OneDrive initial processes to settle down
-Start-Sleep 30
+Start-Sleep 60
 
 
     
@@ -136,19 +136,20 @@ Start-Sleep 30
     try {
         #region Sharepoint Sync
         [mailaddress]$userUpn = cmd /c "whoami/upn"
+        [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
-            siteId    = "{2149c56d-b470-44be-9f98-71ddfc6fc04a}"
-            webId     = "{3be801c6-78fa-41af-a701-bbef29c2820a}"
-            listId    = "{54ac5fcb-cf79-4a77-9a95-2bfdda09c005}"
+            siteId    = "{a0abf512-439a-43b5-8df5-3f8805f9ea0b}"
+            webId     = "{4e28355f-53f7-4c06-b874-ef7874acabbe}"
+            listId    = "{43f2097f-ea92-4197-acd9-c28c84eb2d3b}"
             userEmail = $userUpn
-            webUrl    = "https://unitedwaycc.sharepoint.com/sites/Shared"
+            webUrl    = "https://unitedwaycc.sharepoint.com/sites/Public"
             webTitle  = "Shared"
             listTitle = "Documents"
         }
     
     
-        $params.syncPath  = "$(split-path $env:onedrive)\$($userUpn.Host)\$($params.webTitle) - $($Params.listTitle)"
+        $params.syncPath  = "$(split-path $env:onedrive)\$tenantName\$($params.webTitle) - $($Params.listTitle)"
         Write-Host "SharePoint params:"
         $params | Format-Table
         if (!(Test-Path $($params.syncPath))) {
@@ -160,6 +161,7 @@ Start-Sleep 30
         }
         else {
             Write-Host "Location already syncronized: $($params.syncPath)" -ForegroundColor Yellow
+            Exit
         }
         #endregion
     }
