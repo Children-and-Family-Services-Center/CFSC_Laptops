@@ -144,7 +144,7 @@ Start-Sleep 60
             listId    = "{43f2097f-ea92-4197-acd9-c28c84eb2d3b}"
             userEmail = $userUpn
             webUrl    = "https://unitedwaycc.sharepoint.com/sites/Public"
-            webTitle  = "Shared"
+            webTitle  = "Public"
             listTitle = "Documents"
         }
     
