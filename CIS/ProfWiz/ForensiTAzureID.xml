@@ -1,0 +1,814 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type='text/xsl' href='style.xsl'?>
+<ForensiTAzureID ObjectId="4b478b28-af9c-4863-b803-db525410cb70" Name="cischarlotte.onmicrosoft.com cischarlotte.org cischarlotte.mail.onmicrosoft.com" DisplayName="CIS Charlotte-Mecklenburg">
+    <User>
+        <UserPrincipalName>aabrams@cischarlotte.org</UserPrincipalName>
+        <ObjectId>6e458c6c-617a-416a-b117-7bde53a7f154</ObjectId>
+        <DisplayName>Abrams, Annette</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>abibbs@cischarlotte.org</UserPrincipalName>
+        <ObjectId>6ea2cef4-8e65-4a2b-b745-e77792921645</ObjectId>
+        <DisplayName>Bibbs, Alexis</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>acunningham@cischarlotte.org</UserPrincipalName>
+        <ObjectId>82faf05f-fcaa-4e2c-af1b-8c67ac3e2a5b</ObjectId>
+        <DisplayName>Cunningham, Angela</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>advancement@cischarlotte.org</UserPrincipalName>
+        <ObjectId>b6bff634-8761-485a-8c1c-2f7dd78c4ad0</ObjectId>
+        <DisplayName>CIS Advancement</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>akennington@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e7aed02d-5345-4750-8d3a-907e1e0154ed</ObjectId>
+        <DisplayName>Kennington, Anna</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>aladd@cischarlotte.org</UserPrincipalName>
+        <ObjectId>99d5e22f-1499-44c2-a228-75b2f16477af</ObjectId>
+        <DisplayName>Ladd, Andrew</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>alumni@cischarlotte.org</UserPrincipalName>
+        <ObjectId>97bb04a8-c1ce-4fd3-893f-240d7a93a0fd</ObjectId>
+        <DisplayName>Alumni</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>amcneal@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ceebf939-ee54-482e-922c-28bc0af08c49</ObjectId>
+        <DisplayName>McNeal, Alexis</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>amorales1@cischarlotte.org</UserPrincipalName>
+        <ObjectId>000a8a27-7679-4b3e-8462-9217ac08cdff</ObjectId>
+        <DisplayName>Morales, Alondra</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>anstephens@cischarlotte.org</UserPrincipalName>
+        <ObjectId>0869d13d-ed9a-4366-ba7f-302e90922fc4</ObjectId>
+        <DisplayName>Stephens,Anastasia</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>asmalley@cischarlotte.org</UserPrincipalName>
+        <ObjectId>acbcdf05-be70-40cd-9870-046fdee5b9f5</ObjectId>
+        <DisplayName>Smalley, Ashley</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>aspyhalsky@cischarlotte.org</UserPrincipalName>
+        <ObjectId>eb30957b-a871-4046-8c80-0aa1ce171049</ObjectId>
+        <DisplayName>Spyhalsky, Arlene</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>aurena@cischarlotte.org</UserPrincipalName>
+        <ObjectId>7c68a48c-e7d0-429c-9e35-1febb97393d8</ObjectId>
+        <DisplayName>Urena, Ashley</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>awilliams@cischarlotte.org</UserPrincipalName>
+        <ObjectId>b8a1f001-77a4-476b-9565-7dd17ae378de</ObjectId>
+        <DisplayName>Williams, Alaina</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>bblalark@cischarlotte.org</UserPrincipalName>
+        <ObjectId>5dd22aaa-c91b-4e76-a11d-3175026ce230</ObjectId>
+        <DisplayName>Blalark, Brittany</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>bburgess@cischarlotte.org</UserPrincipalName>
+        <ObjectId>5baf6fc9-21fb-4e52-8bdf-52367575b2cb</ObjectId>
+        <DisplayName>Burgess, Brandon</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>bgadmin@cischarlotte.onmicrosoft.com</UserPrincipalName>
+        <ObjectId>72bee61c-a0c6-43e1-bb95-4a00ac9454a9</ObjectId>
+        <DisplayName>Breakglass Admin</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>bmitchell@cischarlotte.org</UserPrincipalName>
+        <ObjectId>27b43dc5-61e9-4c3a-9bc1-0ac059a41f02</ObjectId>
+        <DisplayName>Mitchell, Brittney</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>bwatkins@cischarlotte.org</UserPrincipalName>
+        <ObjectId>d180480c-c31b-4d36-a9a4-4012649ce79e</ObjectId>
+        <DisplayName>Watkins, Banicca</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>bwhitaker@cischarlotte.org</UserPrincipalName>
+        <ObjectId>1ab1d1e4-de6a-4e0f-868b-bdf22e5dd4cb</ObjectId>
+        <DisplayName>Whitaker, Brandy</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cashadv@cischarlotte.org</UserPrincipalName>
+        <ObjectId>0ef70aee-8efa-49d8-bea4-37e42068a142</ObjectId>
+        <DisplayName>CIS Cash Adv</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>catkinson@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3df7eeca-a765-48a6-be23-2441befb4e6f</ObjectId>
+        <DisplayName>Atkinson, Carlea</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cbarnes@cischarlotte.org</UserPrincipalName>
+        <ObjectId>94016ada-8234-4aab-9be7-2bb988cefba8</ObjectId>
+        <DisplayName>Barnes, Corrin</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cblaschke@cischarlotte.org</UserPrincipalName>
+        <ObjectId>4dcc182b-df0c-4291-b2d9-e802f72efdac</ObjectId>
+        <DisplayName>Cheyney, Catherine</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ccummings@cischarlotte.org</UserPrincipalName>
+        <ObjectId>19542302-ee3a-442e-8b44-a48ff6c46470</ObjectId>
+        <DisplayName>Cummings, Caroline</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cdaniels@cischarlotte.org</UserPrincipalName>
+        <ObjectId>d7f5e405-69a9-4a06-92f4-760e13bc0153</ObjectId>
+        <DisplayName>Daniels, Celaiah</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cfsc@cischarlotte.org</UserPrincipalName>
+        <ObjectId>f6f989c4-98cd-4294-8fd7-eee1affa9389</ObjectId>
+        <DisplayName>Ascend Admin</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cisadmin@cischarlotte.org</UserPrincipalName>
+        <ObjectId>8fac4bc1-0a26-4b42-8baf-c73622a6b2d1</ObjectId>
+        <DisplayName>CIS Admin</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>CISAuto1@cischarlotte.org</UserPrincipalName>
+        <ObjectId>c6f5ddd1-c8cf-4f09-89a9-f67434ca609f</ObjectId>
+        <DisplayName>CIS Auto 1</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>CISAuto2@cischarlotte.org</UserPrincipalName>
+        <ObjectId>aac15f32-f3ff-4c3f-a149-dfcd6c107d9b</ObjectId>
+        <DisplayName>CIS Auto 2</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>CISAuto3@cischarlotte.org</UserPrincipalName>
+        <ObjectId>2513049e-0179-4e6a-855f-ccf36c60c680</ObjectId>
+        <DisplayName>CIS Auto 3</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ciscopier@cischarlotte.org</UserPrincipalName>
+        <ObjectId>d4fdbb7b-30a0-4dab-b849-b71658de3053</ObjectId>
+        <DisplayName>CIS Copier</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>CISEventCalendar@cischarlotte.org</UserPrincipalName>
+        <ObjectId>062e3e70-1e00-4746-ac24-6f496782b606</ObjectId>
+        <DisplayName>CIS Event Calendar</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cisfaxes@cischarlotte.org</UserPrincipalName>
+        <ObjectId>a343a407-cf72-4b2c-8596-8f87744c398e</ObjectId>
+        <DisplayName>CIS Faxes</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>CISFinanceCalendar@cischarlotte.org</UserPrincipalName>
+        <ObjectId>dbeff4bf-94ae-4531-a957-4d4a6a8c4743</ObjectId>
+        <DisplayName>CIS Finance Calendar</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cisgeneralvm@cischarlotte.org</UserPrincipalName>
+        <ObjectId>89e87353-3aa6-4ea3-9df4-5d79f4beece2</ObjectId>
+        <DisplayName>CIS GeneralVM</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cisguest@cischarlotte.org</UserPrincipalName>
+        <ObjectId>8e047d50-6f43-4fce-bcea-051be009ea4d</ObjectId>
+        <DisplayName>CIS Guest</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cishr@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e3cc56fb-1996-4961-ad8e-86aea9e2bb9f</ObjectId>
+        <DisplayName>CIS HR</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cislaptopprojectorcalendar@cischarlotte.org</UserPrincipalName>
+        <ObjectId>b7149521-1d05-4a63-b5e0-fe92bd6c0b92</ObjectId>
+        <DisplayName>CIS Laptop Projector Calendar</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cisnews@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ef073c80-6e1c-49ea-b9fe-08c74f3de64e</ObjectId>
+        <DisplayName>CISNews</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>CISRoom301@cischarlotte.org</UserPrincipalName>
+        <ObjectId>7ed5d18f-680f-4166-9018-7a73ef02e444</ObjectId>
+        <DisplayName>CIS Conference Room 301</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>CISRoom302@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ea2e921f-6038-4b5d-850b-1c1f56afe434</ObjectId>
+        <DisplayName>CIS Conference Room 302</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cistalent@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3fd6c8e0-4ccd-4fa7-9cee-ad23297fb1a9</ObjectId>
+        <DisplayName>CIS Talent Search Calendar</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cistest@cischarlotte.org</UserPrincipalName>
+        <ObjectId>397bd195-e5ce-4051-84cf-6f11430c57ea</ObjectId>
+        <DisplayName>cistest</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ciszoom1@cischarlotte.org</UserPrincipalName>
+        <ObjectId>d0dc935f-fd36-4838-b518-f50c440af52f</ObjectId>
+        <DisplayName>CIS Zoom 1</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ciszoom3@cischarlotte.org</UserPrincipalName>
+        <ObjectId>b9223af6-7b4e-4150-9632-69d591a036a0</ObjectId>
+        <DisplayName>CIS Zoom 3</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ciszoomhr@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e7bef6b1-52e6-434b-b51d-bb22eaa6c29c</ObjectId>
+        <DisplayName>CIS Zoom 2</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ciszoomprogram@cischarlotte.org</UserPrincipalName>
+        <ObjectId>7b04527b-8280-458f-b5a2-ad6769294fdf</ObjectId>
+        <DisplayName>CIS Zoom Program</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cloudtest@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3896fe70-daed-497b-be25-7b3a53a4377f</ObjectId>
+        <DisplayName>cloudtest</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cnickelson@cischarlotte.org</UserPrincipalName>
+        <ObjectId>a7f2a085-3e4a-41b5-895f-72dbdf8083da</ObjectId>
+        <DisplayName>Nickelson, Crystal</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cpiercy@cischarlotte.org</UserPrincipalName>
+        <ObjectId>0bda4d90-1c8d-4080-ba19-ffe3662f3553</ObjectId>
+        <DisplayName>Piercy, Cadence</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>creynolds@cischarlotte.org</UserPrincipalName>
+        <ObjectId>6b3b9e15-5ddc-45a8-8be7-f31d1bf97996</ObjectId>
+        <DisplayName>Reynolds, Clinton</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>crichter@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e65a1baf-1e79-405b-b85e-7bc88c130f4e</ObjectId>
+        <DisplayName>Richter, Carlynn</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cwalls@cischarlotte.org</UserPrincipalName>
+        <ObjectId>5faeb2a2-752e-4d29-9589-04845178e1fb</ObjectId>
+        <DisplayName>Walls, Candra</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cwelch@cischarlotte.org</UserPrincipalName>
+        <ObjectId>71ccba6c-4015-449b-91f8-5c4635304bc1</ObjectId>
+        <DisplayName>Welch, Carly</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>dbailey@cischarlotte.org</UserPrincipalName>
+        <ObjectId>78f9d15c-2923-42db-b234-ccbcaea810b2</ObjectId>
+        <DisplayName>Bailey, Denice</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>dclark@cischarlotte.org</UserPrincipalName>
+        <ObjectId>7ddd8b90-327f-476f-babb-371ea7080c78</ObjectId>
+        <DisplayName>Clark, Daryle</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ddixon@cischarlotte.org</UserPrincipalName>
+        <ObjectId>4738432e-dac6-4091-8c6d-bee86b6f06b4</ObjectId>
+        <DisplayName>Dixon, Dennis</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>DifferenceMakers@cischarlotte.org</UserPrincipalName>
+        <ObjectId>471eefa7-9258-47ea-a19d-c5b62d2dbf71</ObjectId>
+        <DisplayName>CIS DifferenceMakers</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>djackson@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3232dc79-75fd-4398-b435-1cba8881914d</ObjectId>
+        <DisplayName>Jackson, Dominque</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>dpartlow@cischarlotte.org</UserPrincipalName>
+        <ObjectId>344c8bfa-0282-46d0-9116-cae5f65081e4</ObjectId>
+        <DisplayName>Partlow, Diana</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>dperez@cischarlotte.org</UserPrincipalName>
+        <ObjectId>59722a0a-44df-4ccd-9c40-d79e500034dd</ObjectId>
+        <DisplayName>Perez, Deianira</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>dwalker@cischarlotte.org</UserPrincipalName>
+        <ObjectId>b1673c2e-7eac-4009-9fc9-3998fd5e4b17</ObjectId>
+        <DisplayName>Walker, Daisy</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ebaker@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3fb3818d-0dd5-40ee-bb2a-21957031a592</ObjectId>
+        <DisplayName>Baker, Elizabeth</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ebenitez@cischarlotte.org</UserPrincipalName>
+        <ObjectId>955adf98-5c2c-466a-998a-00a47376e476</ObjectId>
+        <DisplayName>Benitez, Elisa</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ecampbell@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e42f8f4c-7ebc-434c-81a9-5ba759154161</ObjectId>
+        <DisplayName>Campbell, Elizabeth</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>egarcia@cischarlotte.org</UserPrincipalName>
+        <ObjectId>c213d59d-6b86-43b8-a6b0-1d0961948237</ObjectId>
+        <DisplayName>Garcia, Esau</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>emorris@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ddf61781-e1c1-491c-8c8c-54ce44e29cb5</ObjectId>
+        <DisplayName>Morris, Erin</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>enrollment@cischarlotte.org</UserPrincipalName>
+        <ObjectId>6e598ccd-6055-4de4-85c5-d5ec8441f226</ObjectId>
+        <DisplayName>CIS Enrollment</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>events@cischarlotte.org</UserPrincipalName>
+        <ObjectId>fb977bb9-9f7c-4632-adfa-78e27bf87a40</ObjectId>
+        <DisplayName>CIS Events</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>executiveteam@cischarlotte.org</UserPrincipalName>
+        <ObjectId>5010b800-7881-4abf-965e-1b93beb648ec</ObjectId>
+        <DisplayName>CIS Executive Team</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ffox@cischarlotte.org</UserPrincipalName>
+        <ObjectId>086276dd-4c3d-4c89-8738-b9e35e3a55b6</ObjectId>
+        <DisplayName>Fox, Faith</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>fgreene@cischarlotte.org</UserPrincipalName>
+        <ObjectId>1c5d2c12-299e-4117-8e8e-39b852efb654</ObjectId>
+        <DisplayName>Greene, Franasia</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>fshaw@cischarlotte.org</UserPrincipalName>
+        <ObjectId>36358867-a80e-44d4-812c-6fca0976a63d</ObjectId>
+        <DisplayName>Shaw, Fahnie</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>gfrench@cischarlotte.org</UserPrincipalName>
+        <ObjectId>78d6a89e-8024-4680-96ac-90b59fa2fbb1</ObjectId>
+        <DisplayName>French, Greer</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ggarcia@cischarlotte.org</UserPrincipalName>
+        <ObjectId>506192b8-5563-47ba-a4dd-25b5c25100cf</ObjectId>
+        <DisplayName>Garcia, Gerardo</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>gthompson@cischarlotte.org</UserPrincipalName>
+        <ObjectId>1f95318e-e716-4b8f-a6b1-564c4c5e6825</ObjectId>
+        <DisplayName>Thompson, Gwen</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>hbrown@cischarlotte.org</UserPrincipalName>
+        <ObjectId>78dc3852-b005-4782-ae9a-da3998cb4ff3</ObjectId>
+        <DisplayName>Brown, Holley</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>jcraighead@cischarlotte.org</UserPrincipalName>
+        <ObjectId>5f6eb591-d146-4691-9a3d-b20fa878be1c</ObjectId>
+        <DisplayName>Craighead, Julie</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>jfletcher@cischarlotte.org</UserPrincipalName>
+        <ObjectId>227b006e-54b8-4816-88c4-0898222db6e0</ObjectId>
+        <DisplayName>Fletcher, Jordan</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>jgriffith@cischarlotte.org</UserPrincipalName>
+        <ObjectId>35ec6955-2952-433a-a621-40945cd8027d</ObjectId>
+        <DisplayName>Griffith, Juanita</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>jharris@cischarlotte.org</UserPrincipalName>
+        <ObjectId>2abb8f4a-8da2-4cc8-b12a-2ebf138008f6</ObjectId>
+        <DisplayName>Harris, Jasmin</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>jjeffries@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ed8767bd-e95c-4839-a2d0-bc848e762963</ObjectId>
+        <DisplayName>Jeffries, Jewel</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>jmatthias@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ea75f934-438b-4ec3-bb38-7240bb410c7c</ObjectId>
+        <DisplayName>Matthias, Jessica</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>jsalgueiro@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ac4073ec-f909-44bf-a069-cd36aba7cd2f</ObjectId>
+        <DisplayName>Salgueiro, Juliet</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>jthompson1@cischarlotte.org</UserPrincipalName>
+        <ObjectId>891bbeda-71dd-4bc2-b623-b95965b53cf3</ObjectId>
+        <DisplayName>Thompson, Jayla</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kbarringer@cischarlotte.org</UserPrincipalName>
+        <ObjectId>4f099b63-b7d2-41a1-85e0-eae5357fb1ce</ObjectId>
+        <DisplayName>Barringer, Kimberly</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kbigger@cischarlotte.org</UserPrincipalName>
+        <ObjectId>7fd96e6b-8854-44dc-99a0-4696a484a2da</ObjectId>
+        <DisplayName>Bigger, Kenyatta</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kboone@cischarlotte.org</UserPrincipalName>
+        <ObjectId>64e89905-f171-46b9-af14-a1eec9c00dce</ObjectId>
+        <DisplayName>Boone, Kearra</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kcabral@cischarlotte.org</UserPrincipalName>
+        <ObjectId>7d61523b-25e3-47f9-8a55-688d8b03eb52</ObjectId>
+        <DisplayName>Cabral, Katiuska</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kiwatson@cischarlotte.org</UserPrincipalName>
+        <ObjectId>11a2495a-e704-46de-a24a-2dc465b63516</ObjectId>
+        <DisplayName>Watson, Kiara</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kjames@cischarlotte.org</UserPrincipalName>
+        <ObjectId>88c40cc5-ddc2-4922-92cd-2bdade0e213c</ObjectId>
+        <DisplayName>James, Karel</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kneal@cischarlotte.org</UserPrincipalName>
+        <ObjectId>eca95e60-1e6b-44d6-ad51-df86399309a1</ObjectId>
+        <DisplayName>Neal, Karen</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>knorth@cischarlotte.org</UserPrincipalName>
+        <ObjectId>9aad12dc-a43e-490f-96ee-8eae8e69f852</ObjectId>
+        <DisplayName>North, Kamilah</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kvinson@cischarlotte.org</UserPrincipalName>
+        <ObjectId>4311e2e7-2074-4db0-9b04-d2888c56fab2</ObjectId>
+        <DisplayName>Vinson, Katie</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kwheeler@cischarlotte.org</UserPrincipalName>
+        <ObjectId>00dadbcb-d8a5-47e0-848b-bd9081bcc31d</ObjectId>
+        <DisplayName>Wheeler, Kenyatta</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lazettaa.crawford_cms.k12.nc.us#EXT#@cischarlotte.onmicrosoft.com</UserPrincipalName>
+        <ObjectId>2d3f03c0-7e15-4974-91db-d9b7d023bfcc</ObjectId>
+        <DisplayName>lazettaa.crawford</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lcarter@cischarlotte.org</UserPrincipalName>
+        <ObjectId>0e655b33-695e-493a-b200-3f3fd550942e</ObjectId>
+        <DisplayName>Carter, Lisa</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lduran@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3148d8f0-b5aa-428e-a4a2-6ebcc0634952</ObjectId>
+        <DisplayName>Duran, Lynette</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lihollis@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ceb74617-bc9a-4355-99b6-44b71bbd287b</ObjectId>
+        <DisplayName>Hollis, Lisa</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ljackson@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ed76ed34-6e5e-4bd0-bcda-9c2fef020e74</ObjectId>
+        <DisplayName>Jackson, Lillian</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lphifer@cischarlotte.org</UserPrincipalName>
+        <ObjectId>a2847271-fec4-45e9-8812-2a10dd2baf89</ObjectId>
+        <DisplayName>Phifer, LaKendra</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lroseborough@cischarlotte.org</UserPrincipalName>
+        <ObjectId>a76bd869-379f-4f3a-883f-026518558aa7</ObjectId>
+        <DisplayName>Roseborough, Lakia</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lruffin@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3f35a11c-38a3-4cac-8b1b-7a7efe09edc2</ObjectId>
+        <DisplayName>Ruffin, LeKeisha</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lstallworth@cischarlotte.org</UserPrincipalName>
+        <ObjectId>a4c29740-fb6e-4363-9da2-56645ddc8e70</ObjectId>
+        <DisplayName>Stallworth, Linda</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>madams@cischarlotte.org</UserPrincipalName>
+        <ObjectId>119e7fd1-0d1a-4e2a-bd90-f214fb459073</ObjectId>
+        <DisplayName>Adams, Maranda</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mari@cischarlotte.org</UserPrincipalName>
+        <ObjectId>8b62cbf4-6436-4d67-9957-f7098b624979</ObjectId>
+        <DisplayName>Ari, Men Tchaas</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mawilliams@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3b009104-8e1b-4b1d-9edb-3f30df5c4de1</ObjectId>
+        <DisplayName>Williams, Marty</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mbelcher@cischarlotte.org</UserPrincipalName>
+        <ObjectId>48973b9d-229a-47a5-9ab4-9e7f09eefd17</ObjectId>
+        <DisplayName>Belcher, Myesha</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mcastaneda@cischarlotte.org</UserPrincipalName>
+        <ObjectId>d4e6d92c-aa25-474d-b75f-1157f96ab082</ObjectId>
+        <DisplayName>Castaneda, Mel</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mcosby-reed@cischarlotte.org</UserPrincipalName>
+        <ObjectId>eaa7aaf2-86c3-4412-b0e6-a178103b61ae</ObjectId>
+        <DisplayName>Cosby-Reed, Monica</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mduran@cischarlotte.org</UserPrincipalName>
+        <ObjectId>8cd5c7fd-2e7b-49a5-8dab-4eadef6a61d5</ObjectId>
+        <DisplayName>Duran, Maria</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mechevarria@cischarlotte.org</UserPrincipalName>
+        <ObjectId>d56edfce-8b4b-4473-b609-19384cfd0832</ObjectId>
+        <DisplayName>Echevarria, Marianella</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>miclark@cischarlotte.org</UserPrincipalName>
+        <ObjectId>1703c4b1-ade6-4ab8-9bfe-5ffa7dac6fa5</ObjectId>
+        <DisplayName>Clark, Michael</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mjohnston@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3ad537ac-cdf8-4740-be33-9195bdae828d</ObjectId>
+        <DisplayName>Johnston, May</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mmiller1@cischarlotte.org</UserPrincipalName>
+        <ObjectId>90493824-1797-455c-bdd0-4955f223d33d</ObjectId>
+        <DisplayName>Miller, Monay</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mowilliams@cischarlotte.org</UserPrincipalName>
+        <ObjectId>f76bcbe3-5a10-44c3-ace0-1110da7b3df8</ObjectId>
+        <DisplayName>Williams, Monet</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ncauley@cischarlotte.org</UserPrincipalName>
+        <ObjectId>24bd40b7-47ba-40b2-81c9-b22adc8c2cda</ObjectId>
+        <DisplayName>Cauley,Nyja</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ncuartas@cischarlotte.org</UserPrincipalName>
+        <ObjectId>daee7509-772e-487a-b1b0-de5ff0775bbf</ObjectId>
+        <DisplayName>Cuartas, Natalia</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ndeluna@cischarlotte.org</UserPrincipalName>
+        <ObjectId>636addcc-42e5-4e92-8864-ebd5de91d908</ObjectId>
+        <DisplayName>De Luna, Nancy</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ohughes@cischarlotte.org</UserPrincipalName>
+        <ObjectId>7b951fe8-4c79-4d1d-acfc-983646bb7a1d</ObjectId>
+        <DisplayName>Hughes, Olivia</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>onboarding@cischarlotte.org</UserPrincipalName>
+        <ObjectId>c456532a-e608-4703-ab8b-117fc9e6990d</ObjectId>
+        <DisplayName>CIS Onboarding</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>pcunningham@cischarlotte.org</UserPrincipalName>
+        <ObjectId>b6a70109-dfd2-419d-b436-7a06cd591af4</ObjectId>
+        <DisplayName>Cunningham, Phyllis</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>pdrye@cischarlotte.org</UserPrincipalName>
+        <ObjectId>a6e28440-6827-4ce0-9ba4-ac2e356f74b1</ObjectId>
+        <DisplayName>Drye, Pamela</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>qdavis@cischarlotte.org</UserPrincipalName>
+        <ObjectId>733a8d91-077f-4240-b1a0-8cd3a31168a0</ObjectId>
+        <DisplayName>Davis, Qunesha</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>rbishara@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e0ef2848-a4d0-4d5f-b256-953dc6706795</ObjectId>
+        <DisplayName>Bishara, Rhonda</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>rcompton@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e3ba7ea1-4edd-45f8-8447-0407e957861b</ObjectId>
+        <DisplayName>Compton, Ronnie</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>rdrake@cischarlotte.org</UserPrincipalName>
+        <ObjectId>35256fe9-4ee4-49f9-b532-83616c0c1460</ObjectId>
+        <DisplayName>Drake, Renee</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>rgraham@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e40ec4a7-b8b1-487e-b888-b09600cc7f0d</ObjectId>
+        <DisplayName>Graham, Romy</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>rking@cischarlotte.org</UserPrincipalName>
+        <ObjectId>2cf7ccbe-4f7a-418e-9d2e-bc27a0db4d9b</ObjectId>
+        <DisplayName>Raine King</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>rleak@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e16260fa-3153-4e6e-8e5c-023b114c619a</ObjectId>
+        <DisplayName>Leak, Renee'</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>rrandolph@cischarlotte.org</UserPrincipalName>
+        <ObjectId>6325e67c-c1fc-43ed-91a6-a3691b5a9e59</ObjectId>
+        <DisplayName>Randolph, Raeanna</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>sharetest@cischarlotte.org</UserPrincipalName>
+        <ObjectId>01321814-692e-4b20-8aaf-1795788ddf2c</ObjectId>
+        <DisplayName>CIS sharetest</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>slewis@cischarlotte.org</UserPrincipalName>
+        <ObjectId>082fc5d8-c0fe-4d16-b6b1-f36e6577567e</ObjectId>
+        <DisplayName>Lewis, Steffanie</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>slockett@cischarlotte.org</UserPrincipalName>
+        <ObjectId>8e4a41c0-0bf7-4c0b-a03a-4d3b5db7c3ea</ObjectId>
+        <DisplayName>Lockett, Semaj</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>slowery@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3ed3f602-9948-4123-a8f9-14384f6719c5</ObjectId>
+        <DisplayName>Lowery, Sheridan</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>smcnair@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e3f5717e-43ed-4e6a-8cd3-685107a05fd6</ObjectId>
+        <DisplayName>McNair, Shaneene</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>socialcapital@cischarlotte.org</UserPrincipalName>
+        <ObjectId>6edb1b97-e6cc-48bc-9083-0ae08f983892</ObjectId>
+        <DisplayName>CIS Social Capital</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>sperry@cischarlotte.org</UserPrincipalName>
+        <ObjectId>5f5c4579-d936-48d5-9d0b-6f29ea6b1d5d</ObjectId>
+        <DisplayName>Perry, Shakaka</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>srodriguez@cischarlotte.org</UserPrincipalName>
+        <ObjectId>12a01a3b-ed6b-4fe2-b142-467544f2c166</ObjectId>
+        <DisplayName>Rodriguez, Sherese</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>srossellromo@cischarlotte.org</UserPrincipalName>
+        <ObjectId>0640c241-5cda-4a27-b724-e330e1638879</ObjectId>
+        <DisplayName>Sophia Rossell Romo</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>staylor@cischarlotte.org</UserPrincipalName>
+        <ObjectId>fb2c2462-f013-4b22-8f5d-3feb1161b961</ObjectId>
+        <DisplayName>Taylor, Shakara</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>sthomas@cischarlotte.org</UserPrincipalName>
+        <ObjectId>706ab69d-74ce-44da-884d-503c7137fdbb</ObjectId>
+        <DisplayName>Thomas, Stephen</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>sturman@cischarlotte.org</UserPrincipalName>
+        <ObjectId>5f8fb122-c313-4019-8fc5-0f54e8977a29</ObjectId>
+        <DisplayName>Turman, Siamoiya</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>svance@cischarlotte.org</UserPrincipalName>
+        <ObjectId>ff4e2701-b65e-4db1-a0ff-9a93c0c4b766</ObjectId>
+        <DisplayName>Vance, Suzanne</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>sweinstein@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3e867d25-8c23-404c-ad5d-c6bdfdae744c</ObjectId>
+        <DisplayName>Weinstein, Stacey</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>Sync_CIS-AZURE_339e02348cc2@cischarlotte.onmicrosoft.com</UserPrincipalName>
+        <ObjectId>7cd8d259-e774-40db-9295-e068afb475ca</ObjectId>
+        <DisplayName>On-Premises Directory Synchronization Service Account</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>tawilliams@cischarlotte.org</UserPrincipalName>
+        <ObjectId>cb28d150-92e7-4001-8d4e-5976c644466b</ObjectId>
+        <DisplayName>Williams, Tanasha</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>Tdawkins@cischarlotte.org</UserPrincipalName>
+        <ObjectId>1ae2b27b-4df3-4dc7-a392-07fe0cc57d8e</ObjectId>
+        <DisplayName>Dawkins, Takiya</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>teminerick@cischarlotte.org</UserPrincipalName>
+        <ObjectId>0d36ced4-17fa-4ba6-87df-3ccf953f7396</ObjectId>
+        <DisplayName>Minerick, Terese</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>thicks@cischarlotte.org</UserPrincipalName>
+        <ObjectId>85dc8038-9597-4916-9816-f7f015f33487</ObjectId>
+        <DisplayName>Hicks, Tyler</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>tiftyson@cischarlotte.org</UserPrincipalName>
+        <ObjectId>8119ffa5-5fc2-4b0c-baab-c94d5dd1586d</ObjectId>
+        <DisplayName>Tyson, Tiffany</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>tnewkirk@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e26c84ed-1a82-4b89-af18-94c6fe7cb567</ObjectId>
+        <DisplayName>Newkirk, Terri</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>trivens@cischarlotte.org</UserPrincipalName>
+        <ObjectId>2beb4bff-1a79-4e3e-8fab-a337dcd3bbdd</ObjectId>
+        <DisplayName>Rivens, Travis</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>vboling@cischarlotte.org</UserPrincipalName>
+        <ObjectId>2023739d-0dc2-4143-b095-72043a114c83</ObjectId>
+        <DisplayName>Boling, Vanessa</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>vchegue@cischarlotte.org</UserPrincipalName>
+        <ObjectId>15648371-2f72-491d-8c98-db7f14be1c0f</ObjectId>
+        <DisplayName>Chegue, Vanessa</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>volunteer@cischarlotte.org</UserPrincipalName>
+        <ObjectId>e05358a7-d1a6-4e84-9562-584047f534a6</ObjectId>
+        <DisplayName>CIS Volunteer</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>vortega@cischarlotte.org</UserPrincipalName>
+        <ObjectId>27c0a4e5-826d-4a8e-9d7f-c6f354119f03</ObjectId>
+        <DisplayName>Ortega, Vanessa</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>vsears@cischarlotte.org</UserPrincipalName>
+        <ObjectId>d2ffa78e-ea1a-4b88-8d3b-d77721db3be0</ObjectId>
+        <DisplayName>Sears, Ventavius</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>vstvilus@cischarlotte.org</UserPrincipalName>
+        <ObjectId>80aaf364-4227-4b7e-af81-5e0cc1e9559b</ObjectId>
+        <DisplayName>St. Vilus, Venetia</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>wgavin@cischarlotte.org</UserPrincipalName>
+        <ObjectId>3baba79c-8d81-42b4-96ef-d30974b6a0a2</ObjectId>
+        <DisplayName>Gavin, Wydia</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>znell@cischarlotte.org</UserPrincipalName>
+        <ObjectId>108b0105-c27a-4afc-9da4-398611620d8c</ObjectId>
+        <DisplayName>Nell, Zully</DisplayName>
+    </User>
+</ForensiTAzureID>
