@@ -148,7 +148,7 @@ Start-Sleep 30
         }
     
     
-        $params.syncPath  = "$(split-path $env:onedrive)\$($userUpn.Host)\$($params.webTitle) - $($Params.listTitle)"
+        $params.syncPath  = "$(split-path $env:onedrive)\$tenantName\$($params.webTitle) - $($Params.listTitle)"
         Write-Host "SharePoint params:"
         $params | Format-Table
         if (!(Test-Path $($params.syncPath))) {

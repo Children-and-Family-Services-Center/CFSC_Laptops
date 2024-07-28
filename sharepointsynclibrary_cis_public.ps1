@@ -138,12 +138,12 @@ Start-Sleep 30
         [mailaddress]$userUpn = cmd /c "whoami/upn"
         $params = @{
             #replace with data captured from your sharepoint site.
-            siteId    = "{94ee9c61-e4c4-4431-a64c-2762b3863602}"
-            webId     = "{20a0f17c-f07f-4c18-a3cf-9585573dda83}"
-            listId    = "{345fd0bb-c2a7-46de-aaa6-ec9631fe9529}"
+            siteId    = "{3ca43ae5-de6e-4e88-ac12-6ba9b0e06fac}"
+            webId     = "{1c0bceb0-6a96-4b8e-9711-23b2df214642}"
+            listId    = "{3d1457f6-3854-4eb3-aad1-a161a4b3f8dd}"
             userEmail = $userUpn
-            webUrl    = "https://cischarlotte.sharepoint.com/sites/Development"
-            webTitle  = "Development"
+            webUrl    = "https://cischarlotte.sharepoint.com/sites/Public"
+            webTitle  = "Public"
             listTitle = "Documents"
         }
     
