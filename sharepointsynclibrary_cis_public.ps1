@@ -81,7 +81,7 @@ Write-Output "Continue with the rest of the script..."
 $ExecutionContext.SessionState.LanguageMode
 
 # Wait 30 seconds for OneDrive initial processes to settle down
-Start-Sleep 60
+Start-Sleep 30
 
 
     
@@ -136,14 +136,13 @@ Start-Sleep 60
     try {
         #region Sharepoint Sync
         [mailaddress]$userUpn = cmd /c "whoami/upn"
-        [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
-            siteId    = "{a0abf512-439a-43b5-8df5-3f8805f9ea0b}"
-            webId     = "{4e28355f-53f7-4c06-b874-ef7874acabbe}"
-            listId    = "{43f2097f-ea92-4197-acd9-c28c84eb2d3b}"
+            siteId    = "{3ca43ae5-de6e-4e88-ac12-6ba9b0e06fac}"
+            webId     = "{1c0bceb0-6a96-4b8e-9711-23b2df214642}"
+            listId    = "{3d1457f6-3854-4eb3-aad1-a161a4b3f8dd}"
             userEmail = $userUpn
-            webUrl    = "https://unitedwaycc.sharepoint.com/sites/Public"
+            webUrl    = "https://cischarlotte.sharepoint.com/sites/Public"
             webTitle  = "Public"
             listTitle = "Documents"
         }
@@ -161,7 +160,6 @@ Start-Sleep 60
         }
         else {
             Write-Host "Location already syncronized: $($params.syncPath)" -ForegroundColor Yellow
-            Exit
         }
         #endregion
     }
