@@ -142,7 +142,7 @@ Start-Sleep 30
             #replace with data captured from your sharepoint site.
             siteId    = "{6eb95e36-6521-48a2-859b-3b423e0946dc}"
             webId     = "{4e28355f-53f7-4c06-b874-ef7874acabbe}"
-            listId    = "{54ac5fcb-cf79-4a77-9a95-2bfdda09c005}"
+            listId    = "{43f2097f-ea92-4197-acd9-c28c84eb2d3b}"
             userEmail = $userUpn
             webUrl    = "https://unitedwaycc.sharepoint.com/sites/ExternalCollaboration"
             webTitle  = "External Collaboration"
