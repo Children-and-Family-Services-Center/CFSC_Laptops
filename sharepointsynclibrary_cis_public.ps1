@@ -136,6 +136,7 @@ Start-Sleep 30
     try {
         #region Sharepoint Sync
         [mailaddress]$userUpn = cmd /c "whoami/upn"
+        [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
             siteId    = "{3ca43ae5-de6e-4e88-ac12-6ba9b0e06fac}"
