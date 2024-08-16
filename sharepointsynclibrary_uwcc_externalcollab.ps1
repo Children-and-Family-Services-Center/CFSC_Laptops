@@ -9,63 +9,9 @@
 # Ascend Nonprofit Solutions
 # 2/10/24
 
-# v1.1 - 8-15-2024
-# fixing timing to be quicker
-# also adding 
-
 # Instructions:
 #
 # Find + Replace variables in the "params" section
-
-Write-Host "v1.1 - 8-15-2024" -ForegroundColor Green
-
-# Loop until OneDrive process starts
-while ($true) {
-    $onedriveProcess = Get-Process "OneDrive" -ErrorAction SilentlyContinue
-
-    if ($onedriveProcess -ne $null) {
-        Write-Output "OneDrive is running now."
-        break
-    } else {
-        Write-Output "OneDrive is not running yet. Waiting..."
-    }
-
-    # Wait for 1 second before checking again
-    Start-Sleep -Seconds 1
-}
-
-# Continue with the rest of the script
-Write-Output "Continue with the rest of the script..."
-
-# Set path for detecting OneDrive Signed In
-$registryPath = 'HKCU:\SOFTWARE\Microsoft\OneDrive'
-$ValueName = 'ClientEverSignedIn'
-$TargetValue = 1  # Set the target value to 1
- 
-# Loop until OneDrive is detected as Signed In
-while ($true) {
-    # Use Get-ItemProperty to retrieve the specific registry value
-    $registryValue = Get-ItemProperty -Path $registryPath -Name $ValueName | Select-Object -ExpandProperty $ValueName
- 
-    # Check if the registry value equals 1
-    if ($registryValue -eq $TargetValue) {
-        Write-Host "Registry value found: $registryValue"
-        break  # Exit the loop when the value is found
-    }
- 
-    # Display a message and wait before checking again
-    Write-Host "Registry value not 1 yet. Waiting..."
-    Start-Sleep -Seconds 5  # Adjust the sleep duration as needed
-}
- 
-# Continue with the rest of your script or actions
-Write-Output "Continue with the rest of the script..."
-
-# Check if powershell is in ConstrainedLanguage or FullLanguage mode
-$ExecutionContext.SessionState.LanguageMode
-
-# Wait 10 seconds for OneDrive initial processes to settle down
-Start-Sleep 10
 
 #region Functions
 function Sync-SharepointLocation {
@@ -106,21 +52,20 @@ function Sync-SharepointLocation {
     else {
         Write-Host "Sync completed."
         while (!(Get-ChildItem -Path $syncPath -ErrorAction SilentlyContinue)) {
-            Write-Host "Checking for [$($params.syncpath)] or [$syncpath] " -ForegroundColor Yellow
             Start-Sleep -Seconds 2
         }
-        Write-Host "Check loop exited... closing"
         return $true
     }    
 }
 #endregion
+
+
 #region Main Process
 
 try {
     #region Sharepoint Sync
     [mailaddress]$userUpn = cmd /c "whoami/upn"
     [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
-
     $params = @{
         #replace with data captured from your sharepoint site.
         siteId    = "{6eb95e36-6521-48a2-859b-3b423e0946dc}"
@@ -131,13 +76,66 @@ try {
         webTitle  = "External Collaboration"
         listTitle = "Documents"
     }
-
-
-    $params.syncPath  = "$(split-path $env:onedrive)\$tenantName\$($params.webTitle) - $($Params.listTitle)"
+    # Combine some parameters to build a full path for syncronization
+    $params.syncPath = "$(split-path $env:onedrive)\$tenantName\$($params.webTitle) - $($Params.listTitle)"
+    
+    # Display all parameters
     Write-Host "SharePoint params:"
     $params | Format-Table
+
+    # Check if powershell is in ConstrainedLanguage or FullLanguage mode
+    Write-Host "Language Mode for Powershell is : [$($ExecutionContext.SessionState.LanguageMode)]"
+
+    #If the 
     if (!(Test-Path $($params.syncPath))) {
-        Write-Host "Sharepoint folder not found locally, will now sync.." -ForegroundColor Yellow
+        Write-Host "Sharepoint folder not found locally, waiting for OneDrive service to initiate sync..." -ForegroundColor Yellow
+
+        ######################################### Wait for OneDrive ############################################   
+        # Wait and Loop until OneDrive process starts
+        while ($true) {
+            $onedriveProcess = Get-Process "OneDrive" -ErrorAction SilentlyContinue
+
+            if ($onedriveProcess -ne $null) {
+                Write-Output "OneDrive is running now."
+                Write-Output "Continue!" -ForegroundColor Green
+                break
+            }
+            else {
+                Write-Output "OneDrive is not running yet. Waiting..."
+            }
+
+            # Wait for 1 second before checking again
+            Start-Sleep -Seconds 1
+        }
+
+        # Confirm OneDrive has been successfully logged into by the user
+        $registryPath = 'HKCU:\SOFTWARE\Microsoft\OneDrive'
+        $ValueName = 'ClientEverSignedIn'
+        $TargetValue = 1  # Set the target value to 1
+
+        # Loop until the registry value is found
+        while ($true) {
+            # Use Get-ItemProperty to retrieve the specific registry value
+            $registryValue = Get-ItemProperty -Path $registryPath -Name $ValueName | Select-Object -ExpandProperty $ValueName
+
+            # Check if the registry value equals 1
+            if ($registryValue -eq $TargetValue) {
+                Write-Host "Client is signed into OneDrive: $registryValue"
+                break  # Exit the loop when the value is found
+            }
+
+            # Display a message and wait before checking again
+            Write-Host "Client isn't signed in yet. Waiting..."
+            Start-Sleep -Seconds 1  # Adjust the sleep duration as needed
+        }
+
+        # Continue with the rest of your script or actions
+        Write-Output "Continue with the rest of the script..."
+
+        # Wait 15 seconds for OneDrive initial processes to settle down
+        Start-Sleep 15
+
+        ################################################## Do the Sync! ###################################
         $sp = Sync-SharepointLocation @params
         if (!($sp)) {
             Throw "Sharepoint sync failed."
@@ -145,9 +143,8 @@ try {
     }
     else {
         Write-Host "Location already syncronized: $($params.syncPath)" -ForegroundColor Yellow
-        Exit
     }
-    #endregion
+#endregion
 }
 catch {
     $errorMsg = $_.Exception.Message
@@ -159,7 +156,6 @@ finally {
     }
     else {
         Write-Host "Completed successfully.."
-        Exit
     }
 }
 #endregion
