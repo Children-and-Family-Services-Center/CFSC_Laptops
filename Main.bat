@@ -1,4 +1,4 @@
-SET Version=Version 3.97
+SET Version=Version 3.98
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -28,10 +28,9 @@ EXIT
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
 
-echo.%computername%|findstr MED
-IF %errorlevel%==0 (REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.medassist.org /F) ELSE (REG ADD "HKLM\SOFTWARE\WOW6432Node\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F)
-echo.%computername%|findstr MED
-IF %errorlevel%==0 (REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.medassist.org /F) ELSE (REG ADD "HKLM\SOFTWARE\Policies\VMware, Inc.\VMware VDM\Client" /V ServerURL /T REG_SZ /D horizon.childrenfamily.org /F)
+Powershell Invoke-WebRequest "https://download.parallels.com/ras/v20/20.1.0.25633/RASClient-x64-20.1.25633.msi?_ga=2.201047918.159961225.1734363833-658789214.1727789406&_gl=1*chtn0x*_gcl_aw*R0NMLjE3Mjk2MTczMDUuQ2owS0NRandtdDI0QmhEUEFSSXNBSkZZS2syNHkyQnhlYkJYWHV2VjZ0TWg3N05pVEd5cmYxWkN5OVBjbjZJSEhYUXkxa0NFc1N1ZzdEZ2FBaS1DRUFMd193Y0I.*_gcl_au*MTI0MjQwNTE4MC4xNzI3Nzg5NDA2LjU5MzI4ODY1NC4xNzI5NjkxNTg2LjE3Mjk2OTE1ODY.*_ga*NjU4Nzg5MjE0LjE3Mjc3ODk0MDY.*_ga_CEVYC7924W*MTczNDM2MzgzMy4xMC4xLjE3MzQzNjQwODIuNTguMC4w" -O "C:\Apps\RASClient.msi"
+Powershell Invoke-WebRequest "https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/refs/heads/main/RAS/export.xml" -O "C:\Apps\RASExport.xml"
+msiexec.exe /qn /i C:\Apps\RASClient.msi SHAREDDEVICE="1:import:C:\Apps\RASExport.xml"
 
 ECHO %time% - test Finished >> C:\Apps\log.txt
 EXIT
