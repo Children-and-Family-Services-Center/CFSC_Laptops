@@ -1,4 +1,4 @@
-SET Version=Version 3.99
+SET Version=Version 4.00
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -27,10 +27,6 @@ EXIT
 
 :test
 ECHO %time% - Test Started >> C:\Apps\log.txt
-
-Powershell Invoke-WebRequest "https://download.parallels.com/ras/v20/20.1.0.25633/RASClient-x64-20.1.25633.msi" -O "C:\Apps\RASClient.msi"
-Powershell Invoke-WebRequest "https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/refs/heads/main/RAS/export.xml" -O "C:\Apps\RASExport.xml"
-msiexec.exe /qn /i C:\Apps\RASClient.msi SHAREDDEVICE="1:import:C:\Apps\RASExport.xml"
 
 ECHO %time% - test Finished >> C:\Apps\log.txt
 EXIT
@@ -197,6 +193,12 @@ ECHO %time% - Apps - ScreenConnect Installing... >> C:\Apps\log.txt
 IF NOT EXIST C:\Apps\ScreenConnect.msi Powershell Invoke-WebRequest https://childrenfamily.screenconnect.com/Bin/ScreenConnect.ClientSetup.msi?e=Access&y=Guest -O C:\Apps\ScreenConnect.msi & ECHO %time% - UpdateScreenConnect - Downloading >> C:\Apps\log.txt
 MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
 ECHO %time% - Apps - ScreenConnect Finished >> C:\Apps\log.txt
+::----------------Parallels--------------------------------
+ECHO %time% - Apps - Parallels Installing... >> C:\Apps\log.txt
+Powershell Invoke-WebRequest "https://download.parallels.com/ras/v20/20.1.0.25633/RASClient-x64-20.1.25633.msi" -O "C:\Apps\RASClient.msi"
+Powershell Invoke-WebRequest "https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/refs/heads/main/RAS/export.xml" -O "C:\Apps\RASExport.xml"
+msiexec.exe /qn /i C:\Apps\RASClient.msi SHAREDDEVICE="1:import:C:\Apps\RASExport.xml"
+ECHO %time% - Apps - Parallels Finished >> C:\Apps\log.txt
 ::----------------App Configs---------------------------------
 ECHO %time% - Apps - App Configs... >> C:\Apps\log.txt
 REG ADD HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main /v PreventFirstRunPage /t REG_DWORD /d 1 /f
