@@ -1,4 +1,4 @@
-SET Version=Version 4.02
+SET Version=Version 4.03
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -251,6 +251,6 @@ ECHO %time% - SupportIcons - Start >> C:\Apps\log.txt
 Powershell Remove-Item "C:\Users\Public\Desktop\AscendNPS Building Maintenance.lnk"
 Powershell IF (-not(Test-Path C:\Apps\Icons)) {New-Item C:\Apps\Icons -ItemType Directory}
 Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/refs/heads/main/DesktopIcons/Support.ico -O C:\Apps\Icons\Support.ico
-Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/refs/heads/main/DesktopIcons/AscendNPS%20Building%20Maintenance.lnk -O "C:\Users\Public\Desktop\AscendNPS Building Maintenance.lnk"
+Powershell -Command "& {Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/refs/heads/main/DesktopIcons/AscendNPS%20Building%20Maintenance.lnk -O "C:\Users\Public\Desktop\AscendNPS Building Maintenance.lnk"}"
 ECHO %time% - SupportIcons - Finish >> C:\Apps\log.txt
 EXIT /b
