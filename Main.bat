@@ -1,4 +1,4 @@
-SET Version=Version 4.03
+SET Version=Version 4.04
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -197,7 +197,7 @@ MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
 ECHO %time% - Apps - ScreenConnect Finished >> C:\Apps\log.txt
 ::----------------Parallels--------------------------------
 ECHO %time% - Apps - Parallels Installing... >> C:\Apps\log.txt
-Powershell Invoke-WebRequest "https://download.parallels.com/ras/v20/20.1.0.25633/RASClient-x64-20.1.25633.msi" -O "C:\Apps\RASClient.msi"
+IF NOT EXIST C:\Apps\RASClient.msi Powershell Invoke-WebRequest "https://download.parallels.com/ras/v20/20.1.0.25633/RASClient-x64-20.1.25633.msi" -O "C:\Apps\RASClient.msi"
 echo.%computername%|findstr MED-
 IF %errorlevel%==0 (Powershell Invoke-WebRequest "https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/refs/heads/main/RAS/export_MedAssist.xml" -O "C:\Apps\RASExport.xml") ELSE (Powershell Invoke-WebRequest "https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/refs/heads/main/RAS/export.xml" -O "C:\Apps\RASExport.xml")
 msiexec.exe /qn /i C:\Apps\RASClient.msi SHAREDDEVICE="1:import:C:\Apps\RASExport.xml"
