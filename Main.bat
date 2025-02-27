@@ -1,4 +1,4 @@
-SET Version=Version 4.01
+SET Version=Version 4.07
 IF NOT EXIST C:\Apps MD C:\Apps
 ECHO. >> C:\Apps\log.txt
 ECHO %date% %time% >> C:\Apps\log.txt
@@ -17,6 +17,7 @@ CALL :WiFiPreload
 CALL :Applications
 CALL :FileAssociations
 CALL :Recovery
+CALL :SupportIcons
 CALL :CleanupVMwareDumpFiles
 CALL :TruncateLog
 
@@ -195,7 +196,7 @@ MSIEXEC.exe /q /i C:\Apps\ScreenConnect.msi /norestart
 ECHO %time% - Apps - ScreenConnect Finished >> C:\Apps\log.txt
 ::----------------Parallels--------------------------------
 ECHO %time% - Apps - Parallels Installing... >> C:\Apps\log.txt
-Powershell Invoke-WebRequest "https://download.parallels.com/ras/v20/20.1.0.25633/RASClient-x64-20.1.25633.msi" -O "C:\Apps\RASClient.msi"
+IF NOT EXIST C:\Apps\RASClient.msi Powershell Invoke-WebRequest "https://download.parallels.com/ras/v20/20.1.0.25633/RASClient-x64-20.1.25633.msi" -O "C:\Apps\RASClient.msi"
 echo.%computername%|findstr MED-
 IF %errorlevel%==0 (Powershell Invoke-WebRequest "https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/refs/heads/main/RAS/export_MedAssist.xml" -O "C:\Apps\RASExport.xml") ELSE (Powershell Invoke-WebRequest "https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/refs/heads/main/RAS/export.xml" -O "C:\Apps\RASExport.xml")
 msiexec.exe /qn /i C:\Apps\RASClient.msi SHAREDDEVICE="1:import:C:\Apps\RASExport.xml"
@@ -243,3 +244,12 @@ Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Fami
 ECHO %time% - Recovery Finished >> C:\Apps\log.txt
 EXIT /b
 
+::SupportIcons--------------------------------------------------------------------
+:SupportIcons
+ECHO %time% - SupportIcons - Start >> C:\Apps\log.txt
+Powershell Remove-Item "C:\Users\Public\Desktop\AscendNPS Building Maintenance.lnk"
+Powershell IF (-not(Test-Path C:\Apps\Icons)) {New-Item C:\Apps\Icons -ItemType Directory}
+Powershell Invoke-WebRequest https://raw.githubusercontent.com/Children-and-Family-Services-Center/CFSC_Laptops/refs/heads/main/DesktopIcons/Support.ico -O C:\Apps\Icons\Support.ico
+Powershell Invoke-WebRequest https://github.com/Children-and-Family-Services-Center/CFSC_Laptops/raw/refs/heads/main/DesktopIcons/AscendNPS_Building_Maintenance.lnk -O 'C:\Users\Public\Desktop\AscendNPS Building Maintenance.lnk'
+ECHO %time% - SupportIcons - Finish >> C:\Apps\log.txt
+EXIT /b
