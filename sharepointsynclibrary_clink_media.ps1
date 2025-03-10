@@ -73,12 +73,12 @@
         [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
-            siteId    = "{2ffd490e-abcd-412b-ad8d-a09c83cff74f}"
-            webId     = "{8c1e7335-2912-46d0-9f69-86cba531a4b6}"
-            listId    = "{ff35b209-3940-4b1c-b353-7e3fc324c56c}"
+            siteId    = "{85e23e05-d625-42c4-bf24-b946da2baef6}"
+            webId     = "{6adb4612-06ad-44a3-ab8c-355de191bea9}"
+            listId    = "{dfebaba3-b6cb-4521-83d3-eed98987b88f}"
             userEmail = $userUpn
-            webUrl    = "https://communitylinknc.sharepoint.com/sites/Shared"
-            webTitle  = "Shared"
+            webUrl    = "https://communitylinknc.sharepoint.com/sites/Media"
+            webTitle  = "Media"
             listTitle = "Documents"
         }
     # Combine some parameters to build a full path for syncronization
@@ -141,8 +141,7 @@
         # Wait 15 seconds for OneDrive initial processes to settle down
         Start-Sleep 15
         #Sleep another interval to keep scripts from colliding.
-        Start-Sleep 1
-        
+        Start-Sleep 7
         ################################################## Do the Sync! ###################################
         $sp = Sync-SharepointLocation @params
         if (!($sp)) {
