@@ -73,12 +73,12 @@
         [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
-            siteId    = "{0f003d0e-5915-4381-b25a-69571dda0f94}"
-            webId     = "{080a5149-2568-49a3-8f72-ac8a6e146338}"
-            listId    = "{5de53e69-3e52-4469-be94-1e03c2586026}"
+            siteId    = "{88df3ab1-8065-4e5b-bfbd-1dc2de4e4d8a}"
+            webId     = "{d34d7839-fdc8-4ce7-8bb8-011adc4f020a}"
+            listId    = "{0a24dabd-f0b9-4334-a761-8fcb85442710}"
             userEmail = $userUpn
-            webUrl    = "https://carolinarainorg.sharepoint.com/sites/Shared"
-            webTitle  = "Shared"
+            webUrl    = "https://carolinarainorg.sharepoint.com/sites/Public"
+            webTitle  = "Public"
             listTitle = "Documents"
         }
     # Combine some parameters to build a full path for syncronization
