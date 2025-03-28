@@ -18,57 +18,57 @@
 #
 # Find + Replace variables in the "params" section
 
-    #region Functions
-    function Sync-SharepointLocation {
-        param (
-            [guid]$siteId,
-            [guid]$webId,
-            [guid]$listId,
-            [mailaddress]$userEmail,
-            [string]$webUrl,
-            [string]$webTitle,
-            [string]$listTitle,
-            [string]$syncPath
-        )
-        try {
-            Add-Type -AssemblyName System.Web
-            #Encode site, web, list, url & email
-            [string]$siteId = [System.Web.HttpUtility]::UrlEncode($siteId)
-            [string]$webId = [System.Web.HttpUtility]::UrlEncode($webId)
-            [string]$listId = [System.Web.HttpUtility]::UrlEncode($listId)
-            [string]$userEmail = [System.Web.HttpUtility]::UrlEncode($userEmail)
-            [string]$webUrl = [System.Web.HttpUtility]::UrlEncode($webUrl)
-            #build the URI
-            $uri = New-Object System.UriBuilder
-            $uri.Scheme = "odopen"
-            $uri.Host = "sync"
-            $uri.Query = "siteId=$siteId&webId=$webId&listId=$listId&userEmail=$userEmail&webUrl=$webUrl&listTitle=$listTitle&webTitle=$webTitle"
-            #launch the process from URI
-            Write-Host $uri.ToString()
-            start-process -filepath $($uri.ToString())
-        }
-        catch {
-            $errorMsg = $_.Exception.Message
-        }
-        if ($errorMsg) {
-            Write-Warning "Sync failed."
-            Write-Warning $errorMsg
-        }
-        else {
-            Write-Host "Sync completed."
-            while (!(Get-ChildItem -Path $syncPath -ErrorAction SilentlyContinue)) {
-                Start-Sleep -Seconds 2
-            }
-            return $true
-        }    
-    }
-    #endregion
-
-
-    #region Main Process
-    
+#region Functions
+function Sync-SharepointLocation {
+    param (
+        [guid]$siteId,
+        [guid]$webId,
+        [guid]$listId,
+        [mailaddress]$userEmail,
+        [string]$webUrl,
+        [string]$webTitle,
+        [string]$listTitle,
+        [string]$syncPath
+    )
     try {
-        #region Sharepoint Sync
+        Add-Type -AssemblyName System.Web
+        #Encode site, web, list, url & email
+        [string]$siteId = [System.Web.HttpUtility]::UrlEncode($siteId)
+        [string]$webId = [System.Web.HttpUtility]::UrlEncode($webId)
+        [string]$listId = [System.Web.HttpUtility]::UrlEncode($listId)
+        [string]$userEmail = [System.Web.HttpUtility]::UrlEncode($userEmail)
+        [string]$webUrl = [System.Web.HttpUtility]::UrlEncode($webUrl)
+        #build the URI
+        $uri = New-Object System.UriBuilder
+        $uri.Scheme = "odopen"
+        $uri.Host = "sync"
+        $uri.Query = "siteId=$siteId&webId=$webId&listId=$listId&userEmail=$userEmail&webUrl=$webUrl&listTitle=$listTitle&webTitle=$webTitle"
+        #launch the process from URI
+        Write-Host $uri.ToString()
+        start-process -filepath $($uri.ToString())
+    }
+    catch {
+        $errorMsg = $_.Exception.Message
+    }
+    if ($errorMsg) {
+        Write-Warning "Sync failed."
+        Write-Warning $errorMsg
+    }
+    else {
+        Write-Host "Sync completed."
+        while (!(Get-ChildItem -Path $syncPath -ErrorAction SilentlyContinue)) {
+            Start-Sleep -Seconds 2
+        }
+        return $true
+    }    
+}
+#endregion
+
+
+#region Main Process
+
+try {
+    #region Sharepoint Sync
         [mailaddress]$userUpn = cmd /c "whoami/upn"
         [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
@@ -102,12 +102,12 @@
             $onedriveProcess = Get-Process "OneDrive" -ErrorAction SilentlyContinue
 
             if ($onedriveProcess -ne $null) {
-                Write-Output "OneDrive is running now."
-                Write-Output "Continue!" -ForegroundColor Green
+                Write-Host "OneDrive is running now." -ForegroundColor Green
+                Write-Host "Continue!" -ForegroundColor Green
                 break
             }
             else {
-                Write-Output "OneDrive is not running yet. Waiting..."
+                Write-Host "OneDrive is not running yet. Waiting..." -ForegroundColor Yellow
             }
 
             # Wait for 1 second before checking again
@@ -141,7 +141,7 @@
         # Wait 15 seconds for OneDrive initial processes to settle down
         Start-Sleep 15
         #Sleep another interval to keep scripts from colliding.
-        Start-Sleep 1
+        #Start-Sleep 1
         
         ################################################## Do the Sync! ###################################
         $sp = Sync-SharepointLocation @params

@@ -17,6 +17,7 @@
 # Instructions:
 #
 # Find + Replace variables in the "params" section
+# Set "Collison Wait" Value
 
     #region Functions
     function Sync-SharepointLocation {
@@ -73,11 +74,11 @@
         [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
-            siteId    = "{88df3ab1-8065-4e5b-bfbd-1dc2de4e4d8a}"
-            webId     = "{d34d7839-fdc8-4ce7-8bb8-011adc4f020a}"
-            listId    = "{0a24dabd-f0b9-4334-a761-8fcb85442710}"
+            siteId    = "{fc37f54b-02f5-4839-9bde-54919d097083}"
+            webId     = "{d5e262d6-9465-4be2-b3c6-2953a2702bc3}"
+            listId    = "{0d2a8a3c-57e6-47ba-a39d-3267359407e9}"
             userEmail = $userUpn
-            webUrl    = "https://carolinarainorg.sharepoint.com/sites/Public"
+            webUrl    = "https://meckpre.sharepoint.com/sites/Public"
             webTitle  = "Public"
             listTitle = "Documents"
         }
@@ -90,8 +91,6 @@
     # Check if powershell is in ConstrainedLanguage or FullLanguage mode
     Write-Host "Language Mode for Powershell is : [$($ExecutionContext.SessionState.LanguageMode)]"
     
-    
-
     #Check if the path exists. If so, then exit the script. If it doesn't, proceed to wait and sync.
     if (!(Test-Path $($params.syncPath))) {
         Write-Host "Sharepoint folder not found locally, waiting for OneDrive service to initiate sync..." -ForegroundColor Yellow
@@ -102,12 +101,12 @@
             $onedriveProcess = Get-Process "OneDrive" -ErrorAction SilentlyContinue
 
             if ($onedriveProcess -ne $null) {
-                Write-Output "OneDrive is running now."
-                Write-Output "Continue!" -ForegroundColor Green
+                Write-Host "OneDrive is running now." -ForegroundColor Green
+                Write-Host "Continue!" -ForegroundColor Green
                 break
             }
             else {
-                Write-Output "OneDrive is not running yet. Waiting..."
+                Write-Host "OneDrive is not running yet. Waiting..." -ForegroundColor Yellow
             }
 
             # Wait for 1 second before checking again
