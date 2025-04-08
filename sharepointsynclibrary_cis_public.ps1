@@ -85,6 +85,7 @@
     # Check if powershell is in ConstrainedLanguage or FullLanguage mode
     Write-Host "Language Mode for Powershell is : [$($ExecutionContext.SessionState.LanguageMode)]"
 
+    #Check if the path exists. If so, then exit the script. If it doesn't, proceed to wait and sync.
     if (!(Test-Path $($params.syncPath))) {
         Write-Host "Sharepoint folder not found locally, waiting for OneDrive service to initiate sync..." -ForegroundColor Yellow
 

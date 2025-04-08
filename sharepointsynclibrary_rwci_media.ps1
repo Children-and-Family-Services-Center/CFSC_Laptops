@@ -135,7 +135,7 @@ try {
         # Wait 15 seconds for OneDrive initial processes to settle down
         Start-Sleep 15
         #Sleep another interval to keep scripts from colliding.
-        Start-Sleep 10
+        Start-Sleep 30
         ################################################## Do the Sync! ###################################
         $sp = Sync-SharepointLocation @params
         if (!($sp)) {
