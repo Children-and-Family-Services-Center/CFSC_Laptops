@@ -2,7 +2,7 @@
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
   <VersionEx>10.0.0.0</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
-  <PolicyID>{7C9DECC1-A0E3-48AD-94D2-00904B469896}</PolicyID>
+  <PolicyID>{57AB3DEA-8CEC-4532-A845-7988BAC1B68C}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
   <Rules>
     <Rule>
@@ -16,23 +16,26 @@
     </Rule>
   </Rules>
   <EKUs />
-  <FileRules />
-  <Signers>
-    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_0">
-      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
-      <CertPublisher Value="Kofax, Inc." />
-    </Signer>
-  </Signers>
+  <FileRules>
+    <Allow ID="ID_ALLOW_A_0" FriendlyName="C:\Users\jgaines\Downloads\PrintixClientWindowsNoDotNetRuntime.exe Hash Sha1" Hash="B541DAC5EADBCCF45856E2A748B009F17C59E1E8" />
+    <Allow ID="ID_ALLOW_A_1" FriendlyName="C:\Users\jgaines\Downloads\PrintixClientWindowsNoDotNetRuntime.exe Hash Sha256" Hash="D4D6238F6B15420444467C3F1A7ABEA1F7CD0F55BE3C50AE41EFF9EF1EE752F9" />
+    <Allow ID="ID_ALLOW_A_2" FriendlyName="C:\Users\jgaines\Downloads\PrintixClientWindowsNoDotNetRuntime.exe Hash Page Sha1" Hash="0681639FD1C8A8AC87AA5A3720FBE3320C6EF05D" />
+    <Allow ID="ID_ALLOW_A_3" FriendlyName="C:\Users\jgaines\Downloads\PrintixClientWindowsNoDotNetRuntime.exe Hash Page Sha256" Hash="B2858DF19BC4EB5A8A3150C52DFF32085D7BEBB175A5F54C6F9E5AFFC4361C71" />
+  </FileRules>
+  <Signers />
   <SigningScenarios>
     <SigningScenario ID="ID_SIGNINGSCENARIO_DRIVERS_1" FriendlyName="Auto generated policy on 09-24-2021" Value="131">
-      <ProductSigners>
-        <AllowedSigners>
-          <AllowedSigner SignerId="ID_SIGNER_S_0" />
-        </AllowedSigners>
-      </ProductSigners>
+      <ProductSigners />
     </SigningScenario>
     <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 09-24-2021" Value="12">
-      <ProductSigners />
+      <ProductSigners>
+        <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_1" />
+          <FileRuleRef RuleID="ID_ALLOW_A_2" />
+          <FileRuleRef RuleID="ID_ALLOW_A_3" />
+        </FileRulesRef>
+      </ProductSigners>
     </SigningScenario>
   </SigningScenarios>
   <UpdatePolicySigners />
@@ -46,7 +49,7 @@
     </Setting>
     <Setting Provider="PolicyInfo" Key="Information" ValueName="Id">
       <Value>
-        <String>2025-04-23</String>
+        <String>2025-04-24</String>
       </Value>
     </Setting>
   </Settings>

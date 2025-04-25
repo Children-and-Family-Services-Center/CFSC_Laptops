@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Base Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.3.0.2</VersionEx>
+  <VersionEx>10.3.0.4</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -18,9 +18,6 @@
       <Option>Enabled:Inherit Default Policy</Option>
     </Rule>
     <Rule>
-      <Option>Enabled:Update Policy No Reboot</Option>
-    </Rule>
-    <Rule>
       <Option>Enabled:Revoked Expired As Unsigned</Option>
     </Rule>
     <Rule>
@@ -30,7 +27,7 @@
       <Option>Enabled:Managed Installer</Option>
     </Rule>
     <Rule>
-      <Option>Disabled:Script Enforcement</Option>
+      <Option>Enabled:Update Policy No Reboot</Option>
     </Rule>
     <Rule>
       <Option>Disabled:Runtime FilePath Rule Protection</Option>
