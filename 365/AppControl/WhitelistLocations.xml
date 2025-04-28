@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.0.0.3</VersionEx>
+  <VersionEx>10.0.0.4</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{191A106E-1E12-4D68-BB78-8CD1046C8A7B}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -20,6 +20,7 @@
   </Rules>
   <EKUs />
   <FileRules>
+    <Allow ID="ID_ALLOW_A_4" FriendlyName="Allow by path: %OSDRIVE%\ProgramData\Package Cache\*" FilePath="%OSDRIVE%\ProgramData\Package Cache\*" />
     <Allow ID="ID_ALLOW_A_3" FriendlyName="Allow by path: %OSDRIVE%\apps\*" FilePath="%OSDRIVE%\apps\*" />
     <Allow ID="ID_ALLOW_A_2" FriendlyName="Allow by path: %OSDRIVE%\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\*" FilePath="%OSDRIVE%\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\*" />
     <Allow ID="ID_ALLOW_A_1" FriendlyName="Allow by path: %OSDRIVE%\Apps\*" FilePath="%OSDRIVE%\Apps\*" />
@@ -35,6 +36,7 @@
     <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 09-24-2021" Value="12">
       <ProductSigners>
         <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_4" />
           <FileRuleRef RuleID="ID_ALLOW_A_3" />
           <FileRuleRef RuleID="ID_ALLOW_A_2" />
           <FileRuleRef RuleID="ID_ALLOW_A_1" />
