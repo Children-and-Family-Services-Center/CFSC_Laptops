@@ -24,7 +24,7 @@
   <EKUs />
   <FileRules />
   <Signers>
-    <Signer Name="Microsoft Code Signing PCA 2011" ID="ID_SIGNER_S_0">
+    <Signer Name="Microsoft Code Signing PCA 2011" ID="ID_SIGNER_S_6">
       <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
       <CertPublisher Value="Microsoft 3rd Party Application Component" />
     </Signer>
@@ -57,7 +57,7 @@
     <SigningScenario ID="ID_SIGNINGSCENARIO_DRIVERS_1" FriendlyName="Auto generated policy on 09-24-2021" Value="131">
       <ProductSigners>
         <AllowedSigners>
-          <AllowedSigner SignerId="ID_SIGNER_S_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_6" />
           <AllowedSigner SignerId="ID_SIGNER_S_5" />
           <AllowedSigner SignerId="ID_SIGNER_S_4" />
           <AllowedSigner SignerId="ID_SIGNER_S_3" />
