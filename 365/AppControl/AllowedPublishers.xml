@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.0.0.0</VersionEx>
+  <VersionEx>10.0.0.1</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{36892931-0B08-4489-B7D5-50B5D63AC648}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -17,10 +17,17 @@
     <Rule>
       <Option>Disabled:Runtime FilePath Rule Protection</Option>
     </Rule>
+    <Rule>
+      <Option>Enabled:UMCI</Option>
+    </Rule>
   </Rules>
   <EKUs />
   <FileRules />
   <Signers>
+    <Signer Name="Microsoft Code Signing PCA 2011" ID="ID_SIGNER_S_0">
+      <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
+      <CertPublisher Value="Microsoft 3rd Party Application Component" />
+    </Signer>
     <Signer Name="Microsoft Code Signing PCA 2011" ID="ID_SIGNER_S_5">
       <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
       <CertPublisher Value=".NET" />
@@ -50,6 +57,7 @@
     <SigningScenario ID="ID_SIGNINGSCENARIO_DRIVERS_1" FriendlyName="Auto generated policy on 09-24-2021" Value="131">
       <ProductSigners>
         <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_0" />
           <AllowedSigner SignerId="ID_SIGNER_S_5" />
           <AllowedSigner SignerId="ID_SIGNER_S_4" />
           <AllowedSigner SignerId="ID_SIGNER_S_3" />
@@ -60,11 +68,17 @@
       </ProductSigners>
     </SigningScenario>
     <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 09-24-2021" Value="12">
-      <ProductSigners />
+      <ProductSigners>
+        <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_0" />
+        </AllowedSigners>
+      </ProductSigners>
     </SigningScenario>
   </SigningScenarios>
   <UpdatePolicySigners />
-  <CiSigners />
+  <CiSigners>
+    <CiSigner SignerId="ID_SIGNER_S_0" />
+  </CiSigners>
   <HvciOptions>0</HvciOptions>
   <Settings>
     <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
