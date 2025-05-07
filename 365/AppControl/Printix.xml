@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.0.0.2</VersionEx>
+  <VersionEx>10.0.0.3</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{57AB3DEA-8CEC-4532-A845-7988BAC1B68C}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -20,6 +20,10 @@
   </Rules>
   <EKUs />
   <FileRules>
+    <Allow ID="ID_ALLOW_A_12" FriendlyName="C:\Users\jgaines\Downloads\PresentationNative_cor3.dll Hash Sha1" Hash="1B5861F8A16532152751DABBF42BFD48641CEAA3" />
+    <Allow ID="ID_ALLOW_A_13" FriendlyName="C:\Users\jgaines\Downloads\PresentationNative_cor3.dll Hash Sha256" Hash="D715F6323F6FC4BFAB59C5D8989078FD8FF4E3E36C09C2D3677A8F1310BD1C4E" />
+    <Allow ID="ID_ALLOW_A_14" FriendlyName="C:\Users\jgaines\Downloads\PresentationNative_cor3.dll Hash Page Sha1" Hash="7F74E9929243F3D8A5899D27522A28EE50FE82F0" />
+    <Allow ID="ID_ALLOW_A_15" FriendlyName="C:\Users\jgaines\Downloads\PresentationNative_cor3.dll Hash Page Sha256" Hash="7936488E2485AFC709F5F4DDBA8909047FB650A018E6DD0D0F374C74BD5795E1" />
     <Allow ID="ID_ALLOW_A_8" FriendlyName="C:\Users\jgaines\Downloads\InnoCallback.dll Hash Sha1" Hash="806C0A521EED077B2005606AF37D680C6FAD8995" />
     <Allow ID="ID_ALLOW_A_9" FriendlyName="C:\Users\jgaines\Downloads\InnoCallback.dll Hash Sha256" Hash="63971EE479A28661B9A18E75EAAD823D76B8BF1D4B918A76AD7B4B0C175C3AC5" />
     <Allow ID="ID_ALLOW_A_10" FriendlyName="C:\Users\jgaines\Downloads\InnoCallback.dll Hash Page Sha1" Hash="335FA11336C9BD7D0E97ADFB55FE41CAB5A7731A" />
@@ -59,6 +63,10 @@
           <AllowedSigner SignerId="ID_SIGNER_S_0" />
         </AllowedSigners>
         <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_12" />
+          <FileRuleRef RuleID="ID_ALLOW_A_13" />
+          <FileRuleRef RuleID="ID_ALLOW_A_14" />
+          <FileRuleRef RuleID="ID_ALLOW_A_15" />
           <FileRuleRef RuleID="ID_ALLOW_A_4" />
           <FileRuleRef RuleID="ID_ALLOW_A_5" />
           <FileRuleRef RuleID="ID_ALLOW_A_6" />

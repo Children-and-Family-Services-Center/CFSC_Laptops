@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.0.0.8</VersionEx>
+  <VersionEx>10.0.0.9</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{191A106E-1E12-4D68-BB78-8CD1046C8A7B}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -20,6 +20,7 @@
   </Rules>
   <EKUs />
   <FileRules>
+    <Allow ID="ID_ALLOW_A_9" FriendlyName="Allow by path: %SYSTEM32%\wbem\*" FilePath="%SYSTEM32%\wbem\*" />
     <Allow ID="ID_ALLOW_A_0" FriendlyName="C:\Users\jgaines\Downloads\Newtonsoft.Json.dll Hash Sha1" Hash="0E76F7CF178E78081BB096B530CB34C9C1584863" />
     <Allow ID="ID_ALLOW_A_6" FriendlyName="C:\Users\jgaines\Downloads\Newtonsoft.Json.dll Hash Sha256" Hash="2E839314A906F5640402A1DCEBA31AA7E921C8882CDDC23CE4C045504CEE7510" />
     <Allow ID="ID_ALLOW_A_7" FriendlyName="C:\Users\jgaines\Downloads\Newtonsoft.Json.dll Hash Page Sha1" Hash="5A4A61280E8E57ECCA55B8902C89FC071B86B1F8" />
@@ -41,6 +42,7 @@
     <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 09-24-2021" Value="12">
       <ProductSigners>
         <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_9" />
           <FileRuleRef RuleID="ID_ALLOW_A_0" />
           <FileRuleRef RuleID="ID_ALLOW_A_6" />
           <FileRuleRef RuleID="ID_ALLOW_A_7" />
