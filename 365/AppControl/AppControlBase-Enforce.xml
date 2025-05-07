@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Base Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.3.0.9</VersionEx>
+  <VersionEx>10.3.0.10</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -13,9 +13,6 @@
     </Rule>
     <Rule>
       <Option>Enabled:Inherit Default Policy</Option>
-    </Rule>
-    <Rule>
-      <Option>Enabled:Revoked Expired As Unsigned</Option>
     </Rule>
     <Rule>
       <Option>Enabled:Allow Supplemental Policies</Option>
@@ -36,7 +33,7 @@
       <Option>Required:Enforce Store Applications</Option>
     </Rule>
     <Rule>
-      <Option>Enabled:Intelligent Security Graph Authorization</Option>
+      <Option>Enabled:Boot Audit On Failure</Option>
     </Rule>
   </Rules>
   <EKUs>
