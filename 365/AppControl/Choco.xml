@@ -25,7 +25,7 @@
       <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
       <CertPublisher Value="Chocolatey Software, Inc" />
     </Signer>
-    <Signer Name="DigiCert SHA2 Assured ID Code Signing CA" ID="ID_SIGNER_S_0">
+    <Signer Name="DigiCert SHA2 Assured ID Code Signing CA" ID="ID_SIGNER_S_1">
       <CertRoot Type="TBS" Value="E767799478F64A34B3F53FF3BB9057FE1768F4AB178041B0DCC0FF1E210CBA65" />
       <CertPublisher Value="Chocolatey Software, Inc." />
     </Signer>
@@ -35,7 +35,7 @@
       <ProductSigners>
         <AllowedSigners>
           <AllowedSigner SignerId="ID_SIGNER_S_0" />
-          <AllowedSigner SignerId="ID_SIGNER_S_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_1" />
         </AllowedSigners>
       </ProductSigners>
     </SigningScenario>
@@ -43,6 +43,7 @@
       <ProductSigners>
         <AllowedSigners>
           <AllowedSigner SignerId="ID_SIGNER_S_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_1" />
         </AllowedSigners>
       </ProductSigners>
     </SigningScenario>
@@ -50,6 +51,7 @@
   <UpdatePolicySigners />
   <CiSigners>
     <CiSigner SignerId="ID_SIGNER_S_0" />
+    <CiSigner SignerId="ID_SIGNER_S_1" />
   </CiSigners>
   <HvciOptions>0</HvciOptions>
   <Settings>
