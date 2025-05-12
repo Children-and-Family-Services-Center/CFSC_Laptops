@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.0.0.2</VersionEx>
+  <VersionEx>10.0.0.3</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{AEDF90A7-3607-4923-83B6-760B30071F0D}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -24,6 +24,14 @@
   <EKUs />
   <FileRules />
   <Signers>
+    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_5">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Windscribe Limited" />
+    </Signer>
+    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_4">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Windscribe Limited" />
+    </Signer>
     <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_3">
       <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
       <CertPublisher Value="Fiserv, Inc." />
@@ -45,6 +53,8 @@
     <SigningScenario ID="ID_SIGNINGSCENARIO_DRIVERS_1" FriendlyName="Auto generated policy on 09-24-2021" Value="131">
       <ProductSigners>
         <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_5" />
+          <AllowedSigner SignerId="ID_SIGNER_S_4" />
           <AllowedSigner SignerId="ID_SIGNER_S_3" />
           <AllowedSigner SignerId="ID_SIGNER_S_2" />
           <AllowedSigner SignerId="ID_SIGNER_S_1" />
@@ -55,6 +65,8 @@
     <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 09-24-2021" Value="12">
       <ProductSigners>
         <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_5" />
+          <AllowedSigner SignerId="ID_SIGNER_S_4" />
           <AllowedSigner SignerId="ID_SIGNER_S_3" />
           <AllowedSigner SignerId="ID_SIGNER_S_2" />
           <AllowedSigner SignerId="ID_SIGNER_S_1" />
@@ -65,6 +77,11 @@
   </SigningScenarios>
   <UpdatePolicySigners />
   <CiSigners>
+    <CiSigner SignerId="ID_SIGNER_S_5" />
+    <CiSigner SignerId="ID_SIGNER_S_4" />
+    <CiSigner SignerId="ID_SIGNER_S_3" />
+    <CiSigner SignerId="ID_SIGNER_S_2" />
+    <CiSigner SignerId="ID_SIGNER_S_1" />
     <CiSigner SignerId="ID_SIGNER_S_0" />
   </CiSigners>
   <HvciOptions>0</HvciOptions>
