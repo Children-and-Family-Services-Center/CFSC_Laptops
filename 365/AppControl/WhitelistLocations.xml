@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.0.0.9</VersionEx>
+  <VersionEx>10.0.0.10</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{191A106E-1E12-4D68-BB78-8CD1046C8A7B}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -20,6 +20,14 @@
   </Rules>
   <EKUs />
   <FileRules>
+    <Allow ID="ID_ALLOW_A_10" FriendlyName="C:\Windows\System32\wbem\WMIC.exe Hash Sha1" Hash="CD97EA6B1912F89508448597DC4C84A0A7D8C4B7" />
+    <Allow ID="ID_ALLOW_A_11" FriendlyName="C:\Windows\System32\wbem\WMIC.exe Hash Sha256" Hash="B1DEA1C5894C91A03083D0821340FEC9F0B399CC015571A58902242D60A1C8BC" />
+    <Allow ID="ID_ALLOW_A_12" FriendlyName="C:\Windows\System32\wbem\WMIC.exe Hash Page Sha1" Hash="82AA81FB1BC4F5233D954A5AA46039B55C3D513F" />
+    <Allow ID="ID_ALLOW_A_13" FriendlyName="C:\Windows\System32\wbem\WMIC.exe Hash Page Sha256" Hash="E3D266433A6FFA2EDCA792B08835DDC2AF5444F360E212DA7060DF672787C7FD" />
+    <Allow ID="ID_ALLOW_A_14" FriendlyName="C:\Windows\System32\wbem\WMIC.exe Hash Sha1" Hash="CD97EA6B1912F89508448597DC4C84A0A7D8C4B7" />
+    <Allow ID="ID_ALLOW_A_15" FriendlyName="C:\Windows\System32\wbem\WMIC.exe Hash Sha256" Hash="B1DEA1C5894C91A03083D0821340FEC9F0B399CC015571A58902242D60A1C8BC" />
+    <Allow ID="ID_ALLOW_A_16" FriendlyName="C:\Windows\System32\wbem\WMIC.exe Hash Page Sha1" Hash="82AA81FB1BC4F5233D954A5AA46039B55C3D513F" />
+    <Allow ID="ID_ALLOW_A_17" FriendlyName="C:\Windows\System32\wbem\WMIC.exe Hash Page Sha256" Hash="E3D266433A6FFA2EDCA792B08835DDC2AF5444F360E212DA7060DF672787C7FD" />
     <Allow ID="ID_ALLOW_A_9" FriendlyName="Allow by path: %SYSTEM32%\wbem\*" FilePath="%SYSTEM32%\wbem\*" />
     <Allow ID="ID_ALLOW_A_0" FriendlyName="C:\Users\jgaines\Downloads\Newtonsoft.Json.dll Hash Sha1" Hash="0E76F7CF178E78081BB096B530CB34C9C1584863" />
     <Allow ID="ID_ALLOW_A_6" FriendlyName="C:\Users\jgaines\Downloads\Newtonsoft.Json.dll Hash Sha256" Hash="2E839314A906F5640402A1DCEBA31AA7E921C8882CDDC23CE4C045504CEE7510" />
@@ -37,11 +45,22 @@
   <Signers />
   <SigningScenarios>
     <SigningScenario ID="ID_SIGNINGSCENARIO_DRIVERS_1" FriendlyName="Auto generated policy on 09-24-2021" Value="131">
-      <ProductSigners />
+      <ProductSigners>
+        <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_10" />
+          <FileRuleRef RuleID="ID_ALLOW_A_11" />
+          <FileRuleRef RuleID="ID_ALLOW_A_12" />
+          <FileRuleRef RuleID="ID_ALLOW_A_13" />
+        </FileRulesRef>
+      </ProductSigners>
     </SigningScenario>
     <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 09-24-2021" Value="12">
       <ProductSigners>
         <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_14" />
+          <FileRuleRef RuleID="ID_ALLOW_A_15" />
+          <FileRuleRef RuleID="ID_ALLOW_A_16" />
+          <FileRuleRef RuleID="ID_ALLOW_A_17" />
           <FileRuleRef RuleID="ID_ALLOW_A_9" />
           <FileRuleRef RuleID="ID_ALLOW_A_0" />
           <FileRuleRef RuleID="ID_ALLOW_A_6" />
