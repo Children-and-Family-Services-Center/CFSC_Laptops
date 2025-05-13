@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.0.0.5</VersionEx>
+  <VersionEx>10.0.0.6</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{AEDF90A7-3607-4923-83B6-760B30071F0D}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -22,7 +22,12 @@
     </Rule>
   </Rules>
   <EKUs />
-  <FileRules />
+  <FileRules>
+    <Allow ID="ID_ALLOW_A_0" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Sha1" Hash="648A04562EBDDE41F4948BE15D3EE564258F3C45" />
+    <Allow ID="ID_ALLOW_A_1" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Sha256" Hash="7A5D0A6D46AE4B55393A08631D92EEBA7C98569F44190F3D65EDA191D877F927" />
+    <Allow ID="ID_ALLOW_A_2" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Page Sha1" Hash="7212350A2E889A4C80F1EADFDA3965E26DF119B9" />
+    <Allow ID="ID_ALLOW_A_3" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Page Sha256" Hash="21449CEB1AEB9CA3C7546E24F24B799B4C085686BA6DB19BB458AA7F63C1C74C" />
+  </FileRules>
   <Signers>
     <Signer Name="Printix - PresentationNative_cor3.dll" ID="ID_SIGNER_S_7">
       <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
@@ -84,6 +89,12 @@
           <AllowedSigner SignerId="ID_SIGNER_S_1" />
           <AllowedSigner SignerId="ID_SIGNER_S_0" />
         </AllowedSigners>
+        <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_1" />
+          <FileRuleRef RuleID="ID_ALLOW_A_2" />
+          <FileRuleRef RuleID="ID_ALLOW_A_3" />
+        </FileRulesRef>
       </ProductSigners>
     </SigningScenario>
   </SigningScenarios>
