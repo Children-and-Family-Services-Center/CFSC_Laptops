@@ -6457,7 +6457,7 @@
   <Settings>
     <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
       <Value>
-        <String>AppControlBase</String>
+        <String>AppControlBase-Audit</String>
       </Value>
     </Setting>
     <Setting Provider="PolicyInfo" Key="Information" ValueName="Id">
