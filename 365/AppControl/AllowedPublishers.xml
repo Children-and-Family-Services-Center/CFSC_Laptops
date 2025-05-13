@@ -88,7 +88,7 @@
   <Settings>
     <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
       <Value>
-        <String>My Supplemental Policy_2025-05-06</String>
+        <String>AllowedPublishers</String>
       </Value>
     </Setting>
     <Setting Provider="PolicyInfo" Key="Information" ValueName="Id">
