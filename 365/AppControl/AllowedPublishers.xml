@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
-  <VersionEx>10.0.0.6</VersionEx>
+  <VersionEx>10.0.0.7</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <PolicyID>{AEDF90A7-3607-4923-83B6-760B30071F0D}</PolicyID>
   <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
@@ -23,6 +23,10 @@
   </Rules>
   <EKUs />
   <FileRules>
+    <Allow ID="ID_ALLOW_A_4" FriendlyName="PDF-SAM - fxplugins.dll Hash Sha1" Hash="2940EE3B756930F40B983B88EEE9D8D3419162AB" />
+    <Allow ID="ID_ALLOW_A_5" FriendlyName="PDF-SAM - fxplugins.dll Hash Sha256" Hash="36213FF38850C79713E56630FAEC058AE9E5C0E5ADC9FC76603C39FD0386108F" />
+    <Allow ID="ID_ALLOW_A_6" FriendlyName="PDF-SAM - fxplugins.dll Hash Page Sha1" Hash="4D188E2366A5960E2B9C352CCBA01D8CBE8C8D16" />
+    <Allow ID="ID_ALLOW_A_7" FriendlyName="PDF-SAM - fxplugins.dll Hash Page Sha256" Hash="78B9928672FD3F900F0A6D9C412AF0F95F1C083FFFDED2C26AB375A9F48E6B2A" />
     <Allow ID="ID_ALLOW_A_0" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Sha1" Hash="648A04562EBDDE41F4948BE15D3EE564258F3C45" />
     <Allow ID="ID_ALLOW_A_1" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Sha256" Hash="7A5D0A6D46AE4B55393A08631D92EEBA7C98569F44190F3D65EDA191D877F927" />
     <Allow ID="ID_ALLOW_A_2" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Page Sha1" Hash="7212350A2E889A4C80F1EADFDA3965E26DF119B9" />
@@ -90,6 +94,10 @@
           <AllowedSigner SignerId="ID_SIGNER_S_0" />
         </AllowedSigners>
         <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_4" />
+          <FileRuleRef RuleID="ID_ALLOW_A_5" />
+          <FileRuleRef RuleID="ID_ALLOW_A_6" />
+          <FileRuleRef RuleID="ID_ALLOW_A_7" />
           <FileRuleRef RuleID="ID_ALLOW_A_0" />
           <FileRuleRef RuleID="ID_ALLOW_A_1" />
           <FileRuleRef RuleID="ID_ALLOW_A_2" />
