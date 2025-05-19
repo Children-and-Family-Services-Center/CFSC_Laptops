@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
+  <VersionEx>10.0.0.7</VersionEx>
+  <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
+  <PolicyID>{CCCA889D-ECEB-4D14-977A-51D7350B2F23}</PolicyID>
+  <BasePolicyID>{68FC5830-3BCB-4223-BD59-834775B91B76}</BasePolicyID>
+  <Rules>
+    <Rule>
+      <Option>Enabled:Unsigned System Integrity Policy</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:Inherit Default Policy</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:UMCI</Option>
+    </Rule>
+  </Rules>
+  <EKUs />
+  <FileRules>
+    <Allow ID="ID_ALLOW_A_4" FriendlyName="Allow by path: %OSDRIVE%\ControlD\*" FilePath="%OSDRIVE%\ControlD\*" />
+    <Allow ID="ID_ALLOW_A_3" FriendlyName="Allow by path: %WINDIR%\*" FilePath="%WINDIR%\*" />
+    <Allow ID="ID_ALLOW_PATH_2" FriendlyName="Allow by path: %WINDIR%\Installer\*" FilePath="%WINDIR%\Installer\*" />
+    <Allow ID="ID_ALLOW_A_1" FriendlyName="Allow by path: %OSDRIVE%\Program Files (x86)\*" FilePath="%OSDRIVE%\Program Files (x86)\*" />
+    <Allow ID="ID_ALLOW_PATH_0" FriendlyName="Allow by path: %OSDRIVE%\Program Files\*" FilePath="%OSDRIVE%\Program Files\*" />
+  </FileRules>
+  <Signers />
+  <SigningScenarios>
+    <SigningScenario ID="ID_SIGNINGSCENARIO_DRIVERS_1" FriendlyName="Auto generated policy on 09-24-2021" Value="131">
+      <ProductSigners />
+    </SigningScenario>
+    <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 09-24-2021" Value="12">
+      <ProductSigners>
+        <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_4" />
+          <FileRuleRef RuleID="ID_ALLOW_A_3" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_2" />
+          <FileRuleRef RuleID="ID_ALLOW_A_1" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0" />
+        </FileRulesRef>
+      </ProductSigners>
+    </SigningScenario>
+  </SigningScenarios>
+  <UpdatePolicySigners />
+  <CiSigners />
+  <HvciOptions>0</HvciOptions>
+  <Settings>
+    <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
+      <Value>
+        <String>AppControl_Supplemental</String>
+      </Value>
+    </Setting>
+    <Setting Provider="PolicyInfo" Key="Information" ValueName="Id">
+      <Value>
+        <String>2025-05-16</String>
+      </Value>
+    </Setting>
+  </Settings>
+</SiPolicy>
