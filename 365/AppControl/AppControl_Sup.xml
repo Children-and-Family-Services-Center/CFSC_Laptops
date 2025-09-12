@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
+  <VersionEx>10.0.0.20</VersionEx>
+  <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
+  <PolicyID>{CCCA889D-ECEB-4D14-977A-51D7350B2F23}</PolicyID>
+  <BasePolicyID>{68FC5830-3BCB-4223-BD59-834775B91B76}</BasePolicyID>
+  <Rules>
+    <Rule>
+      <Option>Enabled:Unsigned System Integrity Policy</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:Inherit Default Policy</Option>
+    </Rule>
+    <Rule>
+      <Option>Disabled:Runtime FilePath Rule Protection</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:UMCI</Option>
+    </Rule>
+  </Rules>
+  <EKUs />
+  <FileRules>
+    <Allow ID="ID_ALLOW_A_7" FriendlyName="Allow by path: *.dll" FilePath="*.dll" />
+    <Allow ID="ID_ALLOW_A_6" FriendlyName="Allow by path: %OSDRIVE%\ProgramData\superopsintegrations\chocolatey\lib\*" FilePath="%OSDRIVE%\ProgramData\superopsintegrations\chocolatey\lib\*" />
+    <Allow ID="ID_ALLOW_A_5" FriendlyName="Allow by path: %OSDRIVE%\Apps\*" FilePath="%OSDRIVE%\Apps\*" />
+    <Allow ID="ID_ALLOW_A_4" FriendlyName="Allow by path: %OSDRIVE%\ControlD\*" FilePath="%OSDRIVE%\ControlD\*" />
+    <Allow ID="ID_ALLOW_A_3" FriendlyName="Allow by path: %WINDIR%\*" FilePath="%WINDIR%\*" />
+    <Allow ID="ID_ALLOW_PATH_2" FriendlyName="Allow by path: %WINDIR%\Installer\*" FilePath="%WINDIR%\Installer\*" />
+    <Allow ID="ID_ALLOW_A_1" FriendlyName="Allow by path: %OSDRIVE%\Program Files (x86)\*" FilePath="%OSDRIVE%\Program Files (x86)\*" />
+    <Allow ID="ID_ALLOW_PATH_0" FriendlyName="Allow by path: %OSDRIVE%\Program Files\*" FilePath="%OSDRIVE%\Program Files\*" />
+  </FileRules>
+  <Signers>
+    <Signer Name="VeriSign Class 3 Code Signing 2010 CA" ID="ID_SIGNER_S_10">
+      <CertRoot Type="TBS" Value="4843A82ED3B1F2BFBEE9671960E1940C942F688D" />
+      <CertPublisher Value="Online Banking Solutions" />
+    </Signer>
+    <Signer Name="VeriSign Class 3 Code Signing 2010 CA" ID="ID_SIGNER_S_9">
+      <CertRoot Type="TBS" Value="4843A82ED3B1F2BFBEE9671960E1940C942F688D" />
+      <CertPublisher Value="Online Banking Solutions" />
+    </Signer>
+    <Signer Name="Symantec Class 3 SHA256 Code Signing CA" ID="ID_SIGNER_S_8">
+      <CertRoot Type="TBS" Value="A08E79C386083D875014C409C13D144E0A24386132980DF11FF59737C8489EB1" />
+      <CertPublisher Value="Fiserv" />
+    </Signer>
+    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_7">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Cisco Systems, Inc." />
+    </Signer>
+    <Signer Name="Microsoft Code Signing PCA 2011" ID="ID_SIGNER_S_6">
+      <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
+      <CertPublisher Value=".NET" />
+    </Signer>
+    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_5">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Intuit, Inc." />
+    </Signer>
+    <Signer Name="DigiCert SHA2 Assured ID Code Signing CA" ID="ID_SIGNER_S_4">
+      <CertRoot Type="TBS" Value="E767799478F64A34B3F53FF3BB9057FE1768F4AB178041B0DCC0FF1E210CBA65" />
+      <CertPublisher Value="Chocolatey Software, Inc." />
+    </Signer>
+    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_3">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Kofax, Inc." />
+    </Signer>
+    <Signer Name="Microsoft Code Signing PCA 2011" ID="ID_SIGNER_S_2">
+      <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
+      <CertPublisher Value="Microsoft 3rd Party Application Component" />
+    </Signer>
+    <Signer Name="Microsoft Code Signing PCA 2011" ID="ID_SIGNER_S_1">
+      <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
+      <CertPublisher Value="Microsoft Corporation" />
+    </Signer>
+    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_0">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Fiserv, Inc." />
+    </Signer>
+  </Signers>
+  <SigningScenarios>
+    <SigningScenario ID="ID_SIGNINGSCENARIO_DRIVERS_1" FriendlyName="Auto generated policy on 09-24-2021" Value="131">
+      <ProductSigners>
+        <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_10" />
+          <AllowedSigner SignerId="ID_SIGNER_S_9" />
+          <AllowedSigner SignerId="ID_SIGNER_S_8" />
+          <AllowedSigner SignerId="ID_SIGNER_S_7" />
+          <AllowedSigner SignerId="ID_SIGNER_S_6" />
+          <AllowedSigner SignerId="ID_SIGNER_S_5" />
+          <AllowedSigner SignerId="ID_SIGNER_S_4" />
+          <AllowedSigner SignerId="ID_SIGNER_S_3" />
+          <AllowedSigner SignerId="ID_SIGNER_S_2" />
+          <AllowedSigner SignerId="ID_SIGNER_S_1" />
+          <AllowedSigner SignerId="ID_SIGNER_S_0" />
+        </AllowedSigners>
+      </ProductSigners>
+    </SigningScenario>
+    <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 09-24-2021" Value="12">
+      <ProductSigners>
+        <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_10" />
+          <AllowedSigner SignerId="ID_SIGNER_S_9" />
+          <AllowedSigner SignerId="ID_SIGNER_S_8" />
+          <AllowedSigner SignerId="ID_SIGNER_S_7" />
+          <AllowedSigner SignerId="ID_SIGNER_S_6" />
+          <AllowedSigner SignerId="ID_SIGNER_S_5" />
+          <AllowedSigner SignerId="ID_SIGNER_S_4" />
+          <AllowedSigner SignerId="ID_SIGNER_S_3" />
+          <AllowedSigner SignerId="ID_SIGNER_S_2" />
+          <AllowedSigner SignerId="ID_SIGNER_S_1" />
+          <AllowedSigner SignerId="ID_SIGNER_S_0" />
+        </AllowedSigners>
+        <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_7" />
+          <FileRuleRef RuleID="ID_ALLOW_A_6" />
+          <FileRuleRef RuleID="ID_ALLOW_A_5" />
+          <FileRuleRef RuleID="ID_ALLOW_A_4" />
+          <FileRuleRef RuleID="ID_ALLOW_A_3" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_2" />
+          <FileRuleRef RuleID="ID_ALLOW_A_1" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0" />
+        </FileRulesRef>
+      </ProductSigners>
+    </SigningScenario>
+  </SigningScenarios>
+  <UpdatePolicySigners />
+  <CiSigners>
+    <CiSigner SignerId="ID_SIGNER_S_10" />
+    <CiSigner SignerId="ID_SIGNER_S_9" />
+    <CiSigner SignerId="ID_SIGNER_S_8" />
+    <CiSigner SignerId="ID_SIGNER_S_7" />
+    <CiSigner SignerId="ID_SIGNER_S_6" />
+    <CiSigner SignerId="ID_SIGNER_S_5" />
+    <CiSigner SignerId="ID_SIGNER_S_4" />
+    <CiSigner SignerId="ID_SIGNER_S_3" />
+    <CiSigner SignerId="ID_SIGNER_S_2" />
+    <CiSigner SignerId="ID_SIGNER_S_1" />
+    <CiSigner SignerId="ID_SIGNER_S_0" />
+  </CiSigners>
+  <HvciOptions>0</HvciOptions>
+  <Settings>
+    <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
+      <Value>
+        <String>AppControl_Supplemental</String>
+      </Value>
+    </Setting>
+    <Setting Provider="PolicyInfo" Key="Information" ValueName="Id">
+      <Value>
+        <String>2025-05-16</String>
+      </Value>
+    </Setting>
+  </Settings>
+</SiPolicy>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
+  <VersionEx>10.0.0.7</VersionEx>
+  <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
+  <PolicyID>{AEDF90A7-3607-4923-83B6-760B30071F0D}</PolicyID>
+  <BasePolicyID>{6F45BB71-07C3-4903-831C-F4CD1B1B9BBC}</BasePolicyID>
+  <Rules>
+    <Rule>
+      <Option>Enabled:Unsigned System Integrity Policy</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:Inherit Default Policy</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:Managed Installer</Option>
+    </Rule>
+    <Rule>
+      <Option>Disabled:Runtime FilePath Rule Protection</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:UMCI</Option>
+    </Rule>
+  </Rules>
+  <EKUs />
+  <FileRules>
+    <Allow ID="ID_ALLOW_A_4" FriendlyName="PDF-SAM - fxplugins.dll Hash Sha1" Hash="2940EE3B756930F40B983B88EEE9D8D3419162AB" />
+    <Allow ID="ID_ALLOW_A_5" FriendlyName="PDF-SAM - fxplugins.dll Hash Sha256" Hash="36213FF38850C79713E56630FAEC058AE9E5C0E5ADC9FC76603C39FD0386108F" />
+    <Allow ID="ID_ALLOW_A_6" FriendlyName="PDF-SAM - fxplugins.dll Hash Page Sha1" Hash="4D188E2366A5960E2B9C352CCBA01D8CBE8C8D16" />
+    <Allow ID="ID_ALLOW_A_7" FriendlyName="PDF-SAM - fxplugins.dll Hash Page Sha256" Hash="78B9928672FD3F900F0A6D9C412AF0F95F1C083FFFDED2C26AB375A9F48E6B2A" />
+    <Allow ID="ID_ALLOW_A_0" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Sha1" Hash="648A04562EBDDE41F4948BE15D3EE564258F3C45" />
+    <Allow ID="ID_ALLOW_A_1" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Sha256" Hash="7A5D0A6D46AE4B55393A08631D92EEBA7C98569F44190F3D65EDA191D877F927" />
+    <Allow ID="ID_ALLOW_A_2" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Page Sha1" Hash="7212350A2E889A4C80F1EADFDA3965E26DF119B9" />
+    <Allow ID="ID_ALLOW_A_3" FriendlyName="C:\Windows\System32\WebClnt.dll Hash Page Sha256" Hash="21449CEB1AEB9CA3C7546E24F24B799B4C085686BA6DB19BB458AA7F63C1C74C" />
+  </FileRules>
+  <Signers>
+    <Signer Name="Printix - PresentationNative_cor3.dll" ID="ID_SIGNER_S_7">
+      <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
+      <CertPublisher Value=".NET" />
+    </Signer>
+    <Signer Name="QBox" ID="ID_SIGNER_S_6">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="CoralTree, Inc" />
+    </Signer>
+    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_5">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Windscribe Limited" />
+    </Signer>
+    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_4">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Windscribe Limited" />
+    </Signer>
+    <Signer Name="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_S_3">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Fiserv, Inc." />
+    </Signer>
+    <Signer Name="Microsoft Outlook - Outlook.exe" ID="ID_SIGNER_S_2">
+      <CertRoot Type="TBS" Value="121AF4B922A74247EA49DF50DE37609CC1451A1FE06B2CB7E1E079B492BD8195" />
+      <CertPublisher Value="Microsoft Corporation" />
+    </Signer>
+    <Signer Name="Microsoft Outlook Teams Add-in - System.Net.Http.Formatting.dll" ID="ID_SIGNER_S_1">
+      <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
+      <CertPublisher Value="Microsoft Corporation" />
+    </Signer>
+    <Signer Name="South State Bank Treasury Navigator - mscbssb.exe" ID="ID_SIGNER_S_0">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Fiserv, Inc." />
+    </Signer>
+  </Signers>
+  <SigningScenarios>
+    <SigningScenario ID="ID_SIGNINGSCENARIO_DRIVERS_1" FriendlyName="Auto generated policy on 09-24-2021" Value="131">
+      <ProductSigners>
+        <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_7" />
+          <AllowedSigner SignerId="ID_SIGNER_S_6" />
+          <AllowedSigner SignerId="ID_SIGNER_S_5" />
+          <AllowedSigner SignerId="ID_SIGNER_S_4" />
+          <AllowedSigner SignerId="ID_SIGNER_S_3" />
+          <AllowedSigner SignerId="ID_SIGNER_S_2" />
+          <AllowedSigner SignerId="ID_SIGNER_S_1" />
+          <AllowedSigner SignerId="ID_SIGNER_S_0" />
+        </AllowedSigners>
+      </ProductSigners>
+    </SigningScenario>
+    <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 09-24-2021" Value="12">
+      <ProductSigners>
+        <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_7" />
+          <AllowedSigner SignerId="ID_SIGNER_S_6" />
+          <AllowedSigner SignerId="ID_SIGNER_S_5" />
+          <AllowedSigner SignerId="ID_SIGNER_S_4" />
+          <AllowedSigner SignerId="ID_SIGNER_S_3" />
+          <AllowedSigner SignerId="ID_SIGNER_S_2" />
+          <AllowedSigner SignerId="ID_SIGNER_S_1" />
+          <AllowedSigner SignerId="ID_SIGNER_S_0" />
+        </AllowedSigners>
+        <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_4" />
+          <FileRuleRef RuleID="ID_ALLOW_A_5" />
+          <FileRuleRef RuleID="ID_ALLOW_A_6" />
+          <FileRuleRef RuleID="ID_ALLOW_A_7" />
+          <FileRuleRef RuleID="ID_ALLOW_A_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_1" />
+          <FileRuleRef RuleID="ID_ALLOW_A_2" />
+          <FileRuleRef RuleID="ID_ALLOW_A_3" />
+        </FileRulesRef>
+      </ProductSigners>
+    </SigningScenario>
+  </SigningScenarios>
+  <UpdatePolicySigners />
+  <CiSigners>
+    <CiSigner SignerId="ID_SIGNER_S_7" />
+    <CiSigner SignerId="ID_SIGNER_S_6" />
+    <CiSigner SignerId="ID_SIGNER_S_5" />
+    <CiSigner SignerId="ID_SIGNER_S_4" />
+    <CiSigner SignerId="ID_SIGNER_S_3" />
+    <CiSigner SignerId="ID_SIGNER_S_2" />
+    <CiSigner SignerId="ID_SIGNER_S_1" />
+    <CiSigner SignerId="ID_SIGNER_S_0" />
+  </CiSigners>
+  <HvciOptions>0</HvciOptions>
+  <Settings>
+    <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
+      <Value>
+        <String>AllowedPublishers</String>
+      </Value>
+    </Setting>
+    <Setting Provider="PolicyInfo" Key="Information" ValueName="Id">
+      <Value>
+        <String>2025-05-06</String>
+      </Value>
+    </Setting>
+  </Settings>
+</SiPolicy>
