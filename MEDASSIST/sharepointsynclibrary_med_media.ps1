@@ -73,11 +73,11 @@
         [string]$tenantName = (dsregcmd.exe /status | Select-String -Pattern "TenantName").ToString().Split(":")[1].Trim()
         $params = @{
             #replace with data captured from your sharepoint site.
-            siteId    = "{40490e2f-6aeb-43e5-8b4d-b0b2fe0133a2}"
-            webId     = "{01d6bcbc-b472-49f9-a660-71d064c3d7da}"
-            listId    = "{f0e43fb7-ebf2-48d0-bae6-8d92e0740487}"
+            siteId    = "{bcf21ae3-0340-4b67-8aca-72491b925ecf}"
+            webId     = "{3403e197-4e77-4678-9064-0a2a769b9f79}"
+            listId    = "{34f762ca-f5cd-4caf-a399-925d7d1bea5b}"
             userEmail = $userUpn
-            webUrl    = "https://charlottefh.sharepoint.com/sites/Media"
+            webUrl    = "https://medassistnc.sharepoint.com/sites/Media"
             webTitle  = "Media"
             listTitle = "Documents"
         }
