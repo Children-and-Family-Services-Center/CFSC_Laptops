@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type='text/xsl' href='style.xsl'?>
+<ForensiTAzureID ObjectId="e6ca93eb-719c-44aa-ace0-07a8ef95a664" Name="CCT1974.onmicrosoft.com centerforcommunitytransitions.org cctcharlotte.org cctcharlotte.onmicrosoft.com cctcharlotte.com" DisplayName="The Center For Community Transitions, Inc.">
+    <User>
+        <UserPrincipalName>adendy@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>9293e499-c3e1-4d1d-9805-cd853f9a7ae4</ObjectId>
+        <DisplayName>Artemis Dendy</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>admin@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>7430315c-6634-4870-b16f-b3db036827a1</ObjectId>
+        <DisplayName>Admin</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>anps@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>9e1c0517-5bdd-4c5d-bc1d-2a769e20ae7e</ObjectId>
+        <DisplayName>Ascend Admin</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>BarracudaNDR@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>a9ac47fb-6a44-4512-a571-28ade342e4a2</ObjectId>
+        <DisplayName>Barracuda NDR</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>breakglass@CCT1974.onmicrosoft.com</UserPrincipalName>
+        <ObjectId>c73d1ed4-de55-4ada-bb51-69324d0c16c6</ObjectId>
+        <DisplayName>ANPS Breakglass</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>CCTConference@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>82643419-4f4d-4fb4-ab3a-bc8294c18d5e</ObjectId>
+        <DisplayName>CCT Conference</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cctscan@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>0ef6073a-7361-41e8-8f12-2f20de958f1f</ObjectId>
+        <DisplayName>CCT Scan</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>ccttest@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>905e491e-84dd-4ec3-b15e-ece7e66f6e8d</ObjectId>
+        <DisplayName>CCT Test</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cfwintern@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>daa095a0-9bef-4413-b6de-333c02eea9b1</ObjectId>
+        <DisplayName>CCT-CFW Intern</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>CFWRF@CCT1974.onmicrosoft.com</UserPrincipalName>
+        <ObjectId>3f39a031-fb45-4d1d-b3d3-835e1626d098</ObjectId>
+        <DisplayName>CFW Business Center</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>cfwvirtual@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>7a455068-fda7-4cab-b4d2-dec34dccfd98</ObjectId>
+        <DisplayName>CFW Virtual</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>chubert@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>47be26e4-c4b0-4740-96d6-901bdb054527</ObjectId>
+        <DisplayName>Carmen Hubert</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>communications@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>d0baa5a9-fb88-4808-94b1-937f64ea4076</ObjectId>
+        <DisplayName>Communications Department</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>dblue@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>a083f24f-deeb-478e-a958-bcaeaf6063fc</ObjectId>
+        <DisplayName>Dorothy Blue</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>development@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>4eb07441-d20d-4b15-a204-add256833710</ObjectId>
+        <DisplayName>Development Director</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>drose@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>95651adb-26cf-4ef5-a3d9-ef736a588f91</ObjectId>
+        <DisplayName>Deborah Rose</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>flowrance@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>43ef344f-6612-4c5b-bba6-dfb90c7cb07d</ObjectId>
+        <DisplayName>Fred Lowrance</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>gendy_ascendnps.org#EXT#@cctcharlotte.onmicrosoft.com</UserPrincipalName>
+        <ObjectId>4f5d8501-234f-4b7a-82f4-6da4ef590bb5</ObjectId>
+        <DisplayName>Greg Endy</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>iblack@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>b0d5e54f-844f-455d-9964-c9e7594208ae</ObjectId>
+        <DisplayName>Ivey Black</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>jstewart@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>035e15d9-4238-41e9-a70a-476948c44a75</ObjectId>
+        <DisplayName>Jaquesha Stewart</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kmcbryde@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>9c3d260e-1527-42f9-825e-2054c02575ad</ObjectId>
+        <DisplayName>Katrina McBryde</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>kwheeler@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>f3d51bb9-c0d6-4e39-9563-9ec49b00c000</ObjectId>
+        <DisplayName>Karen Wheeler</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lmorgan@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>c3cb9862-2aee-4026-9f3a-5ab32bf616c7</ObjectId>
+        <DisplayName>LaCresa Morgan</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>lwintern@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>f7aa0003-e574-457d-a211-b76d66ba78e7</ObjectId>
+        <DisplayName>LW Intern</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mjinks@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>1f9cf384-82ff-4cf5-8195-0e1477a3914e</ObjectId>
+        <DisplayName>Michelle Jinks</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>mmoody@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>741b516c-6d0c-495c-a877-949a8f2adc51</ObjectId>
+        <DisplayName>Michelle Moody</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>msutton@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>73f06949-211e-460b-9404-0d637d2362d0</ObjectId>
+        <DisplayName>Makayla Sutton</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>package_1dcbafc8-e19d-4fec-a4df-5597d265f82a@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>1014dd25-3241-4e29-892f-4899475403f9</ObjectId>
+        <DisplayName>package_b7b01303-b60f-45a1-a009-3a24770c1ef4</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>pyoung@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>3b01b8d6-6080-4b01-9908-3871ffa2b3dd</ObjectId>
+        <DisplayName>Phyllis Young</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>srichard@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>e7b6fc6f-f7a9-46a5-a399-32642fed0f81</ObjectId>
+        <DisplayName>Sherina Richard</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>tejohnson@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>a68916f8-2e7b-4c5c-951c-10964a63e669</ObjectId>
+        <DisplayName>Takisha Johnson</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>tfaulkner@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>ec6a0d6a-0ad8-4a11-8a29-f65a0a679be6</ObjectId>
+        <DisplayName>Toni Faulkner</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>treynoldsjohnson@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>5ffb69b2-21da-41a9-a756-860bd9583e34</ObjectId>
+        <DisplayName>Toi Reynolds-Johnson</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>volunteers@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>cab7e2c1-63f7-4da8-8e70-dd04f0f66094</ObjectId>
+        <DisplayName>Volunteers Center for Community</DisplayName>
+    </User>
+    <User>
+        <UserPrincipalName>wfptstaff@cctcharlotte.org</UserPrincipalName>
+        <ObjectId>c0ed08e4-33a4-4396-b6d8-95d0d2ff4455</ObjectId>
+        <DisplayName>WFPT Staff</DisplayName>
+    </User>
+</ForensiTAzureID>
