@@ -51,9 +51,9 @@
         }
         else {
             Write-Host "Sync completed."
-            while (!(Get-ChildItem -Path $syncPath -ErrorAction SilentlyContinue)) {
-                Start-Sleep -Seconds 2
-            }
+            # while (!(Get-ChildItem -Path $syncPath -ErrorAction SilentlyContinue)) {
+            #     Start-Sleep -Seconds 2
+            # }
             return $true
         }    
     }
